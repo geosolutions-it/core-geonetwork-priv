@@ -240,7 +240,7 @@
 	<copyright2><p>Tutti i diritti riservati.<br/> [Dichiarazione generica di copyright] </p></copyright2>
 	<country>Stato</country>
 	<create>Crea</create>
-	<createTip>Crea un nuovo metadato da questo modello</createTip>
+	<createTip>Crea un nuovo metadato da questo template</createTip>
 	<crs code="EPSG:4326">WGS 84</crs>
 	<crs code="EPSG:3786">World Equidistant Cylindrical (Sphere)</crs>
 	<cswTest>Test del profilo CSW ISO</cswTest>
@@ -409,7 +409,7 @@
 	<longitude>Longitudine (tra -180 e 180) in gradi</longitude>
 	<longMax>long (max)</longMax>
 	<longMin>long (min)</longMin>
-	<mainpageTitle>Trova mappe interattive, dati GIS, Immagini Satellitari e applicazioni relative</mainpageTitle>
+	<mainpageTitle>Geoportale - verso la condivisione dell'informazione geografica</mainpageTitle>
 	<maintenanceTab>Manutenzione</maintenanceTab>
 	<management>Gestione</management>
 	<mandatory>Obbligatorio</mandatory>
@@ -447,11 +447,11 @@
     <metadata-samples-add>Aggiungi alcuni metadati di esempio</metadata-samples-add>
     <metadata-samples-add-failed>Aggiunta di metadati di esempio fallita</metadata-samples-add-failed>
     <metadata-samples-add-success>Metadati di esempio aggiunti con successo</metadata-samples-add-success>
-	<metadata-template-order>Organizza modelli</metadata-template-order>	
-	<metadata-template-order-desc>Ordina i tuoi modelli</metadata-template-order-desc>	
-	<metadata-template-add-default>Aggiungi modello</metadata-template-add-default>	
-	<metadata-template-add-default-desc>Aggiungi i modelli di default</metadata-template-add-default-desc>	
-	<metadata-template-select>Seleziona i modelli da aggiungere</metadata-template-select>	
+	<metadata-template-order>Organizza template</metadata-template-order>	
+	<metadata-template-order-desc>Ordina i tuoi template</metadata-template-order-desc>	
+	<metadata-template-add-default>Aggiungi template</metadata-template-add-default>	
+	<metadata-template-add-default-desc>Aggiungi i template di default</metadata-template-add-default-desc>	
+	<metadata-template-select>Seleziona i template da aggiungere</metadata-template-select>	
     <metadata>Metadati</metadata>
 	<metadataAdded>Aggiunti metadati con ID:</metadataAdded>
 	<metadataDeleted>Elimina metadati con ID:</metadataDeleted>
@@ -466,7 +466,7 @@
 	<name>Nome</name>
 	<newGroup>Aggiunge un nuovo gruppo</newGroup>
 	<newCategory>Aggiunge una nuova categoria</newCategory>
-	<newMdDes>Aggiunge un nuovo metadato in GeoNetwork utilizzando un modello</newMdDes>
+	<newMdDes>Aggiunge un nuovo metadato in GeoNetwork utilizzando un template</newMdDes>
 	<newMdInsert>Nuovi metadati inseriti:</newMdInsert>
 	<newMetadata>Crea metadato</newMetadata>
 	<newOwner>Nuovo proprietario</newOwner>
@@ -481,7 +481,7 @@
 	<noOwnerRights>Privilegi/categorie bloccate: Non si hanno diritti sufficienti</noOwnerRights>
 	<northbc>Coordinata limite verso nord</northbc>
 	<noSelectedMd>Nessuna selezione, prima selezionare un metadato.</noSelectedMd>
-	<noTemplatesAvailable>Nessun modello disponibile. Importare almeno un modello.</noTemplatesAvailable>
+	<noTemplatesAvailable>Nessun template disponibile, prima importare un metadato.</noTemplatesAvailable>
 	<notfound>Non trovato</notfound>
 	<nothing>Nessuna azione in fase di import</nothing>
 	<notifications>Notifiche</notifications>
@@ -545,9 +545,9 @@
     <protocolChoice show="-" value="OGC:WCS-1.1.0-http-get-capabilities">OGC-WCS Web Coverage Service (ver 1.1.0)</protocolChoice>
     <protocolChoice show="-" value="OGC:WCTS">OGC-WCTS Web Coordinate Transformation Service</protocolChoice>
     <protocolChoice show="-" value="OGC:WFS">OGC-WFS Web Feature Service</protocolChoice>
-    <protocolChoice show="y" value="OGC:WFS-1.0.0-http-get-capabilities">OGC-WFS Web Feature Service (ver 1.0.0)</protocolChoice>
-    <protocolChoice show="-" value="OGC:WFS-G">OGC-WFS-G Gazetteer Service</protocolChoice>
-    <protocolChoice show="y" value="OGC:WMC-1.1.0-http-get-capabilities">OGC-WMC Web Map Context (ver 1.1)</protocolChoice>
+    <protocolChoice show="-" value="OGC:WFS-1.0.0-http-get-capabilities">OGC-WFS Web Feature Service (ver 1.0.0)</protocolChoice>
+    <protocolChoice show="-" value="OGC:WFS-G">OGC-WFS-G Gazzetteer Service</protocolChoice>
+    <protocolChoice show="-" value="OGC:WMC-1.1.0-http-get-capabilities">OGC-WMC Web Map Context (ver 1.1)</protocolChoice>
     <protocolChoice show="-" value="OGC:WMS">OGC-WMS Web Map Service</protocolChoice>
     <protocolChoice show="-" value="OGC:WMS-1.1.1-http-get-capabilities">OGC-WMS Capabilities service (ver 1.1.1)</protocolChoice>
     <protocolChoice show="-" value="OGC:WMS-1.3.0-http-get-capabilities">OGC-WMS Capabilities service (ver 1.3.0)</protocolChoice>
@@ -611,7 +611,7 @@
 	<rtitle>Titolo</rtitle>
 	<save>Salva</save>
 	<saveAndClose>Salva e chiudi</saveAndClose>
-	<saveAndValidate>Validazione</saveAndValidate>
+	<saveAndValidate>Controlla</saveAndValidate>
 	<savepdf>Salva il risultato della ricerca come PDF</savepdf>
 	<printSelection>Stampa come PDF</printSelection>
 	<schema>Schema</schema>
@@ -623,7 +623,7 @@
 	<searching js="true">... Ricerca in corso ...</searching>
 	<searchPage>Pagina di ricerca</searchPage>
 	<searchPageDes>Salta alla pagina di ricerca metadati</searchPageDes>
-	<searchTemplates>ricerca modello</searchTemplates>
+	<searchTemplates>ricerca template</searchTemplates>
 	<searchText>Cosa?</searchText>
 	<searchUnused>Ricerca metadato non usato o vuoto</searchUnused>
 	<searchUnusedTitle>Ricerca metadati non usati</searchUnusedTitle>
@@ -662,13 +662,13 @@
 	<state>Stato</state>
 	<styleSheet>Foglio di stile</styleSheet>
 	<submit>Invia</submit>
-	<subtemplate>Sottomodello</subtemplate>
-	<subtemplateTitle>Titolo del sottomodello</subtemplateTitle>
+	<subtemplate>Subtemplate</subtemplate>
+	<subtemplateTitle>Titolo del subtemplate</subtemplateTitle>
 	<summaryTab>Sommario</summaryTab>
 	<surName>Cognome</surName>
 	<systemConfig>Configurazione del sistema</systemConfig>
-	<systemConfigDes>Permette di modificare alcuni parametri di sistema</systemConfigDes>
-	<template>Modelli</template>
+	<systemConfigDes>Permette di modificare alcuni parametri del sistema</systemConfigDes>
+	<template>Template</template>
 	<Term>Condizioni</Term>
 	<thanks>Grazie per l'iniziativa. GeoNetwork</thanks>
 	<theme>Categoria ISO del soggetto</theme>
@@ -913,20 +913,23 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
 		<meta name="DC.coverage" content="Global"/>
 	</header_meta>
 	<mainpage1>
-		<h1>Gli obiettivi di GeoNetwork sono:</h1>
+		<!--<h1>Gli obiettivi di GeoNetwork sono:</h1>
 		<ul>
 			<li>Migliorare l'accesso e l'uso integrato di dati geografici ed informazioni</li>
 			<li>Supporto alle decisioni</li>
 			<li>Promuovere approcci interdisciplinari allo sviluppo sostenibile</li>
 			<li>Migliorare la conoscenza dei benefici dell'informazione geografica</li>
-		</ul>
+		</ul>-->
+		<p>
+		Il <b>Geoportale</b> rappresenta il punto di raccolta organizzata del patrimonio di conoscenze disponibile presso gli Enti della Pubblica Amministrazione piemontese, finalizzato alla condivisione e all’interscambio delle informazioni geografiche. 
+		</p>
 	</mainpage1>
 	<mainpage2>
 		<p>
-	        GeoNetwork opensource permette di condividere semplicemente l'informazione geografica tematica tra organizzazioni differenti. 
+		E’ stato sviluppato in linea con la Direttiva Europea <b>INSPIRE</b> ed in coerenza con le diverse iniziative e disposizioni promosse e stabilite in sede nazionale ed internazionale in materia di dati geografici informatici (DigitPA, IntesaGIS, OGC), configurandosi  anche come <b>Catalogo delle Informazioni Ambientali</b>, strumento essenziale per garantire l'informazione in materia di Ambiente, secondo quanto previsto dalla Direttiva Comunitaria 4/2003 inerente "L'accesso del pubblico all'informazione ambientale”.
 		</p>
 		<p>
-		E’ stato sviluppato in linea con la Direttiva Europea <b>INSPIRE</b> ed in coerenza con le diverse iniziative e disposizioni promosse e stabilite in sede nazionale ed internazionale in materia di dati geografici informatici (DigitPA, IntesaGIS, OGC), configurandosi  anche come <b>Catalogo delle Informazioni Ambientali</b>, strumento essenziale per garantire l'informazione in materia di Ambiente, secondo quanto previsto dalla Direttiva Comunitaria 4/2003 inerente "L'accesso del pubblico all'informazione ambientale”.
+		Consente l’accesso libero ai metadati raccolti e gestiti dagli Enti della Pubblica Amministrazione piemontese che desiderano partecipare al sistema della conoscenza geografica. Attraverso l’utilizzo di standard di interoperabilità permette infatti di ricercare tra i cataloghi metadati dei diversi Enti che possono essere navigati  fino ad arrivare alla consultazione e al download dei dati, in accordo con le politiche di diffusione  decise dai proprietari del dato.
 		</p>
 		<p>
 		Presenta diverse modalità di ricerca, tra le quali quella secondo gli <b>Annex di INSPIRE</b> e quella prettamente ambientale, basata sugli argomenti <b>Pressioni - Stato - Risposte</b>.

@@ -10,18 +10,18 @@
 
 			<!-- title -->
 			<tr>
-				<!--td>
+				<td>
 					<img src="{/root/gui/url}/images/csi/banner1.jpg" alt="CSI Piemonte logo" />
 				</td>
 				<td align="right" style="vertical-align: bottom">
 					<img src="{/root/gui/url}/images/csi/banner2.jpg" alt="Regione Piemonte logo" align="middle"/>
-				</td-->
-				<td class="banner">
-					<img src="{/root/gui/url}/images/header-left-gs.jpg" alt="World picture" align="top" />
+				</td>
+				<!--td class="banner">
+					<img src="{/root/gui/url}/images/header-left.jpg" alt="World picture" align="top" />
 				</td>
 				<td align="right" class="banner">
 					<img src="{/root/gui/url}/images/header-right.gif" alt="GeoNetwork opensource logo" align="top" />
-				</td>
+				</td-->
 			</tr>
 
 			<!-- buttons -->
@@ -183,14 +183,15 @@
 									<a class="banner" href="{/root/gui/env/shib/path}">
 										<xsl:value-of select="/root/gui/strings/shibLogin"/>
 									</a>
-									|
+<!--									|-->
 								</xsl:if>
-								<input type="submit" style="display: none;" />
+<!--								<input type="submit" style="display: none;" />
 								<xsl:value-of select="/root/gui/strings/username"/>
 								<input class="banner" type="text" id="username" name="username" size="10" onkeypress="return entSub('login')"/>
 								<xsl:value-of select="/root/gui/strings/password"/>
 								<input class="banner" type="password" id="password" name="password" size="10" onkeypress="return entSub('login')"/>
 								<button class="banner" onclick="goSubmit('login')"><xsl:value-of select="/root/gui/strings/login"/></button>
+-->
 							</form>
 						</td>
 					</xsl:otherwise>

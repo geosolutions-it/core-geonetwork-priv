@@ -332,11 +332,11 @@
 						}, 
 						
 						// South
-						/*{
+						{
 							region:'south',
 							contentEl :'footer',
 							border:false
-						}*/]});
+						}]});
 						
 						
 						mainViewport = new Ext.Viewport({
@@ -389,7 +389,7 @@
             
 			function collapseMap(pnl) {
 				Ext.getCmp('main-viewport').layout.north.getCollapsedEl().titleEl.dom.innerHTML = '<xsl:value-of select="/root/gui/strings/showMap"/>';
-			    Ext.getCmp('main-viewport').layout.north.getCollapsedEl().titleEl.dom.style.color = '#333333';
+				Ext.getCmp('main-viewport').layout.north.getCollapsedEl().titleEl.dom.style.color = '#1E800C';
 			}
 			
 			function expandMap(pnl) {

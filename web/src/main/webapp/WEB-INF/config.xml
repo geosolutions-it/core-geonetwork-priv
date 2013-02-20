@@ -689,9 +689,9 @@
 
 		<!-- page with login controls  - - - - - - - - - - - - - - - - - - -->
 
-		<!--service name="main.login">
+		<service name="main.login">
 			<output sheet="login.xsl"/>
-		</service-->
+		</service>
 
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 

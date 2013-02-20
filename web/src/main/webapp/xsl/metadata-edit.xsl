@@ -148,12 +148,11 @@
 					</td>
 				</tr>
 			</xsl:for-each>
-			<!-- footer -->
-			<!--tr>
+			<tr>
 				<td class="blue-content" colspan="3" style="vertical-align: middle;">
 					<xsl:call-template name="footer"/>
 				</td>
-			</tr-->
+			</tr>
 			
 		</table>
 	</xsl:template>

@@ -392,12 +392,10 @@
 		<allow service="user.register.submit"/>
 
         <!-- servizi custom per CSI piemonte -->
-		<!--allow service="main.login"/-->
+		<allow service="main.login"/>
         <allow service="xml.csi.comuni.get"/>
         <allow service="xml.csi.comuni.getByProv"/>
         <allow service="xml.csi.province.get"/>
-
-        <allow service="rndt.xml"/>
 
 	</profile>
 
