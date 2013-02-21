@@ -1627,10 +1627,10 @@ function setInputCRSel(s){
 	var input = document.getElementById(i.id);
 	var v = input.value;	
    
-    if(s.value == -1)
-		input.value = "";
+    if(s.value == 999)
+		input.value = "http://www.rndt.gov.it/ReferenceSystemCode#" + s.value;
 	else{
-		if(input.value == "")
+		if(input.value.indexOf("999") != -1)
 			input.value = "http://www.epsg-registry.org/export.htm?gml=urn:ogc:def:crs:" + s.value;
 		else
 			input.value = v.substring(0, v.indexOf('EPSG')) + s.value;

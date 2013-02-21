@@ -1023,6 +1023,9 @@
 		<xsl:if test="not(contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS|'))
 				and
 				not(contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem|'))">
+			
+			<!-- Code block to hide undesired component -->
+			
 			<tr id="{$id}" type="metadata">
 					<xsl:if test="not($visible) 
 						or
@@ -1036,7 +1039,9 @@
 						or
 						contains($helpLink, '|gml:BaseUnit|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier|')
 						or
-						contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href|')">
+						contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href|')
+						or
+						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')">
 					
 					<xsl:attribute name="style">
 						display:none;
@@ -1146,9 +1151,9 @@
 						<br/>
 						<br/>
 						<span>(Suggerimenti: 
-							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);">	
-								<option value="-1"></option>
-								<option value="EPSG::4979" selected="selected">EPSG:4979</option>
+							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);" oncontextmenu="setInputCRSel(this);">	
+								<option value="999" selected="selected">999</option>
+								<option value="EPSG::4979" >EPSG:4979</option>
 								<option value="EPSG::4326">EPSG:4326</option>
 								<option value="EPSG::3003">EPSG:3003</option>
 							</select>

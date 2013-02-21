@@ -496,7 +496,7 @@
 	<outputType id="text">Solo testo</outputType>
 	<overwrite>Sovrascrivi i metadati con lo stesso UUID</overwrite>
 	<overwriteFile>Sovrascrivi?</overwriteFile>
-	<owner>Proprietario</owner>
+	<owner>Autore</owner>
 	<ownerRights>Elimina/Privilegi/Categorie sbloccati: si possiedono i diritti di proprietario</ownerRights>
 	<page>Pagina </page>
 	<paper>Cartaceo</paper>
