@@ -3467,8 +3467,14 @@
                     <xsl:variable name="text">
                         <xsl:variable name="ref"
                             select="gco:CharacterString/geonet:element/@ref" />
-                            <input onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
-                                class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" />
+                        
+                            <!-- Input element introduced for CSI -->
+                        
+                            <!--input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                                class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" /-->
+                            <input alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                                   class="md" type="text" name="_{$ref}" id="_{$ref}" size="20" />
+                        
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"
                                 onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"/>
                     </xsl:variable>

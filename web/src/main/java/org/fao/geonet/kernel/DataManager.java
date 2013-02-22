@@ -1081,7 +1081,7 @@ public class DataManager
 
 	public String createMetadata(Dbms dbms, String templateId, String groupOwner,
 										  SerialFactory sf, String source, int owner,
-										  String parentUuid) throws Exception
+										  String parentUuid, String uuidPrefix) throws Exception
 	{
 		String query = "SELECT schemaId, data FROM Metadata WHERE id="+ templateId;
 
@@ -1094,8 +1094,16 @@ public class DataManager
 
 		String schema = el.getChildText("schemaid");
 		String data   = el.getChildText("data");
+		
 		String uuid   = UUID.randomUUID().toString();
 
+		//
+		// CSI: customization to add a preconfigured perfix for the metadata UUID (see config-metadata.xml)
+		// 
+		if(uuidPrefix != null && !uuidPrefix.equals("")){
+			uuid = uuidPrefix + ":" + uuid;
+		}
+		
 		//--- generate a new metadata id
 		int serial = sf.getSerial(dbms, "Metadata");
 

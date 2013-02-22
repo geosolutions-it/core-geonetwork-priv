@@ -1024,7 +1024,7 @@
 				and
 				not(contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem|'))">
 			
-			<!-- Code block to hide undesired component -->
+			<!-- Code block to hide undesired components -->
 			
 			<tr id="{$id}" type="metadata">
 					<xsl:if test="not($visible) 
@@ -1146,14 +1146,14 @@
 						</xsl:otherwise>
 					</xsl:choose>			
 				
-				    <!-- adding custom SRS selection to the verticalCSR element (CSI) -->
+				    <!-- Adding custom SRS selection to the verticalCSR element (CSI) -->
 					<xsl:if test="$edit=true() and contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS/@xlink:href|')">
 						<br/>
 						<br/>
 						<span>(Suggerimenti: 
 							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);" oncontextmenu="setInputCRSel(this);">	
 								<option value="999" selected="selected">999</option>
-								<option value="EPSG::4979" >EPSG:4979</option>
+								<option value="EPSG::4979">EPSG:4979</option>
 								<option value="EPSG::4326">EPSG:4326</option>
 								<option value="EPSG::3003">EPSG:3003</option>
 							</select>
@@ -1678,8 +1678,24 @@
 						</xsl:choose>
 					</xsl:when>
 
-					<xsl:otherwise>
-						<input class="md" type="{$input_type}" value="{text()}">
+					<xsl:otherwise>						
+						<input class="md" type="{$input_type}">
+							
+							<!-- Choose element introduced for CSI -->
+							<!-- to manage the automatic UUID setting -->
+							<xsl:choose>
+								<xsl:when test="contains($path, 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')
+												or 
+												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')
+												or 
+												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')">
+									<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
+								</xsl:otherwise>
+							</xsl:choose>
+							
 							<xsl:if test="name(.) = 'gco:CharacterString'">
 								<xsl:attribute name="size">43</xsl:attribute>
 							</xsl:if>
@@ -1763,7 +1779,7 @@
 						(name(.)='gmd:LocalisedCharacterString' and ../../geonet:element/@min='1')
 						or ../geonet:element/@min='1'
 						) and $edit">
-						<xsl:attribute name="onkeyup">validateNonEmpty(this);</xsl:attribute>
+<!--						<xsl:attribute name="onkeyup">validateNonEmpty(this);</xsl:attribute>-->
 					</xsl:if>
 					<xsl:value-of select="text()"/>
 				</textarea>

@@ -497,7 +497,7 @@ public class EditLib
 		//--- add mandatory children
 
 		//
-		// WARKAROUND -> Code modified for CSI in order to manage duplication for the OR types: gmd:resolutions, gml:PointTypeCHOICE_ELEMENT1 and gmd:date.
+		// WORKAROUND -> Code modified for CSI in order to manage duplication for the OR types: gmd:resolutions, gml:PointTypeCHOICE_ELEMENT1 and gmd:date.
 		//
 		boolean typeIsOrType = type.isOrType();		
 		boolean element = elemName.equals("gmd:MD_Dimension") || elemName.equals("gmd:resolution") ||
