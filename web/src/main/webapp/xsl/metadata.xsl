@@ -1024,7 +1024,7 @@
 				and
 				not(contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem|'))">
 			
-			<!-- Code block to hide undesired components -->
+			<!-- for CSI: Code block to hide undesired components -->
 			
 			<tr id="{$id}" type="metadata">
 					<xsl:if test="not($visible) 
@@ -1061,6 +1061,7 @@
 						<xsl:when test="$helpLink!=''">
 							<span id="stip.{$helpLink}|{$id}" onclick="toolTip(this.id);" class="content" style="cursor:help;">
 								<xsl:choose>
+									<!-- for CSI: labels modifications due to is not possible to modify this on labels.xml file -->
 									<xsl:when test="$title='xlink:href'
 										and contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS/@xlink:href|')">
 										CRS Verticale
@@ -1083,10 +1084,14 @@
 									</xsl:otherwise>
 								</xsl:choose>
 							</span>
-							<xsl:call-template name="asterisk">
+							
+							<!-- for CSI: removig asterisx -->
+							
+							<!--xsl:call-template name="asterisk">
 								<xsl:with-param name="link" select="$removeLink"/>
 								<xsl:with-param name="edit" select="$edit"/>
-							</xsl:call-template>
+							</xsl:call-template-->
+							
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:call-template name="showTitleWithTag">

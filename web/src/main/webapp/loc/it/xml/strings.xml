@@ -110,6 +110,7 @@
 	<linkedDatasetMetadata>Dati collegati:</linkedDatasetMetadata>
 	<serviceCreate>Crea un nuovo metadato di un servizio</serviceCreate>
 	<parentSearch js="true">Ricerca un record di metadati da assegnare come genitore del record corrente.</parentSearch>
+	<parentReset js="true">Ripulisce il campo relativo al record di metadati da assegnare come genitore del record corrente.</parentReset>
 	<linkedMetadataSelectionWindowTitle js="true">Selezione dei metadati collegati</linkedMetadataSelectionWindowTitle>
 	<searchText js="true">Ricerca testuale</searchText>
 	<mdTitle js="true">Titolo dei Metadati</mdTitle>

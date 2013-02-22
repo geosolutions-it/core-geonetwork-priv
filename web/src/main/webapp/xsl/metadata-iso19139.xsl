@@ -3477,6 +3477,9 @@
                         
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"
                                 onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"/>
+                        
+                            <img src="../../images/cancel.png" alt="{/root/gui/strings/parentReset}" title="{/root/gui/strings/parentReset}"
+                                onclick="javascript:resetInputField('_{$ref}');"/>
                     </xsl:variable>
 
                     <xsl:apply-templates mode="simpleElement"
