@@ -1280,7 +1280,14 @@ function addSelectedWMSLayers(metadataIdForm) {
  */
 function gn_showInterList(id) 
 {
-    var pars = 'id=' + id + "&currTab=distribution";
+    //var pars = 'id=' + id + "&currTab=distribution";
+	
+	// ////////////////////////////////////////////////////////////////////
+	// CSI: Modification to show only the Digital Transfer 
+	//      Options element, use 'distribution2' currTab (see the 
+	//      'embedded distribution tab' setting sat metadata-iso19139.xsl)
+	// ////////////////////////////////////////////////////////////////////
+	var pars = 'id=' + id + "&currTab=distribution2";
     
     // Change button appearance
     $('gn_showinterlist_' + id) .hide();
