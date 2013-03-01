@@ -2406,7 +2406,7 @@
                                 </xsl:choose>
                             </a>-->
                             
-                            <!-- This modification has been introduced to manage External (public and hidden) link service in the OnlineResource field -->
+                            <!-- CSI: This modification has been introduced to manage External (public and hidden) link service in the OnlineResource field -->
                             <xsl:choose>
                                 <xsl:when test="starts-with(gmd:protocol/gco:CharacterString,'External:Link-Hidden')">
                                     <xsl:if test="string(/root/gui/session/profile)='Administrator' 

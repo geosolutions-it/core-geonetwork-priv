@@ -49,6 +49,77 @@
         </xsl:choose>		
 	</xsl:template>
 	
+	<!-- CSI: New Template added for CSI in order to manage 'dopwnlaod button' and 'interactive map button' on the metedata.show section -->
+	<xsl:template name="urlsButtonTemplate">
+		<xsl:param name="metadata"/>
+		<xsl:variable name="remote" select="/root/response/summary/@type='remote'"/>
+		
+		<div class="buttonsleft">			
+			<!-- download data button -->
+			<xsl:if test="$metadata/geonet:info/download='true'">
+				&#160;
+				<xsl:choose>
+					<xsl:when test="count($metadata/link[@type='download'])>1">
+						<xsl:choose>
+							<xsl:when test="$remote=true()">
+								<button class="content" onclick="window.open('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
+									<xsl:value-of select="/root/gui/strings/download"/>
+								</button>
+							</xsl:when>
+							<xsl:otherwise>
+								<button class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
+									<xsl:value-of select="/root/gui/strings/download"/>
+								</button>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:when>
+					<xsl:when test="count($metadata/link[@type='download'])=1 and $metadata/link[@type='download'] != ''">
+						<button class="content" onclick="window.open('{$metadata/link[@type='download']}')" title="{/root/gui/strings/download}">
+							<xsl:value-of select="/root/gui/strings/download"/>
+						</button>
+					</xsl:when>
+				</xsl:choose>
+			</xsl:if>
+			
+			<!-- dynamic map button -->
+			<xsl:if test="$metadata/geonet:info/dynamic='true'">
+				&#160;
+				<xsl:variable name="count" select="count($metadata/link[@type='arcims']) + count($metadata/link[@type='wms'])"/>
+				<xsl:choose>
+					<xsl:when test="$count>1">
+						<xsl:choose>
+							<xsl:when test="$remote=true()">
+								<button class="content" onclick="load('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution2')" title="{/root/gui/strings/interactiveMap}"><xsl:value-of select="/root/gui/strings/interactiveMap"/></button>
+							</xsl:when>
+							<xsl:otherwise>
+								<button id="gn_showinterlist_{$metadata/geonet:info/id}"  class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution2')" title="{/root/gui/strings/interactiveMap}">
+									<xsl:value-of select="/root/gui/strings/interactiveMap"/>
+								</button>
+								<button id="gn_loadinterlist_{$metadata/geonet:info/id}"  class="content" style="display:none;" title="{/root/gui/strings/interactiveMap}">
+									<xsl:value-of select="/root/gui/strings/loading"/>
+								</button>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:when>
+					<xsl:when test="$count=1">
+						<button class="content" onclick="{$metadata/link[@type='arcims' or @type='wms']}" title="{/root/gui/strings/interactiveMap}">
+							<xsl:value-of select="/root/gui/strings/interactiveMap"/>
+						</button>
+						
+						<!-- View WMS in Google Earth map button -->
+						<xsl:if test="$metadata/link[@type='googleearth']">
+							&#160;
+							<a onclick="load('{$metadata/link[@type='googleearth']}')" style="vertical-align: middle;cursor: pointer;">
+								<img src="{/root/gui/url}/images/google_earth_link.gif" height="20px" width="20px" style="padding-left:3px;" alt="{/root/gui/strings/viewInGE}" title="{/root/gui/strings/viewInGE}"/>
+							</a>
+						</xsl:if>
+					</xsl:when>
+				</xsl:choose>
+			</xsl:if>
+			
+		</div>
+	</xsl:template>	
+	
 	<!--
 	page content
 	-->
@@ -84,6 +155,9 @@
 						
 							<xsl:variable name="buttons">
 								<tr><td class="padded-content" height="100%" align="center" valign="top">
+									<xsl:call-template name="urlsButtonTemplate">
+										<xsl:with-param name="metadata" select="$metadata"/>
+									</xsl:call-template>
 									<xsl:call-template name="buttons">
 										<xsl:with-param name="metadata" select="$metadata"/>
 									</xsl:call-template>

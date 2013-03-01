@@ -1897,6 +1897,10 @@
 					<xsl:when test="$name = 'xlink:href' and $parent = 'gmd:verticalCRS'">
 						<input class="md" readonly="readonly" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:when>
+					<!-- CSI: Customizzation in order to allow the UUID setting for the gmd:cornerPoints/gml:Point/gml:id for georectified metadata-->
+					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">
+						<input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+					</xsl:when>
 					<xsl:otherwise>
 						<input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:otherwise>

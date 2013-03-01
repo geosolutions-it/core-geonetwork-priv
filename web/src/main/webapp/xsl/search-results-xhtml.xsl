@@ -467,12 +467,12 @@
 							<xsl:when test="count($metadata/link[@type='download'])>1">
 								<xsl:choose>
 									<xsl:when test="$remote=true()">
-										<button class="content" onclick="window.open('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution')" title="{/root/gui/strings/download}">
+										<button class="content" onclick="window.open('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
 											<xsl:value-of select="/root/gui/strings/download"/>
 										</button>
 									</xsl:when>
 									<xsl:otherwise>
-										<button class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution')" title="{/root/gui/strings/download}">
+										<button class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
 											<xsl:value-of select="/root/gui/strings/download"/>
 										</button>
 									</xsl:otherwise>
