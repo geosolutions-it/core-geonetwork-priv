@@ -49,7 +49,7 @@
         </xsl:choose>		
 	</xsl:template>
 	
-	<!-- CSI: New Template added for CSI in order to manage 'dopwnlaod button' and 'interactive map button' on the metedata.show section -->
+	<!-- CSI: New Template added for CSI in order to manage 'downlaod button' and 'interactive map button' on the metedata.show section -->
 	<xsl:template name="urlsButtonTemplate">
 		<xsl:param name="metadata"/>
 		<xsl:variable name="remote" select="/root/response/summary/@type='remote'"/>

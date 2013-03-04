@@ -752,6 +752,7 @@
 				</ul>
 				</div>
 			</help>
+			<SRVRSIdentifierCode>Identificativo risorsa</SRVRSIdentifierCode>
 		</identification>
 		<classification>
 			<!--title>Classificazione di dati geografici e servizi</title-->
@@ -790,6 +791,22 @@
 					Questa è l'estensione geografica della risorsa nello spazio, espressa come area che la contiene. L'area dovrebbe essere espressa con le longitudini limite est ed ovest, con le latitudini limite nord e sud, con una precisione di almeno 2 decimali. 
 				</div>
 			</help>
+			<verticalCRS>CRS Verticale</verticalCRS>
+			<verticalCRSValues>
+				<default>999</default>
+				<wgs84>
+					<label>EPSG:4979</label>
+					<value>EPSG::4979</value>
+				</wgs84>
+				<wgs84h>
+					<label>EPSG:4326</label>
+					<value>EPSG::4326</value>
+				</wgs84h>
+				<mmario>
+					<label>EPSG:3003</label>
+					<value>EPSG::3003</value>
+				</mmario>
+			</verticalCRSValues>
 		</geoloc>
 		<temporal>
 			<title>Riferimento temporale</title>

@@ -1064,12 +1064,14 @@
 									<!-- for CSI: labels modifications due to is not possible to modify this on labels.xml file -->
 									<xsl:when test="$title='xlink:href'
 										and contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS/@xlink:href|')">
-										CRS Verticale
+										
+										<xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRS"/>
 									</xsl:when>
 									<xsl:when test="contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code|')
 										or
 										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code|')">
-										Identificativo risorsa
+										
+										<xsl:value-of select="/root/gui/strings/inspireSection/identification/SRVRSIdentifierCode"/>
 									</xsl:when>
 									<xsl:otherwise>
 										<xsl:choose>
@@ -1085,7 +1087,7 @@
 								</xsl:choose>
 							</span>
 							
-							<!-- for CSI: removig asterisx -->
+							<!-- for CSI: commented to remove red asterisx -->
 							
 							<!--xsl:call-template name="asterisk">
 								<xsl:with-param name="link" select="$removeLink"/>
@@ -1157,10 +1159,10 @@
 						<br/>
 						<span>(Suggerimenti: 
 							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);" oncontextmenu="setInputCRSel(this);">	
-								<option value="999" selected="selected">999</option>
-								<option value="EPSG::4979">EPSG:4979</option>
-								<option value="EPSG::4326">EPSG:4326</option>
-								<option value="EPSG::3003">EPSG:3003</option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/default}" selected="selected"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/default"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84/label"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84h/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84h/label"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/mmario/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/mmario/label"/></option>
 							</select>
 					    )</span>
 					</xsl:if>
