@@ -2839,6 +2839,22 @@ public class DataManager
 			String ownerName = record.getChildText("username");
 			addElement(info, Edit.Info.Elem.OWNERNAME, ownerName);
 		}
+		
+		// add name
+		query = "SELECT name FROM Users WHERE id = " + owner;
+		record = dbms.select(query).getChild("record");
+		if (record != null) {
+			String name = record.getChildText("name");
+			addElement(info, Edit.Info.Elem.NAME, name);
+		}
+		
+		// add surname
+		query = "SELECT surname FROM Users WHERE id = " + owner;
+		record = dbms.select(query).getChild("record");
+		if (record != null) {
+			String surname = record.getChildText("surname");
+			addElement(info, Edit.Info.Elem.SURNAME, surname);
+		}
 
 		// add categories
 		List categories = dbms.select("SELECT id, name FROM MetadataCateg, Categories "+
