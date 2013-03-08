@@ -1041,7 +1041,9 @@
 						or
 						contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href|')
 						or
-						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')">
+						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')
+						or
+						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')">
 					
 					<xsl:attribute name="style">
 						display:none;
@@ -1697,6 +1699,7 @@
 												or 
 												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')">
 									<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
+									<xsl:attribute name="readonly">readonly</xsl:attribute>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
@@ -1899,10 +1902,23 @@
 					<xsl:when test="$name = 'xlink:href' and $parent = 'gmd:verticalCRS'">
 						<input class="md" readonly="readonly" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:when>
+					
 					<!-- CSI: Customizzation in order to allow the UUID setting for the gmd:cornerPoints/gml:Point/gml:id for georectified metadata-->
+					
 					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">
-						<input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+						<!--input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" /-->
+						
+						<xsl:choose>
+							<xsl:when test="$value != ''">
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$value}" size="{$cols}" />
+							</xsl:when>
+							<xsl:otherwise>
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+							</xsl:otherwise>
+						</xsl:choose>
+						
 					</xsl:when>
+					
 					<xsl:otherwise>
 						<input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:otherwise>

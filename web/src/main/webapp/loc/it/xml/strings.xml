@@ -793,7 +793,7 @@
 			</help>
 			<verticalCRS>CRS Verticale</verticalCRS>
 			<verticalCRSValues>
-				<default>999</default>
+				<default></default>
 				<wgs84>
 					<label>EPSG:4979</label>
 					<value>EPSG::4979</value>

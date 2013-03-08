@@ -187,14 +187,14 @@ public class EditLib
 	  * should be empty.
 	  */
 
-	public void fillElement(String schema, Element parent, Element md) throws Exception
+	public void fillElement(String schema, Element parent, Element md, String uuidPrefix) throws Exception
 	{
-		fillElement(getSchema(schema), getSchemaSuggestions(schema), parent, md);
+		fillElement(getSchema(schema), getSchemaSuggestions(schema), parent, md, uuidPrefix);
 	}
 
-	public void fillElement(String schema, String parentName, Element md) throws Exception
+	public void fillElement(String schema, String parentName, Element md, String uuidPrefix) throws Exception
 	{
-		fillElement(getSchema(schema), getSchemaSuggestions(schema), parentName, md);
+		fillElement(getSchema(schema), getSchemaSuggestions(schema), parentName, md, uuidPrefix);
 	}
 
 	//--------------------------------------------------------------------------
@@ -263,7 +263,7 @@ public class EditLib
 
 	//--------------------------------------------------------------------------
 
-	public Element addElement(String schema, Element el, String qname) throws Exception
+	public Element addElement(String schema, Element el, String qname, String uuidPrefix) throws Exception
 	{
 		Log.debug(Geonet.EDITORADDELEMENT,"#### in addElement()"); 
 
@@ -326,7 +326,7 @@ public class EditLib
         }
 
 		//--- add mandatory sub-tags
-		fillElement(mdSchema, mdSugg, el, child);
+		fillElement(mdSchema, mdSugg, el, child, uuidPrefix);
 
 		return child;
 	}
@@ -435,14 +435,14 @@ public class EditLib
 
 	//--------------------------------------------------------------------------
 
-	private void fillElement(MetadataSchema schema, SchemaSuggestions sugg, Element parent, Element md) throws Exception
+	private void fillElement(MetadataSchema schema, SchemaSuggestions sugg, Element parent, Element md, String uuidPrefix) throws Exception
 	{
 		Log.debug(Geonet.EDITOR,"#### entering fillElement()"); 
 		String parentName = parent.getQualifiedName();
-		fillElement(schema,sugg,parentName,md);
+		fillElement(schema,sugg,parentName,md,uuidPrefix);
 	}
 
-	private void fillElement(MetadataSchema schema, SchemaSuggestions sugg, String parentName, Element md) throws Exception
+	private void fillElement(MetadataSchema schema, SchemaSuggestions sugg, String parentName, Element md, String uuidPrefix) throws Exception
 	{
 		Log.debug(Geonet.EDITOR,"#### entering fillElement()"); 
 		String elemName = md.getQualifiedName();
@@ -477,7 +477,7 @@ public class EditLib
 			if (attr.required || sugg.isSuggested(elemName, attr.name))
 			{
 				String value = "";
-
+				
 				if (attr.defValue != null) {
 					value = attr.defValue;
 					Log.debug(Geonet.EDITOR,"####     - value = " + attr.defValue); 
@@ -486,6 +486,20 @@ public class EditLib
 				String uname = getUnqualifiedName(attr.name);
 				String ns     = getNamespace(attr.name, md, schema);
 				String prefix = getPrefix(attr.name);
+				
+				if(parentName.equals("gmd:cornerPoints") && elemName.equals("gml:Point") && prefix.equals("gml") && uname.equals("id")){
+					String uuid   = UUID.randomUUID().toString();
+					
+					//
+					// CSI: customization to add a preconfigured perfix for the metadata UUID for the gml:Point (see config.xml)
+					// 
+					if(uuidPrefix != null && !uuidPrefix.equals("")){
+						uuid = uuidPrefix + ":" + uuid;
+					}
+					
+					value = uuid;
+				}
+				
 				if (!prefix.equals(""))
 					md.setAttribute(new Attribute(uname, value, Namespace.getNamespace(prefix,ns)));
 				else
@@ -559,7 +573,7 @@ public class EditLib
 							Element child = new Element(name, prefix, ns);
 
 							md.addContent(child);
-							fillElement(schema, sugg, md, child);								
+							fillElement(schema, sugg, md, child, uuidPrefix);								
 						}
 					}
 				}
@@ -602,7 +616,7 @@ public class EditLib
 						Element child = new Element(name, prefix, ns);
 
 						md.addContent(child);
-						fillElement(schema, sugg, md, child);
+						fillElement(schema, sugg, md, child, uuidPrefix);
 					} else {
 						if (elemType.isOrType()) {
 							if (elemType.getElementList().contains("gco:CharacterString") && !hasSuggestion) {
@@ -669,7 +683,7 @@ public class EditLib
 			holder.add(container);
 		} else {
 			if (!chName.contains(Edit.RootChild.CHOICE)) {
-				fillElement(schema,md,container);
+				fillElement(schema,md,container, null);
 				holder.add(container);
 			}
 		}

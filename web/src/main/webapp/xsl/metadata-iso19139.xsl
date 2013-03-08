@@ -3468,11 +3468,11 @@
                         <xsl:variable name="ref"
                             select="gco:CharacterString/geonet:element/@ref" />
                         
-                            <!-- Input element introduced for CSI -->
+                            <!-- Input element introduced for CSI  to manage automatic UUID setting-->
                         
                             <!--input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
                                 class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" /-->
-                            <input alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                            <input readonly="readonly" alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
                                    class="md" type="text" name="_{$ref}" id="_{$ref}" size="20" />
                         
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"

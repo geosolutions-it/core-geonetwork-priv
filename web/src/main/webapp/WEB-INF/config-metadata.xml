@@ -401,9 +401,7 @@
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 		<service name="metadata.create">
-			<class name=".services.metadata.Create">
-				<param name="uuidprefix" value="" />
-			</class>
+			<class name=".services.metadata.Create"/>
 
 			<output forward="metadata.edit" />
 		</service>
