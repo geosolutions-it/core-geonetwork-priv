@@ -843,7 +843,44 @@ function gn_showSingleMetadataUUID(uuid)
 {
    //var pars = 'uuid=' + uuid + '&control&currTab=simple';
    var pars = 'uuid=' + uuid + '&control&currTab=inspire';
-   gn_showSingleMet(pars);
+   gn_showSingleMetUUID(pars);
+}
+
+/**
+* CSI: added in order to add the download and interactive buttons in metadata show embedded
+*/
+function gn_showSingleMetUUID(pars)
+{
+   if ($("loadingMD")) $("loadingMD").show();
+   var myAjax = new Ajax.Request(
+        getGNServiceURL('metadata.show.embedded.buttons'),
+        {
+            method: 'get',
+            parameters: pars,
+            onSuccess: function (req) {
+                if ($("loadingMD")) $("loadingMD").hide();
+
+                var parent = $('resultList');
+                clearNode(parent);
+                // create new element
+                var div = document.createElement('div');
+                div.className = 'metadata_current';
+                div.style.display = 'none';
+                div.style.width = '100%';
+                parent.appendChild(div);
+
+                div.innerHTML = req.responseText;
+
+                Effect.BlindDown(div);
+
+                var tipman = new TooltipManager();
+                ker.loadMan.wait(tipman);
+
+                // Init maps contained in search results
+                extentMap.initMapDiv();
+            },
+            onFailure: gn_search_error// FIXME
+        });
 }
 
 function gn_showSingleMetadata(id)
