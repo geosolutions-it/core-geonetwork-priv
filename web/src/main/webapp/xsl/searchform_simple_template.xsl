@@ -91,20 +91,21 @@
 			<!-- Search button -->
 			<div>
 				<table class="advsearchfields" width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td style="background: url({/root/gui/url}/images/arrow-bg.gif) repeat-x;" height="29px" width="50%">
+					<tr style="vertical-align: middle;">
+						<td style="background: url({/root/gui/url}/images/arrow-bg.png) repeat-x;" height="20px" width="50%">
 						</td>
 						<td style="padding:0px; margin:0px;" width="36px">
-							<img width="36px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/arrow-right.gif" alt=""/>
+							<img width="36px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/arrow-right.png" alt=""/>
 						</td>
-						<td style="padding:0px; margin:0px;" width="13px">
-							<img width="13px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-left.gif" alt=""/>
+						<td style="padding:0px; margin:0px; text-align:right;" width="13px">
+							<!--img width="5px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-left.png" alt=""/-->
 						</td>
-						<td align="center" style="background: url({/root/gui/url}/images/search-bg.gif) repeat-x; width: auto; white-space: nowrap; padding-bottom: 8px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" >
-							<font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
+						<!--td align="center" style="background: url({/root/gui/url}/images/search.png) repeat-x; width: auto; white-space: nowrap; padding-bottom: 0px; vertical-align: middle; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" >
+							<font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font-->
+						<td align="center"><button class="banner" style="width: auto; white-space: nowrap; padding-bottom: 0px; vertical-align: middle; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" ><xsl:value-of select="/root/gui/strings/search"/></button>
 						</td>
-						<td style="padding:0px; margin:0px;" width="12px">
-							<img width="12px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-right.gif" alt=""/>
+						<td style="padding:0px; margin:0px; text-align:left;" width="12px">
+							<!--img width="5px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-right.png" alt=""/-->
 						</td>
 					</tr>
 				</table>		
@@ -165,7 +166,7 @@
 				</div>
 				
 				<!-- output - - - - - - - - - - - - - - - - - - - - - - -->
-				 <!--<div class="row">  div row
+				<div class="row">  <!-- div row-->
 					<span class="labelField"><xsl:value-of select="/root/gui/strings/output"/></span>
 					<select id="output_simple" size="1" class="content" onchange="$('output').value = this.options[this.selectedIndex].value">
 						<xsl:for-each select="/root/gui/strings/outputType">
@@ -177,7 +178,7 @@
 							</option>
 						</xsl:for-each>
 					</select>
-				</div>		-->	
+				</div>			
 			</div>
 		
 		</div>

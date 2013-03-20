@@ -37,20 +37,20 @@
 			<!-- Search button -->
 			<div>		
 				<table class="advsearchfields" width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td style="background: url({/root/gui/url}/images/arrow-bg.gif) repeat-x;" height="29px" width="50%">
+					<tr style="vertical-align: middle;">
+						<td style="background: url({/root/gui/url}/images/arrow-bg.png) repeat-x;" height="20px" width="50%">
 						</td>
 						<td style="padding:0px; margin:0px;" width="36px">
-							<img width="36px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/arrow-right.gif" alt="" />
+							<img width="36px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/arrow-right.png" alt="" />
 						</td>
 						<td style="padding:0px; margin:0px;" width="13px">
-							<img width="13px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-left.gif" alt="" />
+							<!--img width="13px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-left.gif" alt="" /-->
 						</td>
-						<td align="center" style="background: url({/root/gui/url}/images/search-bg.gif) repeat-x; width: auto; white-space: nowrap; padding-bottom: 8px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runAdvancedSearch();" >
+						<td align="center" style="background: url({/root/gui/url}/images/search.png) repeat-x; width: auto; white-space: nowrap; padding-bottom: 0px; vertical-align: middle; cursor:hand;  cursor:pointer;" onclick="runAdvancedSearch();" >
 							<font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
 						</td>
 						<td style="padding:0px; margin:0px;" width="12px">
-							<img width="12px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-right.gif" alt="" />
+							<!--img width="12px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-right.gif" alt="" /-->
 						</td>
 					</tr>
 				</table>		
@@ -117,7 +117,7 @@
 					</select>
 				</div>
 				
-				<!-- output - - - - - - - - - - - - - - - - - - - - - - 
+				<!-- output - - - - - - - - - - - - - - - - - - - - - - -->
 				<div class="row">
 					<span class="labelField"><xsl:value-of select="/root/gui/strings/output"/></span>
 
@@ -131,7 +131,7 @@
 							</option>
 						</xsl:for-each>
 					</select>
-				</div> -->
+				</div> 
 			</div>
 			
 			<!-- Restrictions -->

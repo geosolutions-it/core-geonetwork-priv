@@ -116,7 +116,7 @@
 												</h1>
 											</td>
 											
-											<xsl:choose>
+											<!--xsl:choose>
 												<xsl:when test="contains(geonet:info/schema,'dublin-core')">
 													<td align="right" class="padded-content" height="16" nowrap="nowrap">
 														<a href="{/root/gui/locService}/dc.xml?id={geonet:info/id}" target="_blank" title="Download Dublin Core metadata in XML">
@@ -148,7 +148,7 @@
 														</a>
 													</td>
 												</xsl:when>
-											</xsl:choose>
+											</xsl:choose-->
 										</tr>
 									</table>
 								</td>

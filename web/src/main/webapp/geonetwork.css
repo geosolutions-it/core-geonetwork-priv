@@ -9,10 +9,12 @@ general
 }
 
 body {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+/*	font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	font: 1.0em Arial, Helvetica, sans-serif;/* Font custom OpenData*/
 	font-size: 9pt;
 	margin: 0px;
-	color: #064377;
+/*	color: #064377;*/
+	color: #666;/* Color custom OpenData*/
 }
 
 div {
@@ -53,17 +55,21 @@ h1 {
 }
 
 h2 {
-	font-size: 10px;
-	font-weight: bold;
+/*	font-size: 10px;
+	font-weight: bold; commentati x OpenData */
 	text-transform: uppercase;
 }
 
 a {
+	/* OpenData */
+    color: #ea5d10;
+	/* fine OpenData */
+
 	/*
 	color: #266377;
 	text-decoration: none;
 	*/
-	color: #064377;
+/*	color: #064377; commentati x OpenData */
 }
 
 a:hover
@@ -84,6 +90,14 @@ a.no-help:hover {
 
 }
 
+/* OpenData */
+li, p {
+    
+    color: #666;
+   
+}
+/* fine OpenData */
+
 /*******************************************************************************
 banner
 *******************************************************************************/
@@ -97,7 +111,8 @@ tr.banner {
 td.banner {
 	font-size: 8pt;
 	color: #ffffff;
-	background-image: url('images/blue-background.gif');
+	/*background-image: url('images/blue-background.gif');*/
+	background-color: #ffffff;
 	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
 }
 
@@ -106,28 +121,66 @@ td.banner {
 }
 
 td.banner-menu {
-	font-size: 8pt;
+/*	font-size: 8pt;
 	color: #ffffff;
-	background: #064377;
+	background-image: url('images/bg_menu.png');
+	background-repeat:repeat-x;
+	background-color: #ff0000;
 	padding-left: 8px;
 	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
-	height: 16px;
+	border-bottom: 1px solid #ffffff;*/ /* moved here from tr since IE accepts it only here */
+/*	height: 20px;
+	vertical-align: bottom; commentato x OpenData */
+
+        /* OpenData */
+        background-color: #e9e9e9;
+        background-image: url('images/bg_menu.png');
+        background-repeat: repeat-x;
+        border-bottom: 1px solid #FFFFFF;
+        color: #fff;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        vertical-align: bottom;
+        background-position: bottom;
+        /* fine OpenData */
 }
 
 td.banner-login {
-	font-size: 8pt;
+/*	font-size: 8pt;
 	color: #ffffff;
-	/*
-	background-image: url('images/blue-background.gif');
-	*/
-	background: #266397;
+	background-image: url('images/bg_login.png');
+	background-repeat:repeat-x;
 	padding-left: 8px;
 	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
-	height: 16px;
-	vertical-align: middle
+	border-bottom: 1px solid #ffffff;*/ /* moved here from tr since IE accepts it only here */
+/*	height: 32px;
+	vertical-align: top; commentato x OpenData */
+
+        /* OpenData */
+        background-image: none;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #FFFFFF;
+        color: #333;
+        font-size: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+        vertical-align: top;
+        background-color: #fff;
+        padding-top: 5px;
+        /* fine OpenData */
 }
+
+/* OpenData */
+td.banner-menu a, td.banner-login a{
+        color: #333;
+        text-decoration:none;
+        padding-left: 0px;
+        padding-right: 20px;
+}
+/* fine OpenData */
 
 a.banner {
 	color: #ffffff;
@@ -136,39 +189,70 @@ a.banner {
 
 a.banner:hover
 {
-	text-decoration: underline;
+        /* fine OpenData */
+        background: none repeat scroll 0 0 #fde84f;
+        /* fine OpenData */
+
+/*	text-decoration: underline; commentato x OpenData */
 }
 
 font.banner-active {
-	color: #ffffff;
+        /* OpenData */
+        color: #333;
+        padding-left: 0px;
+		font-weight: bold;
+		font-size: 12px;
+        padding-right: 20px;
+        /* fine OpenData */
+
 	text-decoration: none;
-	font-weight: bold;
+
+/*	color: #ffffff;
+	font-weight: bold; commentato x OpeData */
 }
 
 font.banner-passive {
 	color: #a0a0a0;
+	font-size: 12px;
 	text-decoration: none;
 }
 
 input.banner {
-	margin-right: 4px;
+/*	margin-right: 4px;
 	margin-left: 4px;
 	font: 7pt Verdana;
 	color: #064377;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #266397; commentato x OpenData */ /* moved here from tr since IE accepts it only here */
+
+        /* OpenData */
+        border: 1px solid #266397;
+        color: #064377;
+        font: 7pt Verdana;
+        margin-left: 4px;
+        margin-right: 4px;
+        /* fine OpenData */
 }
 
 button.banner {
-	font-family: Verdana;
+/*	font-family: Verdana;
 	font-size: 7pt;
 	color: #064377;
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #266397; commentato x OpenData */ /* moved here from tr since IE accepts it only here */
+
+        /* OpenData */
+        background-color: #ea5d10;
+        border: 1px solid #ea5d10;
+        color: #FFFFFF;
+        cursor: pointer;
+        width: 60px;
+        /* fine OpenData */
 }
 
 a.palette {
 	color: #ffffff;
+	font-size: 12px;
 	text-decoration: none;
 }
 
@@ -228,11 +312,8 @@ td.green-content {
 
 td.blue-content {
 	color: #ffffff;
-	background: #266397;
-	/*
-	background-image: url('images/blue-background.gif');
-	*/
-	height: 30px;
+	background-image: url('images/search.png');
+	height: 39px;
 }
 
 input.content, select.content, textarea.content {
@@ -431,7 +512,8 @@ td.separator {
 td.dots {
 	width: 0;
 	height: 0;
-	border-top: 1px inset #266397;
+/*	border-top: 1px inset #266397;*/
+	border-top: 1px inset #ea5d10;
 }
 
 th.padded, td.padded {
@@ -466,7 +548,8 @@ div.handle {
 {
 	height: 1px;
 	width: 1px;
-	border-left: 1px solid #266397;
+/*	border-left: 1px solid #266397;*/
+	border-left: 1px solid #ea5d10;
 }
 
 /*******************************************************************************
@@ -1209,3 +1292,34 @@ div.pageList {
     margin-bottom: 6px;
     margin-top: 8px;
 }
+
+
+/**************************
+ OpenData Comune di Firenze
+ **************************/
+
+/*.header h1 {
+    position:absolute;
+    z-index:2;
+    height:130px;
+    left:140px;
+    top:40px;
+    color: #ea5d10;
+    width: 350px;
+    font-size: 2.8em;
+    font-weight: normal;
+}
+
+.header h2 {
+    background: none repeat scroll 0 0 #FFF;
+    color: #ea5d10;
+    width: auto;
+    font-size: 1.2em;
+    font-weight:normal;
+
+    position: absolute;
+    z-index: 3;
+    top: 70px;
+    left: 140px;
+}*/
+

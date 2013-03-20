@@ -8,21 +8,15 @@
 
 		<table width="100%">
 
-			<!-- title -->
-			<tr>
-				<!--td>
-					<img src="{/root/gui/url}/images/csi/banner1.jpg" alt="CSI Piemonte logo" />
+			<!-- title 
+			<tr class="banner">
+				<td style="vertical-align: middle; text-align: left; padding-left: 8px;" class="banner">
+					<img src="{/root/gui/url}/images/logos/logo_comune_firenze.gif" alt="Comune di Firenze" />
 				</td>
-				<td align="right" style="vertical-align: bottom">
-					<img src="{/root/gui/url}/images/csi/banner2.jpg" alt="Regione Piemonte logo" align="middle"/>
-				</td-->
-				<!--td class="banner">
-					<img src="{/root/gui/url}/images/header-left-gs.jpg" alt="World picture" align="top" />
+				<td style="vertical-align: middle; text-align: right; padding-right: 15px;" class="banner">
+					<img src="{/root/gui/url}/images/logos/logo_opendata.jpg" alt="Open Data" />
 				</td>
-				<td align="right" class="banner">
-					<img src="{/root/gui/url}/images/header-right.gif" alt="GeoNetwork opensource logo" align="top" />
-				</td-->
-			</tr>
+			</tr> -->
 
 			<!-- buttons -->
 			<tr class="banner">
@@ -179,6 +173,7 @@
 					<xsl:otherwise>
 						<td align="right" class="banner-login">
 							<form name="login" action="{/root/gui/locService}/user.login" method="post">
+								<b>Accesso riservato: </b>
 								<xsl:if test="string(/root/gui/env/shib/use)='true'">
 									<a class="banner" href="{/root/gui/env/shib/path}">
 										<xsl:value-of select="/root/gui/strings/shibLogin"/>
@@ -210,10 +205,10 @@
 			<!-- TODO : Mutualize with main banner template -->
 			<tr class="banner">
 				<td class="banner">
-					<img src="{/root/gui/url}/images/header-left.jpg" alt="GeoNetwork opensource" align="top" />
+					<img src="{/root/gui/url}/images/logos/logo_comune_firenze.jpg" alt="Comune di Firenze" align="top" />
 				</td>
 				<td align="right" class="banner">
-					<img src="{/root/gui/url}/images/header-right.gif" alt="World picture" align="top" />
+					<img src="{/root/gui/url}/images/logos/logo_opendata.jpg" alt="Open Data" align="top" />
 				</td>
 			</tr>
 

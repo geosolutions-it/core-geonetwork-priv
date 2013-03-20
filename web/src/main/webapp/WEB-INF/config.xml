@@ -149,15 +149,15 @@
 			<name>main-db</name>
 			<provider>jeeves.resources.dbms.DbmsPool</provider>
 			<config>
-				<user>csi</user>
-				<password>csi</password>
+				<user>www-data</user>
+				<password>www-data</password>
 				<driver>org.postgresql.Driver</driver>
 				<!--					
 					jdbc:postgresql:database
 					jdbc:postgresql://host/database
 					jdbc:postgresql://host:port/database
 				-->
-                <url>jdbc:postgresql:csign</url>
+                <url>jdbc:postgresql:geonetwork</url>
 				<poolSize>10</poolSize>
 			</config>
 		</resource>

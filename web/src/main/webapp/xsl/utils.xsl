@@ -156,7 +156,12 @@
 				<img src="{$baseURL}/images/stumbleupon.gif" 
 					alt="{/root/gui/strings/bookmarkStumbleUpon}" title="{/root/gui/strings/bookmarkStumbleUpon}" 
 					style="border: 0px solid;padding:2px;"/>
-			</a> -->
+			</a--> 
+  			<!--a href="https://twitter.com/share?url={$mdURL}" target="_blank">
+				<img src="{$baseURL}/images/tweet.gif" 
+					alt="Tiwtter Share" title="Tiwtter Share" 
+					style="border: 0px solid;padding:2px;"/>
+			</a-->
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>

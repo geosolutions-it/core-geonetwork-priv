@@ -307,7 +307,7 @@
 		
 		<xsl:variable name="currTab" select="/root/gui/currTab"/>
 	
-		<tr><td class="banner-login">
+		<tr><td class="banner-menu">
 			<xsl:value-of select="$indent"/>
 			
 			<xsl:choose>
