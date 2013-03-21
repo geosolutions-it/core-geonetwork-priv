@@ -183,9 +183,9 @@
         </gmd:onLine>
     -->
 	<xsl:template match="gmd:onLine/gmd:CI_OnlineResource[gmd:name/gmx:MimeFileType/@type='']">
-			<xsl:copy>
-				<xsl:apply-templates select="@*|node()[name(self::*)!='geonet:info' and name(self::*)!='gmd:name']"/>
-			</xsl:copy>
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()[name(self::*)!='geonet:info' and name(self::*)!='gmd:name']"/>
+        </xsl:copy>
 	</xsl:template>
 
     <xsl:template match="gmd:verticalCRS[@xlink:href='']">
@@ -212,10 +212,10 @@
             </gmd:EX_Extent>
          </gmd:extent> -->
 
-<!--
-gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition
-         gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition/
-         gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition/-->
+    <!--
+        gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition
+        gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition/
+        gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition/-->
 
     <!-- Remove the full time extent if neither begin not end postion is defined -->
 
@@ -223,7 +223,7 @@ gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:
         <xsl:choose>
             <!-- both start and end position missing -->
             <xsl:when test="gmd:EX_Extent/gmd:temporalElement and not(string(gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition)) and not(string(gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition))">
-            <!-- do nothing -->
+                <xsl:comment>Limiti temporali non definiti</xsl:comment>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:copy>
@@ -257,7 +257,8 @@ gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:
         </xsl:choose>
     </xsl:template>
 
-    <!-- TODO: remove un-compiled conformity -->
+    <!-- Remove un-compiled conformity -->
+
     <xsl:template match="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report">
         <xsl:choose>
             <xsl:when test="gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:explanation/gco:CharacterString='non compilato'">
@@ -270,5 +271,36 @@ gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
+    <!-- Remove bitsPerValue if not compiled -->
+
+    <xsl:template match="gmd:MD_ImageDescription/gmd:dimension">
+        <xsl:choose>
+            <xsl:when test="string(gmd:MD_Band/gmd:bitsPerValue/gco:Integer)">
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()"/>
+                </xsl:copy>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:comment>bitsPerValue non definito</xsl:comment>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- Remove resolution/measure if not compiled -->
+
+    <xsl:template match="gmd:MD_Dimension/gmd:resolution">
+        <xsl:choose>
+            <xsl:when test="string(gco:Measure)">
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()"/>
+                </xsl:copy>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:comment>resolution/Measure non definito</xsl:comment>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
 
 </xsl:stylesheet>
