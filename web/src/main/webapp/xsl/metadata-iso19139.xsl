@@ -2408,7 +2408,7 @@
                             
                             <!-- CSI: This modification has been introduced to manage External (public and hidden) link service in the OnlineResource field -->
                             <xsl:choose>
-                                <xsl:when test="starts-with(gmd:protocol/gco:CharacterString,'External:Link-Hidden')">
+                                <xsl:when test="contains(gmd:protocol/gco:CharacterString,'http--external-hidden')">
                                     <xsl:if test="string(/root/gui/session/profile)='Administrator' 
                                         or string(/root/gui/session/profile)='Editor' 
                                         or string(/root/gui/session/profile)='RegisteredUser' 
@@ -2430,7 +2430,7 @@
                                         <br/>(External-Link: <xsl:value-of select="$linkage"/>)
                                     </xsl:if>
                                 </xsl:when>
-                                <xsl:when test="starts-with(gmd:protocol/gco:CharacterString,'External:Link-Public')">
+                                <xsl:when test="contains(gmd:protocol/gco:CharacterString,'http--external-public')">
                                     <a href="{$linkage}" target="_new">
                                         <xsl:choose>
                                             <xsl:when test="string($description)!=''">
@@ -2951,7 +2951,8 @@
                                     <xsl:when test="(starts-with($protocol,'WWW:LINK-') or starts-with($protocol,'WWW:DOWNLOAD-')) and $mimeType!=''">
                                         <xsl:attribute name="type"><xsl:value-of select="$mimeType"/></xsl:attribute>
                                     </xsl:when>
-                                    <xsl:when test="starts-with($protocol,'WWW:LINK-')">
+                                    <!-- CSI: modified adding 'WWW:EXTDOWNLOAD-' in order to manage externals download enabling the download button in result-list -->
+                                    <xsl:when test="starts-with($protocol,'WWW:LINK-') or starts-with($protocol,'WWW:EXTDOWNLOAD-')">
                                         <xsl:attribute name="type">text/html</xsl:attribute>
                                     </xsl:when>
                                     <xsl:when test="starts-with($protocol,'WWW:DOWNLOAD-') and contains($linkage,'.jpg')">
@@ -3022,6 +3023,10 @@
                             <link type="wms">
                                 <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage  ,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
                             </link>
+                        </xsl:when>
+                        <!-- CSI: added in order to manage externals download enabling the download button in result-list -->
+                        <xsl:when test="starts-with($protocol,'WWW:EXTDOWNLOAD-') and contains($protocol,'http--external') and string($linkage)!=''">
+                            <link type="download"><xsl:value-of select="$linkage"/></link>
                         </xsl:when>
                         <xsl:when test="starts-with($protocol,'WWW:DOWNLOAD-') and contains($protocol,'http--download') and not(contains($linkage,$download_check))">
                             <link type="download"><xsl:value-of select="$linkage"/></link>

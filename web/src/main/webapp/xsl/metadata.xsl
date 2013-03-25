@@ -1134,13 +1134,15 @@
 							
 							<!-- Check to simplify the date text witout the hour -->
 							<xsl:choose>
-								<xsl:when test="contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date|')
+								<xsl:when test="(contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date|')
 									    or 
 									    contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition|')
 										or 
 										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition|')
 										or 
-										contains($helpLink, '|gmd:MD_Metadata/gmd:dateStamp|')">
+										contains($helpLink, '|gmd:MD_Metadata/gmd:dateStamp|'))
+										and 
+										contains($text, 'T')">
 									<xsl:call-template name="addLineBreaksAndHyperlinks">
 										<xsl:with-param name="txt" select="substring-before($text, 'T')"/>
 									</xsl:call-template>
@@ -1815,17 +1817,21 @@
 							and name(.)!='gco:ScopedName' and name(.)!='gco:Date' and name(.)!='gco:DateTime'">					
 						
 						<xsl:choose>	
-							<!-- Modificationd for the gmd:pass warkaround (CSI) -->
+							<!-- Modification for the gmd:pass warkaround (CSI) -->
 							<xsl:when test="contains($path, 'gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:pass')">
 																
 								<xsl:choose>							
 									<xsl:when test="$value='true'">
-										<xsl:value-of select="$explanationValue"/> (<xsl:value-of>conforme</xsl:value-of>)
+										<xsl:value-of select="$explanationValue"/> 
+										<!-- CSI: disabled this new added element to show only selected value 
+										(<xsl:value-of>conforme</xsl:value-of>) -->
 									</xsl:when>			
 									<xsl:otherwise>
-										<xsl:value-of select="$explanationValue"/> (<xsl:value-of>non conforme</xsl:value-of>)
+										<xsl:value-of select="$explanationValue"/> 
+										<!-- CSI: disabled this new added element to show only selected value 
+										(<xsl:value-of>non conforme</xsl:value-of>) -->
 									</xsl:otherwise>							
-								</xsl:choose>
+								</xsl:choose> 
 								
 							</xsl:when>
 							<xsl:otherwise>

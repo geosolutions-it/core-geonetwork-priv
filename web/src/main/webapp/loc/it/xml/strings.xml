@@ -558,14 +558,16 @@
     <protocolChoice show="-" value="OGC:WPS">OGC-WPS Web Processing Service</protocolChoice>
 	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-ftp--download">File scaricabile (FTP)</protocolChoice>
 	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-http--download">File scaricabile (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-hidden">Download esterno nascosto (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-public">Download esterno pubblico (HTTP)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--ical">iCalendar (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--link">Indirizzo web (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--partners">Indirizzo web di collaboratori (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--related">Risorsa correlata (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--rss">Feed RSS (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--samples">Prodotto d'esempio (URL)</protocolChoice>
-	<protocolChoice show="-" value="External:Link-Hidden-Download">Download esterno nascosto</protocolChoice>
-	<protocolChoice show="-" value="External:Link-Public-Download">Download esterno pubblico</protocolChoice>
+	<!--protocolChoice show="-" value="External:Link-Hidden-Download">Download esterno nascosto</protocolChoice>
+	<protocolChoice show="-" value="External:Link-Public-Download">Download esterno pubblico</protocolChoice-->
 	<protocolChoice show="-" value="UKST">Tipo di servizio sconosciuto</protocolChoice>
 	
 	<!-- INSPIRE Service type defined in MD IR / 1.3.1 Spatial data service type -->
@@ -1054,6 +1056,8 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
             <l7>Reti di trasporto</l7>
             <l8>Idrografia</l8>
             <l9>Siti protetti</l9>
+			<l10>Sistemi di coordinate</l10>
+			<l11>Sistemi di griglie geografiche</l11>
         </annex1>
         <annex2>
             <l1>Altezza</l1>
