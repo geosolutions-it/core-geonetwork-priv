@@ -23,7 +23,7 @@
       <gmd:citation>
         <gmd:CI_Citation id="geoservertest.citation">
           <gmd:title>
-            <gco:CharacterString>Geoserver WFS Fragments Country Boundaries Test Template</gco:CharacterString>
+            <gco:CharacterString>Geoserver WFS Fragments Country Boundaries Test Template (Deprecated)</gco:CharacterString>
           </gmd:title>
         </gmd:CI_Citation>
       </gmd:citation>

@@ -82,7 +82,7 @@
             <gmd:citation>
                 <gmd:CI_Citation>
                     <gmd:title>
-                        <gco:CharacterString>Template for WMS service in ISO19139/119</gco:CharacterString>
+                        <gco:CharacterString>Template for WMS service in ISO19139/119  (Deprecated)</gco:CharacterString>
                     </gmd:title>
                     <gmd:alternateTitle gco:nilReason="missing"/>
                     <gmd:date>
