@@ -23,7 +23,7 @@
       <gmd:citation>
         <gmd:CI_Citation id="citation">
 					<gmd:title>
-						<gco:CharacterString>Deegree22 WFS Fragments Philosopher Database Test Template</gco:CharacterString>
+						<gco:CharacterString>Deegree22 WFS Fragments Philosopher Database Test Template (Deprecated)</gco:CharacterString>
 					</gmd:title>
 				</gmd:CI_Citation>
       </gmd:citation>

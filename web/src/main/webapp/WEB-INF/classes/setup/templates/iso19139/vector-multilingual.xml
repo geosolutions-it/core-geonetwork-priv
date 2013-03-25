@@ -142,7 +142,7 @@
             <gmd:citation>
                 <gmd:CI_Citation>
                     <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
-                        <gco:CharacterString>Template for Vector data in ISO19139 (multilingual)</gco:CharacterString>
+                        <gco:CharacterString>Template for Vector data in ISO19139 (multilingual) (Deprecated)</gco:CharacterString>
                         <gmd:PT_FreeText>
                             <gmd:textGroup>
                                 <gmd:LocalisedCharacterString locale="#FR">Modèle de données vectorielles en ISO19139 (multilingue)</gmd:LocalisedCharacterString>
