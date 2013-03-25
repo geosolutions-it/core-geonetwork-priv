@@ -358,7 +358,7 @@
 							<fo:external-graphic>
 								<xsl:attribute name="src">
                                 url('<xsl:value-of
-										select="concat(//server/protocol, '://', //server/host,':', //server/port, /root/gui/url,'/images/csi/fop/banner_a4_stampa_ricerca.jpg')" />')"
+										select="concat(//server/protocol, '://', //server/host,':', //server/port, /root/gui/url,'URL_IMG')" />')"
                                     </xsl:attribute>
 							</fo:external-graphic>
 					   </fo:block>

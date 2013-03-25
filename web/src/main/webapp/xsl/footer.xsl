@@ -5,12 +5,14 @@
 	main html footer
 	-->
 	<xsl:template name="footer">
-		<div  align="center" style="padding-right: 25px; background: none repeat scroll 0 0 #1E800C;">
+		<div  class="footer">
+<!--  Esempio footer  
 			<a target="_blank" href="">
-				<img width="20" src="{/root/gui/url}/images/csi/footer.gif" alt="Regione Piemonte logo" align="middle">
-					<span class="footer">Geoportale della regione Piemonte</span>
+				<img width="30" src="{/root/gui/url}/images/csi/logo_CSI.jpg" alt="Regione Piemonte logo" align="middle">
+					<span class="footer">CSI Piemonte</span>
 				</img>
 			</a>
+-->
 		</div>
 	</xsl:template>
 

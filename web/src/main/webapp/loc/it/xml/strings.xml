@@ -110,7 +110,7 @@
 	<linkedDatasetMetadata>Dati collegati:</linkedDatasetMetadata>
 	<serviceCreate>Crea un nuovo metadato di un servizio</serviceCreate>
 	<parentSearch js="true">Ricerca un record di metadati da assegnare come genitore del record corrente.</parentSearch>
-	<parentReset js="true">Ripulisce il campo relativo al record di metadati da assegnare come genitore del record corrente.</parentReset>
+	<!--parentReset js="true">Ripulisce il campo relativo al record di metadati da assegnare come genitore del record corrente.</parentReset-->
 	<linkedMetadataSelectionWindowTitle js="true">Selezione dei metadati collegati</linkedMetadataSelectionWindowTitle>
 	<searchText js="true">Ricerca testuale</searchText>
 	<mdTitle js="true">Titolo dei Metadati</mdTitle>
@@ -348,7 +348,7 @@
 	<hitsPerPageChoice value="100">100</hitsPerPageChoice>
 	<hitsPerPageChoice value="20">20</hitsPerPageChoice>
 	<hitsPerPageChoice value="50">50</hitsPerPageChoice>
-	<home>Home</home>
+	<home>Catalogo</home>
 	<i18n>Test i18n</i18n>
 	<i18nDesc>Pagina di test dei file di localizzazione</i18nDesc>
 	<identificationTab>Identificazione</identificationTab>
@@ -410,7 +410,7 @@
 	<longitude>Longitudine (tra -180 e 180) in gradi</longitude>
 	<longMax>long (max)</longMax>
 	<longMin>long (min)</longMin>
-	<mainpageTitle>Geoportale - verso la condivisione dell'informazione geografica</mainpageTitle>
+	<!--mainpageTitle>Geoportale Piemonte - verso la condivisione dell'informazione geografica</mainpageTitle-->
 	<maintenanceTab>Manutenzione</maintenanceTab>
 	<management>Gestione</management>
 	<mandatory>Obbligatorio</mandatory>
@@ -497,7 +497,7 @@
 	<outputType id="text">Solo testo</outputType>
 	<overwrite>Sovrascrivi i metadati con lo stesso UUID</overwrite>
 	<overwriteFile>Sovrascrivi?</overwriteFile>
-	<owner>Autore</owner>
+	<owner>Proprietario</owner>
 	<ownerRights>Elimina/Privilegi/Categorie sbloccati: si possiedono i diritti di proprietario</ownerRights>
 	<page>Pagina </page>
 	<paper>Cartaceo</paper>
@@ -727,8 +727,8 @@
 	<xmlTab>Vista XML</xmlTab>
 	<!--inspireTab>Vista INSPIRE</inspireTab-->
 	<inspireTab>Vista INSPIRE-RNDT</inspireTab>
-	<ricercaPSR>Opzioni di ricerca PSR</ricercaPSR>
-	<temaPSR>Tema PSR</temaPSR>
+	<ricercaPSR>OPZIONI DI RICERCA INFORMAZIONI AMBIENTALI</ricercaPSR>
+	<temaPSR>Tema Modello Pressione Stato Risposte</temaPSR>
 	<inspireSection>
 		<identification>
 			<title>Identificazione</title>
@@ -754,7 +754,7 @@
 				</ul>
 				</div>
 			</help>
-			<SRVRSIdentifierCode>Identificativo risorsa</SRVRSIdentifierCode>
+			<!--SRVRSIdentifierCode>Identificativo risorsa</SRVRSIdentifierCode-->
 		</identification>
 		<classification>
 			<!--title>Classificazione di dati geografici e servizi</title-->
@@ -849,7 +849,7 @@
 			</help>
 		</quality>
 		<conformity>
-			<title>Conformità</title>
+			<title>Conformità INSPIRE</title>
 			<help>
 				<div>
 					I requisiti di cui agli articoli 5(2)(a) e 11(2)(d) della Direttiva 2007/2/EC che concernono la conformità e il grado di conformità, con le disposizioni di esecuzione adottate secondo l'Articolo 7(1) della Direttiva 2007/2/EC dovrebbero essere soddisfatti dai seguenti elementi:
@@ -932,7 +932,7 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
 		<meta name="DC.language" content="English French Spanish German Russian Chinese Dutch Portuguese"/>
 		<meta name="DC.coverage" content="Global"/>
 	</header_meta>
-	<mainpage1>
+	<!--<mainpage1>-->
 		<!--<h1>Gli obiettivi di GeoNetwork sono:</h1>
 		<ul>
 			<li>Migliorare l'accesso e l'uso integrato di dati geografici ed informazioni</li>
@@ -940,23 +940,42 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
 			<li>Promuovere approcci interdisciplinari allo sviluppo sostenibile</li>
 			<li>Migliorare la conoscenza dei benefici dell'informazione geografica</li>
 		</ul>-->
-		<p>
-		Il <b>Geoportale</b> rappresenta il punto di raccolta organizzata del patrimonio di conoscenze disponibile presso gli Enti della Pubblica Amministrazione piemontese, finalizzato alla condivisione e all’interscambio delle informazioni geografiche. 
+		<!--<p>
+		Il <b>Geoportale</b> rappresenta il punto di raccolta organizzata del patrimonio di conoscenze disponibile presso gli Enti della Pubblica Amministrazione piemontese ed è finalizzato alla condivisione e all’interscambio delle informazioni geografiche. 
 		</p>
-	</mainpage1>
+	</mainpage1>-->
 	<mainpage2>
+	<!-- Esempio di HOME PAGE -->
 		<p>
-		E’ stato sviluppato in linea con la Direttiva Europea <b>INSPIRE</b> ed in coerenza con le diverse iniziative e disposizioni promosse e stabilite in sede nazionale ed internazionale in materia di dati geografici informatici (DigitPA, IntesaGIS, OGC), configurandosi  anche come <b>Catalogo delle Informazioni Ambientali</b>, strumento essenziale per garantire l'informazione in materia di Ambiente, secondo quanto previsto dalla Direttiva Comunitaria 4/2003 inerente "L'accesso del pubblico all'informazione ambientale”.
+		&#200; sviluppato in linea con la <b>Direttiva Europea INSPIRE</b> (DIR 2007/2/CE - Dlgs 32/2010),  utilizza standard di interoperabilità e tiene conto delle disposizioni e delle specifiche tecniche vigenti in materia, a livello nazionale e comunitario. 
 		</p>
 		<p>
-		Consente l’accesso libero ai metadati raccolti e gestiti dagli Enti della Pubblica Amministrazione piemontese che desiderano partecipare al sistema della conoscenza geografica. Attraverso l’utilizzo di standard di interoperabilità permette infatti di ricercare tra i cataloghi metadati dei diversi Enti che possono essere navigati  fino ad arrivare alla consultazione e al download dei dati, in accordo con le politiche di diffusione  decise dai proprietari del dato.
+		Il Geoportale permette di  navigare all’interno del catalogo metadati della Regione Piemonte e degli altri Enti piemontesi che pubblicano il proprio catalogo in formato OGC - CSW (Catalogue Web Service),  di consultare dati e servizi e di effettuare lo scarico dei dati in base alle politiche di diffusione assunte dai proprietari.
 		</p>
 		<p>
-		Presenta diverse modalità di ricerca, tra le quali quella secondo gli <b>Annex di INSPIRE</b> e quella prettamente ambientale, basata sugli argomenti <b>Pressioni - Stato - Risposte</b>.
+		Sono possibili diverse modalità di ricerca, ad esempio per tipologia di risorsa informativa, secondo i tematismi previsti negli  <b>Annex</b> della Direttiva <b>INSPIRE</b> oppure le tematiche presenti <b>nel Catalogo delle informazioni ambientali</b> (2003/4/CE - Dlgs 195/2005) ed inoltre per ambito territoriale e parole-chiave.
 		</p>
 		<p>
-		La versione attualmente on line è una beta-version, pertanto non tutte le funzionalità risultano al momento disponibili.
+		I metadati presenti nel catalogo sono conformi al regolamento metadati INSPIRE (CE 1205/2008) e alle specifiche del <b>Repertorio Nazionale dei Dati Territoriali</b> (DM 10 novembre 2011).
 		</p>
+		<p>
+		<i>Attualmente è in corso l'alimentazione del portale con i dati originariamente conservati in SITAD e nel Catalogo delle informazioni ambientali.</i>
+		</p>
+		<!--  
+		<div id="box1">
+		<img src="/geocatalogorp/geonetworkrp/images/box1.jpg" width="100%" />
+        <p>Il <b>Geocatalogo</b> rappresenta il punto di <b>raccolta</b> organizzata del patrimonio di conoscenze disponibile presso gli Enti della Pubblica Amministrazione piemontese ed è finalizzato alla condivisione e all’interscambio delle <b>informazioni geografiche</b>.  </p>
+        </div>
+        <div id="box2">
+        <img src="/geocatalogorp/geonetworkrp/images/box2.jpg" width="100%" />
+        <p>Permette di <b>navigare</b> all’interno del catalogo metadati della Regione Piemonte e degli altri Enti piemontesi che pubblicano il proprio catalogo in formato OGC - CSW (Catalogue Web Service), di <b>consultare dati e servizi</b> e di effettuare lo scarico dei dati in base alle politiche di diffusione assunte dai proprietari.   </p>
+        </div>
+        <div id="box3">
+        <img src="/geocatalogorp/geonetworkrp/images/box3.jpg" width="100%" />
+        <p>Diverse sono le <b>modalità di ricerca</b>, ad esempio per tipologia di risorsa informativa, secondo i tematismi previsti negli Annex della Direttiva <b>INSPIRE</b> oppure le tematiche presenti nel <b>Catalogo delle informazioni ambientali</b> (2003/4/CE - Dlgs 195/2005) ed inoltre per ambito territoriale e parole-chiave.   </p>
+        </div>
+        -->
+
 	</mainpage2>
 	<mainhelp1> Come ricercare... </mainhelp1>
 	<mainhelp2> Nascondi l'aiuto... </mainhelp2>
@@ -1035,7 +1054,7 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
             <l3>Solo metadati INSPIRE</l3>
             <l4>Nascondi opzioni INSPIRE</l4>
             <l5>Mostra opzioni INSPIRE</l5>
-            <l6>Appendice</l6>
+            <l6>Annex</l6>
             <l7>Tipo di risorsa</l7>
             <l8>Tutto</l8>
             <l9>Dataset e serie di dataset</l9>
@@ -1047,12 +1066,12 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
             <l15>Tipo di servizio</l15>
         </what>
         <annex1>
-            <l1>Sistemi di riferimento</l1>
-            <l2>Sistemi del reticolo geografico</l2>
+            <l1>Sistemi di coordinate</l1>
+            <l2>Sistemi di griglie geografiche</l2>
             <l3>Nomi geografici</l3>
             <l4>Unità amministrative</l4>
             <l5>Indirizzi</l5>
-            <l6>Particelle catastali</l6>
+            <l6>Parcelle catastali</l6>
             <l7>Reti di trasporto</l7>
             <l8>Idrografia</l8>
             <l9>Siti protetti</l9>
@@ -1060,33 +1079,33 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
 			<l11>Sistemi di griglie geografiche</l11>
         </annex1>
         <annex2>
-            <l1>Altezza</l1>
-            <l2>Copertura del terreno</l2>
-            <l3>Ortofoto</l3>
+            <l1>Elevazione</l1>
+            <l2>Copertura del suolo</l2>
+            <l3>Orto immagini</l3>
             <l4>Geologia</l4>
         </annex2>
         <annex3>
             <l1>Unità statistiche</l1>
-            <l2>Costruzioni</l2>
+            <l2>Edifici</l2>
             <l3>Suolo</l3>
-            <l4>Uso del suolo</l4>
-            <l5>Salute e sicurezza</l5>
-            <l6>Servizi pubblici e governativi</l6>
-            <l7>Servizi di monitoraggio ambientale</l7>
-            <l8>Servizi produttivi ed industriali</l8>
-            <l9>Servizi agricoli e di acquacoltura</l9>
+            <l4>Utilizzo del territorio</l4>
+            <l5>Salute umana e sicurezza</l5>
+            <l6>Servizi di pubblica utilità e servizi amministrativi</l6>
+            <l7>Impianti di monitoraggio ambientale</l7>
+            <l8>Produzione e impianti industriali</l8>
+            <l9>Impianti agricoli e di acquacoltura</l9>
             <l10>Distribuzione della popolazione - demografia</l10>
-            <l11>Gestione d'ambito/restrizioni/zone di regolazione e unità di report</l11>
+            <l11>Zone sottoposte a gestione/limitazioni/regolamentazione e unità con obbligo di comunicare dati</l11>
             <l12>Zone a rischio naturale</l12>
             <l13>Condizioni atmosferiche</l13>
-            <l14>Caratteristiche meteorologiche</l14>
-            <l15>Caratteristiche oceanografiche</l15>
+            <l14>Elementi geografici meteorologici</l14>
+            <l15>Elementi geografici oceanografici</l15>
             <l16>Regioni marine</l16>
             <l17>Regioni bio-geografiche</l17>
             <l18>Habitat e biotipi</l18>
             <l19>Distribuzione delle specie</l19>
             <l20>Risorse energetiche</l20>
-            <l21>Risorse minerali</l21>
+            <l21>Risorse minerarie</l21>
         </annex3>
     </inspire>
     

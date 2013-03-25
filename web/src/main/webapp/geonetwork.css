@@ -118,7 +118,8 @@ td.banner-menu {
 	color: #ffffff;
 	/*background: #000000;*/
 	/*background:  #3D863F;*/
-	background: #C2CEC4;
+	/*background: #C2CEC4;*/
+	background-color: #fff;
 	padding-left: 8px;
 	padding-right: 8px;
 	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
@@ -127,13 +128,15 @@ td.banner-menu {
 
 td.banner-login {
 	font-size: 8pt;
-	color: #ffffff;
+	/*color: #ffffff;*/
+	color: #000;
 	/*
 	background-image: url('images/blue-background.gif');
 	*/
 	/*background: #266397;*/
 	/*background:  #82AB7F;*/
-	background: #1E800C;
+	/*background: #1E800C;*/
+	background-color:#fff;
 	padding-left: 8px;
 	padding-right: 8px;
 	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
@@ -142,7 +145,8 @@ td.banner-login {
 }
 
 td.banner-login a{
-	color: #ffffff;
+	/* color: #ffffff; */
+	color: #000;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -363,13 +367,11 @@ fieldset.metadata-block * fieldset {
 footer
 *******************************************************************************/
 
-td.footer {
+.footer {
 	font-size: 8pt;
 	background: #beb800;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 4px 24px;
+	height: 15px;
 }
 
 a.footer {
