@@ -374,8 +374,21 @@
     							<span>
     								<label for="inspire_ProtectedSites"><!--Protected sites--><xsl:value-of select="/root/gui/strings/inspire/annex1/l9"/></label>
     							</span>
+    						</div>    						
+							<div class="inspireThemeElement">
+    							<input type="checkbox" value="{/root/gui/strings/inspire/annex1/l10}" name="Sistemi di coordinate" id="inspire_SistemiCoordinates"/>
+    							
+    							<span>
+    								<label for="inspire_SistemiCoordinates"><!--Sistemi di coordinate--><xsl:value-of select="/root/gui/strings/inspire/annex1/l10"/></label>
+    							</span>
     						</div>
-    						
+    						<div class="inspireThemeElement">
+    							<input type="checkbox" value="{/root/gui/strings/inspire/annex1/l11}" name="Sistemi di griglie geografiche" id="inspire_SistemiGriglieGeografiche"/>
+    							
+    							<span>
+    								<label for="inspire_SistemiGriglieGeografiche"><!--Sistemi di griglie geografiche--><xsl:value-of select="/root/gui/strings/inspire/annex1/l11"/></label>
+    							</span>
+    						</div> 
     						
     						<div class="inspireThemeTitle"><xsl:value-of select="/root/gui/strings/inspire/what/l6"/> II</div>
     						<div class="inspireThemeElement">
