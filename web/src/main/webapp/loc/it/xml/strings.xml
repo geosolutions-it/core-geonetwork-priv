@@ -1033,6 +1033,8 @@ Questo elemento fornisce anche informazioni su eventuali tariffe richieste per a
             <l7>Reti di trasporto</l7>
             <l8>Idrografia</l8>
             <l9>Siti protetti</l9>
+			<l10>Sistemi di coordinate</l10>
+			<l11>Sistemi di griglie geografiche</l11>
         </annex1>
         <annex2>
             <l1>Altezza</l1>
