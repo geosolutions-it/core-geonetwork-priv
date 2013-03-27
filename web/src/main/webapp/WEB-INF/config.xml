@@ -4,7 +4,7 @@
 
 	<general>
 		<profiles>user-profiles.xml</profiles>
-		<uploadDir>../../data/tmp</uploadDir>
+		<uploadDir>/opt/data/GN_DATA_DIR/tmp</uploadDir>
 		<maxUploadSize>100</maxUploadSize> <!-- Size must be in megabyte (integer), 100MB by default -->
 		<debug>true</debug>
 	</general>
@@ -187,7 +187,7 @@
 		<param name="luceneDir" value="WEB-INF/lucene" />
 		<!-- this must be a directory in web/geonetwork because html is served -->
 		<param name="htmlCacheDir" value="htmlCache" />
-		<param name="dataDir" value="../../data" />
+		<param name="dataDir" value="/opt/data/GN_DATA_DIR" />
 		<param name="licenseDir" value="WEB-INF/licenses" />
 		<param name="thesauriDir" value="WEB-INF/gsthesauri" />
 		<param name="codeListDir" value="xml/codelist" />
