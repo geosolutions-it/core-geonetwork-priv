@@ -350,6 +350,7 @@
 
 		<!-- Catalogue Services for the Web -->
 		<allow service="csw"/>
+		<allow service="csw.rndt"/>
 
 		<!-- Open Archive Initiative, Protocol for Metadata Harvesting -->
 		<allow service="oaipmh"/>

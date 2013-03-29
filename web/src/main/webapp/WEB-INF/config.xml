@@ -987,6 +987,11 @@
 			<class name=".services.main.CswDispatcher" />
 		</service>
 
+		<service name="csw.rndt">
+			<class name=".services.main.CswDispatcher" />
+			<output sheet="conversion/export/xml_rndt.xsl" contentType="text/xml; charset=UTF-8"/>
+        </service>
+
 
         <service name="csw.config.get">
             <class name=".guiservices.csw.Get" />
