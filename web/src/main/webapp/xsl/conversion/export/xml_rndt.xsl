@@ -5,6 +5,7 @@
                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
                 xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
+                xmlns:srv="http://www.isotc211.org/2005/srv"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
 
                 xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
@@ -14,11 +15,10 @@
                 xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+    
 	<!-- This stylesheet converts ISO19115 and ISO19139 metadata into RNDT metadata in XML format -->
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
-	<xsl:include href="../19115to19139/19115-to-19139.xsl"/>
 
     <!-- we are requiring an XSL transformtion to GN, so we have to extract the real info from all the stuff, localization, USW -->
     <xsl:template match="/root">
@@ -248,6 +248,30 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="srv:SV_CouplingType">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            <xsl:if test="./@codeList=''">
+                <xsl:attribute name="codeList">http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#SV_CouplingType</xsl:attribute>
+            </xsl:if>
+            <xsl:if test="not(string(.))">
+                <xsl:value-of select="./@codeListValue"/>
+            </xsl:if>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="srv:DCPList">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            <xsl:if test="./@codeList=''">
+                <xsl:attribute name="codeList">http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#DCPList</xsl:attribute>
+            </xsl:if>
+            <xsl:if test="not(string(.))">
+                <xsl:value-of select="./@codeListValue"/>
+            </xsl:if>
+        </xsl:copy>
+    </xsl:template>
+
     <!-- Remove empty MimeFileType:
         <gmd:onLine>
             <gmd:CI_OnlineResource>
@@ -266,11 +290,21 @@
             </gmd:CI_OnlineResource>
         </gmd:onLine>
     -->
-	<xsl:template match="gmd:onLine/gmd:CI_OnlineResource[gmd:name/gmx:MimeFileType/@type='']">
+<!--	<xsl:template match="gmd:onLine/gmd:CI_OnlineResource[gmd:name/gmx:MimeFileType/@type='']">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()[name(self::*)!='geonet:info' and name(self::*)!='gmd:name']"/>
         </xsl:copy>
 	</xsl:template>
+-->
+
+    <!-- Remove all MimeFileType -->
+	<xsl:template match="gmd:onLine/gmd:CI_OnlineResource/gmd:name/gmx:MimeFileType">
+        <xsl:element name="gco:CharacterString">
+            <xsl:value-of select="."/>
+        </xsl:element>
+        <xsl:comment>Replaced gmx:MimeFileType type "<xsl:value-of select="@type"/>"</xsl:comment>
+	</xsl:template>
+
 
     <xsl:template match="gmd:verticalCRS[@xlink:href='']">
         <xsl:copy>
@@ -347,11 +381,30 @@
         </xsl:choose>
     </xsl:template>
 
-    <!-- Remove un-compiled conformity -->
+    <!-- Remove un-compiled conformance -->
 
-    <xsl:template match="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report">
+    <!-- next template is what is required by INSPIRE, but RNDT implementation requires to null the pass element-->
+<!--    <xsl:template match="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report">
         <xsl:choose>
-            <xsl:when test="gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:explanation/gco:CharacterString='non compilato'">
+            <xsl:when test="gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:explanation/gco:CharacterString='non valutato'">
+                <xsl:comment>Conformance non compilata</xsl:comment>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+-->
+
+    <!-- Remove pass element in un-compiled conformance -->
+
+    <xsl:template match="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:pass">
+        <xsl:choose>
+            <xsl:when test="../gmd:explanation/gco:CharacterString='non valutato'">
+                <xsl:copy>
+                </xsl:copy>
                 <xsl:comment>Conformance non compilata</xsl:comment>
             </xsl:when>
             <xsl:otherwise>
