@@ -2955,11 +2955,11 @@ public class DataManager
 	 */
 	private String addNamespaceToFragment(String fragment)
 	{
-		//add the gml namespace if its missing
-		if (fragment.contains("<gml:") && !fragment.contains("xmlns:gml=\"")) {
-			Log.debug(Geonet.DATA_MANAGER, "  Add missing GML namespace.");
-			fragment = fragment.replaceFirst("<gml:([^ >]+)", "<gml:$1 xmlns:gml=\"http://www.opengis.net/gml\"");
-		}
+        //add the gml namespace if its missing
+        if (fragment.contains("<gml:") && !fragment.contains("xmlns:gml=\"")) {
+        	Log.debug(Geonet.DATA_MANAGER, "  Add missing GML namespace.");
+        	fragment = fragment.replaceFirst("<gml:([^ >]+)", "<gml:$1 xmlns:gml=\"http://www.opengis.net/gml/3.2\"");
+        }
 		return fragment;
 	}
 
