@@ -351,32 +351,33 @@
         </xsl:choose>
     </xsl:template>
 
-    <!-- Remove empty beginPosition element -->
-
-    <xsl:template match="gml:beginPosition">
+    <xsl:template name="datetime2date">
+        <xsl:param name="datetime">0000-00-00</xsl:param>
         <xsl:choose>
-            <xsl:when test="string(.)">
-                <xsl:copy>
-                    <xsl:apply-templates select="@*|node()"/>
-                </xsl:copy>
+            <xsl:when test="contains($datetime, 'T')">
+                <xsl:value-of select="substring-before($datetime, 'T')"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:comment>gml:beginPosition non definito, possibile errore in validazione RNDT</xsl:comment>
+                    <xsl:value-of select="$datetime"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
-    <!-- Remove empty endPosition element -->
+    <!-- Remove empty beginPosition element -->
 
-    <xsl:template match="gml:endPosition">
+    <xsl:template match="gml:beginPosition | gml:endPosition">
         <xsl:choose>
             <xsl:when test="string(.)">
                 <xsl:copy>
-                    <xsl:apply-templates select="@*|node()"/>
+                    <xsl:call-template name="datetime2date">
+                        <xsl:with-param name="datetime" select="."/>
+                    </xsl:call-template>
+                    <!--<xsl:apply-templates select="@*|node()"/>-->
                 </xsl:copy>
+                <xsl:comment>Date cropped from gco:DateTime "<xsl:value-of select="."/>"</xsl:comment>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:comment>gml:endPosition non definito, possibile errore in validazione RNDT</xsl:comment>
+                <xsl:comment>Limite del TimePeriod non definito, possibile errore in validazione RNDT</xsl:comment>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -454,6 +455,15 @@
         </xsl:copy>
     </xsl:template>
 
+    <!-- Crop all DateTime to Date -->
+    <xsl:template match="gco:DateTime">
+        <xsl:element name="gco:Date">
+            <xsl:value-of select="substring-before(., 'T')"/>
+        </xsl:element>
+        <xsl:comment>Date cropped from gco:DateTime "<xsl:value-of select="."/>"</xsl:comment>
+    </xsl:template>
+
+
     <!-- ================================================================== -->
     <!-- CSW TRANSFORMATIONS ============================================== -->
     <!-- ================================================================== -->
@@ -496,8 +506,6 @@
         </xsl:copy>
     </xsl:template>
 
-
-    <!-- force gml 3.2 -->
 
 
     <!-- TODO: probably we need to add matches for SOAP CSW requests -->
