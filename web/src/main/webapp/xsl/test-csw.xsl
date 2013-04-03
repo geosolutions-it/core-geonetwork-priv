@@ -54,9 +54,9 @@
 			</head>
 			<body onload="init();">
 				<div class="test-head">
-					<!--iv class="test-head-logo">
+					<div class="test-head-logo">
 						<img src="{/root/gui/url}/images/csi/banner2.jpg"/>
-					</div-->
+					</div>
 					<div class="test-head-text">
 						<h1>
 							<xsl:value-of select="$title"/>
