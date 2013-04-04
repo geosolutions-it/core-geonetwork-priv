@@ -122,6 +122,10 @@
                             onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', 'uuidref');"/>
                         <img src="../../images/find.png" alt="{/root/gui/strings/search}" title="{/root/gui/strings/search}"
                             onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', 'uuidref');" onmouseover="this.style.cursor='pointer';"/>
+                        
+                        <!-- CSI: image button to reset the operatesOn field -->
+                        <img src="../../images/cancel.png" alt="{/root/gui/strings/operatesOnReset}" title="{/root/gui/strings/operatesOnReset}"
+                            onclick="javascript:resetInputField('_{$ref}');"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <a href="metadata.show?uuid={@uuidref}">
@@ -3473,7 +3477,7 @@
                         <xsl:variable name="ref"
                             select="gco:CharacterString/geonet:element/@ref" />
                         
-                            <!-- Input element introduced for CSI  to manage automatic UUID setting-->
+                            <!-- Input element introduced for CSI  to manage automatic UUID setting -->
                         
                             <!--input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
                                 class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" /-->
@@ -3483,6 +3487,7 @@
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"
                                 onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"/>
                         
+                            <!-- CSI: image button to reset the parent identifier field -->
                             <img src="../../images/cancel.png" alt="{/root/gui/strings/parentReset}" title="{/root/gui/strings/parentReset}"
                                 onclick="javascript:resetInputField('_{$ref}');"/>
                     </xsl:variable>

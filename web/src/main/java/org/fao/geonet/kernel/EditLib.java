@@ -493,9 +493,9 @@ public class EditLib
 					//
 					// CSI: customization to add a preconfigured perfix for the metadata UUID for the gml:Point (see config.xml)
 					// 
-					if(uuidPrefix != null && !uuidPrefix.equals("")){
-						uuid = uuidPrefix + ":" + uuid;
-					}
+//					if(uuidPrefix != null && !uuidPrefix.equals("")){
+//						uuid = uuidPrefix + ":" + uuid;
+//					}
 					
 					value = uuid;
 				}

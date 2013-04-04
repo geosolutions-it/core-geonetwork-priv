@@ -529,7 +529,7 @@
 								</gmd:CI_Citation>
 							</gmd:specification>
 							<gmd:explanation>
-								<gco:CharacterString>non compilato</gco:CharacterString>
+								<gco:CharacterString>non valutato</gco:CharacterString>
 							</gmd:explanation>
 							<gmd:pass>
 								<gco:Boolean/>

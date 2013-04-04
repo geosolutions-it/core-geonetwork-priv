@@ -533,7 +533,9 @@ function doSaveAction(action,validateAction)
  */
 function resetInputField(ref){
 	var el = document.getElementById(ref);
-	el.value = "";
+	if(el){
+		el.value = "";
+	}
 }
 
 function doCancelAction(action, message)
