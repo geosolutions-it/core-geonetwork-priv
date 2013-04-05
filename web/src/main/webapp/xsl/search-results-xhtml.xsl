@@ -335,10 +335,10 @@
 											</a>
 										</xsl:when>
 										<xsl:when test="contains($metadata/geonet:info/schema,'iso19139')">
-											<a href="{/root/gui/locService}/iso19139.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
+											<!--a href="{/root/gui/locService}/iso19139.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
 												<img src="{/root/gui/url}/images/xml.png" height="20px" width="20px" alt="ISO19115/19139 XML" title="Save ISO19115/19139 metadata as XML" border="0"/>
-											</a>
-											<a href="{/root/gui/locService}/rndt.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
+											</a-->
+											<a href="{/root/gui/locService}/rndt.xml?id={$metadata/geonet:info/id}" target="_blank" title="Save RNDT metadata as XML">
 												<img src="{/root/gui/url}/images/rndt.jpg" height="20px" width="20px" alt="ISO19139/RNDT XML" title="Save RNDT metadata as XML" border="0"  style="padding-left: 5px;"/>
 											</a>
 <!-- //FIXME												<a href="{/root/gui/locService}/iso_arccatalog8.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115 metadata in XML for ESRI ArcCatalog">
