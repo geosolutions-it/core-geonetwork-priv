@@ -125,7 +125,7 @@
                         
                         <!-- CSI: image button to reset the operatesOn field -->
                         <img src="../../images/cancel.png" alt="{/root/gui/strings/operatesOnReset}" title="{/root/gui/strings/operatesOnReset}"
-                            onclick="javascript:resetInputField('_{$ref}');"/>
+                            onclick="javascript:resetInputField('_{$ref}_uuidref');"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <a href="metadata.show?uuid={@uuidref}">

@@ -27,6 +27,8 @@
 				<script type="text/javascript" src="{/root/gui/url}/scripts/lib/gn.js"></script>
             </xsl:otherwise>
         </xsl:choose>
+		
+		<link rel="stylesheet" type="text/css" href="{/root/gui/url}/scripts/ext/resources/css/xtheme-gray.css"/>
 	</xsl:template>
 
 	<xsl:template name="geoCssHeader">
