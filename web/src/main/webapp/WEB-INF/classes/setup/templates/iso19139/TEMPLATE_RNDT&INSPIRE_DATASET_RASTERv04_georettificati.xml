@@ -76,7 +76,7 @@
 		<gco:CharacterString>1.0</gco:CharacterString>
 	</gmd:metadataStandardVersion>
 	<gmd:spatialRepresentationInfo>
-      <gmd:MD_Georeferenceable>
+      <gmd:MD_Georectified>
          <gmd:numberOfDimensions>
             <gco:Integer/>
          </gmd:numberOfDimensions>
@@ -101,23 +101,28 @@
          <gmd:transformationParameterAvailability>
             <gco:Boolean>false</gco:Boolean>
          </gmd:transformationParameterAvailability>
-         <gmd:controlPointAvailability>
+         <gmd:checkPointAvailability>
             <gco:Boolean>false</gco:Boolean>
-         </gmd:controlPointAvailability>
-         <gmd:orientationParameterAvailability>
-            <gco:Boolean>false</gco:Boolean>
-         </gmd:orientationParameterAvailability>
-         <gmd:georeferencedParameters>
-            <gco:Record/>
-         </gmd:georeferencedParameters>
-      </gmd:MD_Georeferenceable>
+         </gmd:checkPointAvailability>
+         <gmd:checkPointDescription>
+            <gco:CharacterString/>
+         </gmd:checkPointDescription>
+         <gmd:cornerPoints>
+            <gml:Point gml:id="">
+               <gml:coordinates/>
+            </gml:Point>
+         </gmd:cornerPoints>
+         <gmd:pointInPixel>
+            <gmd:MD_PixelOrientationCode/>
+         </gmd:pointInPixel>
+      </gmd:MD_Georectified>
   </gmd:spatialRepresentationInfo>
 	<gmd:referenceSystemInfo>
 		<gmd:MD_ReferenceSystem>
 			<gmd:referenceSystemIdentifier>
 				<gmd:RS_Identifier>
 					<gmd:code>
-						<gco:CharacterString>WGS 1984</gco:CharacterString>
+						<gco:CharacterString>ETRS89/UTM-zone32N</gco:CharacterString>
 					</gmd:code>
 				</gmd:RS_Identifier>
 			</gmd:referenceSystemIdentifier>
@@ -128,7 +133,7 @@
 			<gmd:citation>
 				<gmd:CI_Citation>
 					<gmd:title>
-						<gco:CharacterString>Template INSPIRE/RNDT raster georeferenziabili_rev</gco:CharacterString>
+						<gco:CharacterString>Template INSPIRE/RNDT dataset raster georettificato</gco:CharacterString>
 					</gmd:title>
 					<gmd:date>
 						<gmd:CI_Date>
@@ -300,7 +305,8 @@
                                           codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
 					</gmd:accessConstraints>
 					<gmd:useConstraints>
-						<gmd:MD_RestrictionCode codeList="" codeListValue=""/>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode" 
+						                  codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
 					</gmd:useConstraints>
 					<gmd:otherConstraints>
 						<gco:CharacterString>Dato pubblico</gco:CharacterString>
@@ -316,8 +322,8 @@
 				</gmd:MD_SecurityConstraints>
 			</gmd:resourceConstraints>
 			<gmd:spatialRepresentationType>
-				<gmd:MD_SpatialRepresentationTypeCode codeListValue="vector"
-                                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">vector</gmd:MD_SpatialRepresentationTypeCode>
+				<gmd:MD_SpatialRepresentationTypeCode codeListValue="raster"
+                                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">raster</gmd:MD_SpatialRepresentationTypeCode>
 			</gmd:spatialRepresentationType>
 			<gmd:spatialResolution>
 				<gmd:MD_Resolution>

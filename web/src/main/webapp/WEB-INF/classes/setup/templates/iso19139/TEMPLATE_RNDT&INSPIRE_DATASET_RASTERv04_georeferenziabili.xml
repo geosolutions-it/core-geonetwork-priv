@@ -75,12 +75,49 @@
 	<gmd:metadataStandardVersion>
 		<gco:CharacterString>1.0</gco:CharacterString>
 	</gmd:metadataStandardVersion>
+	<gmd:spatialRepresentationInfo>
+      <gmd:MD_Georeferenceable>
+         <gmd:numberOfDimensions>
+            <gco:Integer/>
+         </gmd:numberOfDimensions>
+         <gmd:axisDimensionProperties>
+            <gmd:MD_Dimension>
+               <gmd:dimensionName>
+                  <gmd:MD_DimensionNameTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_DimensionNameTypeCode"
+                                                codeListValue=""/>
+               </gmd:dimensionName>
+               <gmd:dimensionSize>
+                  <gco:Integer/>
+               </gmd:dimensionSize>
+               <gmd:resolution>
+                  <gco:Measure uom=""/>
+               </gmd:resolution>
+            </gmd:MD_Dimension>
+         </gmd:axisDimensionProperties>
+         <gmd:cellGeometry>
+            <gmd:MD_CellGeometryCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_CellGeometryCode"
+                                     codeListValue=""/>
+         </gmd:cellGeometry>
+         <gmd:transformationParameterAvailability>
+            <gco:Boolean>false</gco:Boolean>
+         </gmd:transformationParameterAvailability>
+         <gmd:controlPointAvailability>
+            <gco:Boolean>false</gco:Boolean>
+         </gmd:controlPointAvailability>
+         <gmd:orientationParameterAvailability>
+            <gco:Boolean>false</gco:Boolean>
+         </gmd:orientationParameterAvailability>
+         <gmd:georeferencedParameters>
+            <gco:Record/>
+         </gmd:georeferencedParameters>
+      </gmd:MD_Georeferenceable>
+  </gmd:spatialRepresentationInfo>
 	<gmd:referenceSystemInfo>
 		<gmd:MD_ReferenceSystem>
 			<gmd:referenceSystemIdentifier>
 				<gmd:RS_Identifier>
 					<gmd:code>
-						<gco:CharacterString>WGS 1984</gco:CharacterString>
+						<gco:CharacterString>ETRS89/UTM-zone32N</gco:CharacterString>
 					</gmd:code>
 				</gmd:RS_Identifier>
 			</gmd:referenceSystemIdentifier>
@@ -91,7 +128,7 @@
 			<gmd:citation>
 				<gmd:CI_Citation>
 					<gmd:title>
-						<gco:CharacterString>Template INSPIRE/RNDT dataset_rev</gco:CharacterString>
+						<gco:CharacterString>Template INSPIRE/RNDT dataset raster georeferenziabile</gco:CharacterString>
 					</gmd:title>
 					<gmd:date>
 						<gmd:CI_Date>
@@ -263,7 +300,8 @@
                                           codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
 					</gmd:accessConstraints>
 					<gmd:useConstraints>
-						<gmd:MD_RestrictionCode codeList="" codeListValue=""/>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode" 
+						                  codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
 					</gmd:useConstraints>
 					<gmd:otherConstraints>
 						<gco:CharacterString>Dato pubblico</gco:CharacterString>
@@ -279,8 +317,8 @@
 				</gmd:MD_SecurityConstraints>
 			</gmd:resourceConstraints>
 			<gmd:spatialRepresentationType>
-				<gmd:MD_SpatialRepresentationTypeCode codeListValue="vector"
-                                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">vector</gmd:MD_SpatialRepresentationTypeCode>
+				<gmd:MD_SpatialRepresentationTypeCode codeListValue="raster"
+                                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">raster</gmd:MD_SpatialRepresentationTypeCode>
 			</gmd:spatialRepresentationType>
 			<gmd:spatialResolution>
 				<gmd:MD_Resolution>
@@ -354,6 +392,27 @@
 			</gmd:supplementalInformation>
 		</gmd:MD_DataIdentification>
 	</gmd:identificationInfo>
+	<gmd:contentInfo>
+      <gmd:MD_ImageDescription>
+         <gmd:attributeDescription>
+            <gco:RecordType/>
+         </gmd:attributeDescription>
+         <gmd:contentType>
+            <gmd:MD_CoverageContentTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_CoverageContentTypeCode"
+                                            codeListValue=""/>
+         </gmd:contentType>
+		 <gmd:dimension>
+            <gmd:MD_Band>
+               <gmd:bitsPerValue>
+                  <gco:Integer/>
+               </gmd:bitsPerValue>
+            </gmd:MD_Band>
+         </gmd:dimension>
+         <gmd:triangulationIndicator>
+            <gco:Boolean>false</gco:Boolean>
+         </gmd:triangulationIndicator>
+      </gmd:MD_ImageDescription>
+  </gmd:contentInfo>
 	<gmd:distributionInfo>
 		<gmd:MD_Distribution>
 			<gmd:distributionFormat>
