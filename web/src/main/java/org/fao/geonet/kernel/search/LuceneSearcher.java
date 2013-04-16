@@ -1167,9 +1167,16 @@ public class LuceneSearcher extends MetaSearcher
 	public static String analyzeQueryText(String field, String aText, PerFieldAnalyzerWrapper analyzer, Set<String> tokenizedFieldSet) {
 		Log.debug(Geonet.SEARCH_ENGINE, "Analyze field "+field+" : "+aText);
 		if (tokenizedFieldSet.contains(field)) {
-			String analyzedText = analyzeText(field, aText, analyzer);	
-			Log.debug(Geonet.SEARCH_ENGINE, "Analyzed text is "+analyzedText);
-			return analyzedText;
+            if( "_uuid".equalsIgnoreCase(field)) {
+                // DO NOT tokenize uuids
+                String ret = aText.toLowerCase();  // unit tests require this
+                Log.debug(Geonet.SEARCH_ENGINE, "Not tokenizing field '"+field+"': text is '"+ret+"'");
+                return ret;
+            } else {
+                String analyzedText = analyzeText(field, aText, analyzer);
+                Log.debug(Geonet.SEARCH_ENGINE, "Analyzed text is "+analyzedText);
+                return analyzedText;
+            }
 		} else return aText;
 	}
 
