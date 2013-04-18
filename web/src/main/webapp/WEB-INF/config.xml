@@ -184,6 +184,7 @@
 	<!-- ====================================================================== -->
 
 	<appHandler class="org.fao.geonet.Geonetwork">
+	    <param name="uuidprefix" value="" />
 		<param name="luceneDir" value="WEB-INF/lucene" />
 		<!-- this must be a directory in web/geonetwork because html is served -->
 		<param name="htmlCacheDir" value="htmlCache" />

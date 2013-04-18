@@ -226,7 +226,7 @@ public class SearchController
 
 	// initialize catalog searcher and a new view of the index and set into
 	// user session if there is no session or this is a new query
-	CatalogSearcher searcher = (CatalogSearcher)session.getProperty(Geonet.Session.SEARCH_RESULT);
+	/*CatalogSearcher searcher = (CatalogSearcher)session.getProperty(Geonet.Session.SEARCH_RESULT);
 	if (searcher == null || !sessionRequestId.equals(requestId)) {
 		Log.debug(Geonet.CSW_SEARCH,"Creating new catalog searcher");
 		
@@ -234,7 +234,23 @@ public class SearchController
 		session.setProperty(Geonet.Session.SEARCH_RESULT, searcher);
 	}	else {
 		Log.debug(Geonet.CSW_SEARCH,"Using existing catalog searcher");
+	}*/
+	
+	// CSI: Fixed code due to avoid possible ClassCast exception
+	// initialize catalog searcher and a new view of the index and set into
+	// user session if there is no session or this is a new query
+	Object osearcher = session.getProperty(Geonet.Session.SEARCH_RESULT);
+	CatalogSearcher searcher;
+	if (osearcher == null || ! ( osearcher instanceof CatalogSearcher )|| !sessionRequestId.equals(requestId)) {
+	 Log.debug(Geonet.CSW_SEARCH,"Creating new catalog searcher");
+	 
+	 searcher = new CatalogSearcher(_summaryConfig, _selector, _uuidselector, _tokenizedFieldSet, _longFieldSet, _integerFieldSet, _floatFieldSet, _doubleFieldSet);
+	 session.setProperty(Geonet.Session.SEARCH_RESULT, searcher);
+	} else {
+	 searcher = (CatalogSearcher)osearcher;
+	 Log.debug(Geonet.CSW_SEARCH,"Using existing catalog searcher");
 	}
+	
 	session.setProperty(Geonet.Session.SEARCH_REQUEST_ID, requestId);
 
 	// search for results, filtered and sorted

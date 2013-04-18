@@ -335,10 +335,10 @@
 											</a>
 										</xsl:when>
 										<xsl:when test="contains($metadata/geonet:info/schema,'iso19139')">
-											<a href="{/root/gui/locService}/iso19139.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
+											<!--a href="{/root/gui/locService}/iso19139.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
 												<img src="{/root/gui/url}/images/xml.png" height="20px" width="20px" alt="ISO19115/19139 XML" title="Save ISO19115/19139 metadata as XML" border="0"/>
-											</a>
-											<a href="{/root/gui/locService}/rndt.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115/19139 metadata in XML">
+											</a-->
+											<a href="{/root/gui/locService}/rndt.xml?id={$metadata/geonet:info/id}" target="_blank" title="Save RNDT metadata as XML">
 												<img src="{/root/gui/url}/images/rndt.jpg" height="20px" width="20px" alt="ISO19139/RNDT XML" title="Save RNDT metadata as XML" border="0"  style="padding-left: 5px;"/>
 											</a>
 <!-- //FIXME												<a href="{/root/gui/locService}/iso_arccatalog8.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115 metadata in XML for ESRI ArcCatalog">
@@ -406,7 +406,9 @@
 			<!-- some ownership info -->
 			<xsl:if test="$remote=false() and /root/gui/session/userId!=''">
                 <div class="ownership">
-					<span class="owner"><xsl:value-of select="concat(/root/gui/strings/owner,': ',$metadata/geonet:info/ownername)"/></span>
+                	<!-- CSI: modification to allow only the name and surname instead ownername visualizzation -->
+					<!--span class="owner"><xsl:value-of select="concat(/root/gui/strings/owner,': ',$metadata/geonet:info/ownername)"/></span-->
+                	<span><xsl:value-of select="concat(/root/gui/strings/owner,': ',$metadata/geonet:info/name,'-',$metadata/geonet:info/surname)"/></span>
 					&#160;
 					<xsl:choose>
 						<xsl:when test="$metadata/geonet:info/owner='true'">
@@ -467,12 +469,12 @@
 							<xsl:when test="count($metadata/link[@type='download'])>1">
 								<xsl:choose>
 									<xsl:when test="$remote=true()">
-										<button class="content" onclick="window.open('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution')" title="{/root/gui/strings/download}">
+										<button class="content" onclick="window.open('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
 											<xsl:value-of select="/root/gui/strings/download"/>
 										</button>
 									</xsl:when>
 									<xsl:otherwise>
-										<button class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution')" title="{/root/gui/strings/download}">
+										<button class="content" onclick="window.open('{/root/gui/locService}/metadata.show?id={$metadata/geonet:info/id}&amp;currTab=distribution2')" title="{/root/gui/strings/download}">
 											<xsl:value-of select="/root/gui/strings/download"/>
 										</button>
 									</xsl:otherwise>

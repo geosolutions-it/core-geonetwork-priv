@@ -433,12 +433,15 @@ public class Geonet
 		public static final String SCHEMA_MAPPINGS  = "schemaMappings";
 		public static final String LICENSE_DIR      = "licenseDir";
 		public static final String DATA_DIR         = "dataDir";
-		public static final String CODELIST_DIR  	  = "codeListDir";
+		public static final String CODELIST_DIR  	= "codeListDir";
 		public static final String DIR              = "dir";
 		public static final String SUMMARY_CONFIG   = "summaryConfig";
 		public static final String LUCENE_CONFIG    = "luceneConfig";
 		public static final String GUI_CONFIG       = "guiConfig";
 		public static final String JZKITCONFIG      = "jzkitConfig";
+		
+		// CSI: Added to manage uuid prefix
+		public static final String UUIDPREFIX       = "uuidprefix";
 	}
 
 	//--------------------------------------------------------------------------

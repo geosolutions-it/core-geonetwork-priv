@@ -250,6 +250,7 @@
 		<allow service="metadata.show"/>
 		<allow service="metadata.relation"/>
 		<allow service="metadata.show.embedded"/> <!--  ETj -->
+		<allow service="metadata.show.embedded.buttons"/> <!--  TDP -->
 		<allow service="remote.show"/>
 		<allow service="rating.popup"/>
 
@@ -397,6 +398,8 @@
         <allow service="xml.csi.comuni.get"/>
         <allow service="xml.csi.comuni.getByProv"/>
         <allow service="xml.csi.province.get"/>
+		
+		<allow service="rndt.xml"/>
 
         <allow service="rndt.xml"/>
 

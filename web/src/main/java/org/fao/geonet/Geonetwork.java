@@ -200,6 +200,9 @@ public class Geonetwork implements ApplicationHandler
 		String dataDir = path + handlerConfig.getMandatoryValue(Geonet.Config.DATA_DIR);
         String luceneConfigXmlFile = handlerConfig.getMandatoryValue(Geonet.Config.LUCENE_CONFIG);
         
+        // CSI: Added to manage uuid prefix
+        String uuidPrefix = handlerConfig.getMandatoryValue(Geonet.Config.UUIDPREFIX);
+        
 		DataStore dataStore = createDataStore(context.getResourceManager().getProps(Geonet.Res.MAIN_DB), luceneDir);
 	
 		searchMan = new SearchManager(path, luceneDir, htmlCacheDir, summaryConfigXmlFile, luceneConfigXmlFile, dataStore, settingMan, dbms);
@@ -220,7 +223,8 @@ public class Geonetwork implements ApplicationHandler
 		if (!_htmlCacheDir.isAbsolute()) {
 			htmlCacheDir = path + htmlCacheDir;
 		}
-		DataManager dataMan = new DataManager(context, searchMan, accessMan, dbms, settingMan, baseURL, htmlCacheDir, dataDir, path);
+		
+		DataManager dataMan = new DataManager(context, searchMan, accessMan, dbms, settingMan, baseURL, htmlCacheDir, dataDir, path, uuidPrefix);
 
 		String schemasDir = path + Geonet.Path.SCHEMAS;
 		String saSchemas[] = new File(schemasDir).list();

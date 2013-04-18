@@ -110,6 +110,8 @@
 	<linkedDatasetMetadata>Dati collegati:</linkedDatasetMetadata>
 	<serviceCreate>Crea un nuovo metadato di un servizio</serviceCreate>
 	<parentSearch js="true">Ricerca un record di metadati da assegnare come genitore del record corrente.</parentSearch>
+	<parentReset js="true">Ripulisce il campo relativo al record di metadati da assegnare come genitore del record corrente.</parentReset>
+	<operatesOnReset js="true">Ripulisce il campo relativo alla risorsa accoppiata.</operatesOnReset>
 	<linkedMetadataSelectionWindowTitle js="true">Selezione dei metadati collegati</linkedMetadataSelectionWindowTitle>
 	<searchText js="true">Ricerca testuale</searchText>
 	<mdTitle js="true">Titolo dei Metadati</mdTitle>
@@ -496,7 +498,7 @@
 	<outputType id="text">Solo testo</outputType>
 	<overwrite>Sovrascrivi i metadati con lo stesso UUID</overwrite>
 	<overwriteFile>Sovrascrivi?</overwriteFile>
-	<owner>Proprietario</owner>
+	<owner>Autore</owner>
 	<ownerRights>Elimina/Privilegi/Categorie sbloccati: si possiedono i diritti di proprietario</ownerRights>
 	<page>Pagina </page>
 	<paper>Cartaceo</paper>
@@ -556,15 +558,17 @@
     <protocolChoice show="-" value="OGC:WNS">OGC-WNS Web Notification Service</protocolChoice>
     <protocolChoice show="-" value="OGC:WPS">OGC-WPS Web Processing Service</protocolChoice>
 	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-ftp--download">File scaricabile (FTP)</protocolChoice>
-	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-http--download">File scaricabile (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-http--download">File scaricabile da repository interno (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-hidden">Download riservato (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-public">Download pubblico  (HTTP)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--ical">iCalendar (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--link">Indirizzo web (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--partners">Indirizzo web di collaboratori (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--related">Risorsa correlata (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--rss">Feed RSS (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--samples">Prodotto d'esempio (URL)</protocolChoice>
-	<protocolChoice show="-" value="External:Link-Hidden-Download">Download esterno nascosto</protocolChoice>
-	<protocolChoice show="-" value="External:Link-Public-Download">Download esterno pubblico</protocolChoice>
+	<!--protocolChoice show="-" value="External:Link-Hidden-Download">Download esterno nascosto</protocolChoice>
+	<protocolChoice show="-" value="External:Link-Public-Download">Download esterno pubblico</protocolChoice-->
 	<protocolChoice show="-" value="UKST">Tipo di servizio sconosciuto</protocolChoice>
 	
 	<!-- INSPIRE Service type defined in MD IR / 1.3.1 Spatial data service type -->
@@ -751,6 +755,7 @@
 				</ul>
 				</div>
 			</help>
+			<SRVRSIdentifierCode>Identificativo risorsa</SRVRSIdentifierCode>
 		</identification>
 		<classification>
 			<!--title>Classificazione di dati geografici e servizi</title-->
@@ -789,6 +794,22 @@
 					Questa è l'estensione geografica della risorsa nello spazio, espressa come area che la contiene. L'area dovrebbe essere espressa con le longitudini limite est ed ovest, con le latitudini limite nord e sud, con una precisione di almeno 2 decimali. 
 				</div>
 			</help>
+			<verticalCRS>CRS Verticale</verticalCRS>
+			<verticalCRSValues>
+				<default></default>
+				<wgs84>
+					<label>EPSG:4979</label>
+					<value>EPSG::4979</value>
+				</wgs84>
+				<wgs84h>
+					<label>EPSG:4326</label>
+					<value>EPSG::4326</value>
+				</wgs84h>
+				<mmario>
+					<label>EPSG:3003</label>
+					<value>EPSG::3003</value>
+				</mmario>
+			</verticalCRSValues>
 		</geoloc>
 		<temporal>
 			<title>Riferimento temporale</title>

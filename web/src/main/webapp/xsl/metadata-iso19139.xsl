@@ -122,6 +122,10 @@
                             onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', 'uuidref');"/>
                         <img src="../../images/find.png" alt="{/root/gui/strings/search}" title="{/root/gui/strings/search}"
                             onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', 'uuidref');" onmouseover="this.style.cursor='pointer';"/>
+                        
+                        <!-- CSI: image button to reset the operatesOn field -->
+                        <img src="../../images/cancel.png" alt="{/root/gui/strings/operatesOnReset}" title="{/root/gui/strings/operatesOnReset}"
+                            onclick="javascript:resetInputField('_{$ref}_uuidref');"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <a href="metadata.show?uuid={@uuidref}">
@@ -2406,9 +2410,9 @@
                                 </xsl:choose>
                             </a>-->
                             
-                            <!-- This modification has been introduced to manage External (public and hidden) link service in the OnlineResource field -->
+                            <!-- CSI: This modification has been introduced to manage External (public and hidden) link service in the OnlineResource field -->
                             <xsl:choose>
-                                <xsl:when test="starts-with(gmd:protocol/gco:CharacterString,'External:Link-Hidden')">
+                                <xsl:when test="contains(gmd:protocol/gco:CharacterString,'http--external-hidden')">
                                     <xsl:if test="string(/root/gui/session/profile)='Administrator' 
                                         or string(/root/gui/session/profile)='Editor' 
                                         or string(/root/gui/session/profile)='RegisteredUser' 
@@ -2430,7 +2434,7 @@
                                         <br/>(External-Link: <xsl:value-of select="$linkage"/>)
                                     </xsl:if>
                                 </xsl:when>
-                                <xsl:when test="starts-with(gmd:protocol/gco:CharacterString,'External:Link-Public')">
+                                <xsl:when test="contains(gmd:protocol/gco:CharacterString,'http--external-public')">
                                     <a href="{$linkage}" target="_new">
                                         <xsl:choose>
                                             <xsl:when test="string($description)!=''">
@@ -2951,7 +2955,8 @@
                                     <xsl:when test="(starts-with($protocol,'WWW:LINK-') or starts-with($protocol,'WWW:DOWNLOAD-')) and $mimeType!=''">
                                         <xsl:attribute name="type"><xsl:value-of select="$mimeType"/></xsl:attribute>
                                     </xsl:when>
-                                    <xsl:when test="starts-with($protocol,'WWW:LINK-')">
+                                    <!-- CSI: modified adding 'WWW:EXTDOWNLOAD-' in order to manage externals download enabling the download button in result-list -->
+                                    <xsl:when test="starts-with($protocol,'WWW:LINK-') or starts-with($protocol,'WWW:EXTDOWNLOAD-')">
                                         <xsl:attribute name="type">text/html</xsl:attribute>
                                     </xsl:when>
                                     <xsl:when test="starts-with($protocol,'WWW:DOWNLOAD-') and contains($linkage,'.jpg')">
@@ -3022,6 +3027,10 @@
                             <link type="wms">
                                 <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
                             </link>
+                        </xsl:when>
+                        <!-- CSI: added in order to manage externals download enabling the download button in result-list -->
+                        <xsl:when test="starts-with($protocol,'WWW:EXTDOWNLOAD-') and contains($protocol,'http--external') and string($linkage)!=''">
+                            <link type="download"><xsl:value-of select="$linkage"/></link>
                         </xsl:when>
                         <xsl:when test="starts-with($protocol,'WWW:DOWNLOAD-') and contains($protocol,'http--download') and not(contains($linkage,$download_check))">
                             <link type="download"><xsl:value-of select="$linkage"/></link>
@@ -3467,10 +3476,20 @@
                     <xsl:variable name="text">
                         <xsl:variable name="ref"
                             select="gco:CharacterString/geonet:element/@ref" />
-                            <input onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
-                                class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" />
+                        
+                            <!-- Input element introduced for CSI  to manage automatic UUID setting -->
+                        
+                            <!--input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                                class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" /-->
+                            <input readonly="readonly" alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                                   class="md" type="text" name="_{$ref}" id="_{$ref}" size="20" />
+                        
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"
                                 onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"/>
+                        
+                            <!-- CSI: image button to reset the parent identifier field -->
+                            <img src="../../images/cancel.png" alt="{/root/gui/strings/parentReset}" title="{/root/gui/strings/parentReset}"
+                                onclick="javascript:resetInputField('_{$ref}');"/>
                     </xsl:variable>
 
                     <xsl:apply-templates mode="simpleElement"

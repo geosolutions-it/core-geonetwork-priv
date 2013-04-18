@@ -526,6 +526,18 @@ function doSaveAction(action,validateAction)
 
 }
 
+/**
+ * Method to reset the input field value.
+ * 
+ * ref - the id of the input field
+ */
+function resetInputField(ref){
+	var el = document.getElementById(ref);
+	if(el){
+		el.value = "";
+	}
+}
+
 function doCancelAction(action, message)
 {
 	if(confirm(message)) {
@@ -1627,10 +1639,10 @@ function setInputCRSel(s){
 	var input = document.getElementById(i.id);
 	var v = input.value;	
    
-    if(s.value == -1)
-		input.value = "";
+    if(s.value == "")
+		input.value = "http://www.rndt.gov.it/ReferenceSystemCode#999";
 	else{
-		if(input.value == "")
+		if(input.value.indexOf("ReferenceSystemCode") != -1)
 			input.value = "http://www.epsg-registry.org/export.htm?gml=urn:ogc:def:crs:" + s.value;
 		else
 			input.value = v.substring(0, v.indexOf('EPSG')) + s.value;

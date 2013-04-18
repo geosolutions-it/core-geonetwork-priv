@@ -144,6 +144,24 @@ class MEF2Exporter {
 					data19139);
 		}
 
+        // look for RNDT conversion file
+        if (schema.contains("iso19139")) {
+            // ie. this is an ISO profil.
+            String path = stylePath + schema + "/convert/toRNDT.xsl";
+            File rndtSheet = new File(path);
+            if (rndtSheet.canRead()) {
+                // Element record needs to be cloned due to transform method in
+                // formatData,
+                // performing a detach() method this element.
+                Element profilMetadata = (Element) record.clone();
+
+                ByteArrayInputStream data19139 = formatData(profilMetadata, true,
+                        path);
+                MEFLib.addFile(zos, uuid + FS + MD_DIR + "metadata.rndt.xml",
+                        data19139);
+            }
+        }
+
 		// --- save native metadata
 		ByteArrayInputStream data = formatData(record);
 		MEFLib.addFile(zos, uuid + FS + MD_DIR + FILE_METADATA, data);

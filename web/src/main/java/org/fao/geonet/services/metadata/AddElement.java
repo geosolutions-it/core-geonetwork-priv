@@ -64,8 +64,11 @@ public class AddElement implements Service
 		String name  = Util.getParam(params, Params.NAME);
 		String child = params.getChildText(Params.CHILD);
 
+		// Added for CSI to manage uuid prefix
+		String uuidPrefix = dataMan.getUuidPrefix();
+				
 		// -- build the element to be added and return it
-		Element elResp = dataMan.addElementEmbedded(dbms, session, id, ref, name, child);
+		Element elResp = dataMan.addElementEmbedded(dbms, session, id, ref, name, child, uuidPrefix);
 		return elResp;
 	}
 }
