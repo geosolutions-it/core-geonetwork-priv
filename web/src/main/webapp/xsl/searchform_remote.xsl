@@ -122,7 +122,7 @@
                         <td colspan="2" style="align: center; padding-top: 7px;">
                             <table class="advsearchfields" width="211px" border="0" cellspacing="0" cellpadding="0">
                                 <tr >
-                                    <td style="background: url({/root/gui/url}/images/arrow-bg.gif) repeat-x;" height="29px" width="30%">
+                                    <td style="background: url({/root/gui/url}/images/arrow-bg.gif) repeat-x;" height="20px" width="30%">
                                     </td>
                                     <td style="padding:0px; margin:0px;" width="36px">
                                         <img width="36px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/arrow-right.gif"/>
@@ -130,7 +130,10 @@
                                     <td style="padding:0px; margin:0px;" width="13px">
                                         <img width="13px" style="padding:0px; margin:0px;"  src="{/root/gui/url}/images/search-left.gif"/>
                                     </td>
-                                    <td align="center" style="background: url({/root/gui/url}/images/search-bg.gif) repeat-x; width: auto; white-space: nowrap; padding-bottom: 8px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runRemoteSearch();" >
+                                    <!-- <td align="center" style="background: url({/root/gui/url}/images/search-bg.gif) repeat-x; width: auto; white-space: nowrap; padding-bottom: 8px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runAdvancedSearch();" >
+                                        <font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
+                                    </td> -->
+                                    <td align="center" style="background-color:#2A628F; width: auto; white-space: nowrap; padding-bottom: 3px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" >
                                         <font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
                                     </td>
                                     <td style="padding:0px; margin:0px;" width="12px">

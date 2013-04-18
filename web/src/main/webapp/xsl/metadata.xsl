@@ -684,7 +684,9 @@
 				and 
 				not(contains($helpLink, '|gmd:MD_Metadata/gmd:spatialRepresentationInfo/gmd:MD_Georectified/gmd:axisDimensionProperties/gmd:MD_Dimension/gmd:resolution|'))
 				and 
-				not(contains($helpLink, '|gmd:MD_Metadata/gmd:spatialRepresentationInfo/gmd:MD_Georectified/gmd:checkPointDescription|'))">
+				not(contains($helpLink, '|gmd:MD_Metadata/gmd:spatialRepresentationInfo/gmd:MD_Georectified/gmd:checkPointDescription|'))
+				and 
+				not(contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:invocationName|'))">
 				<xsl:value-of select="concat('doRemoveElementAction(',$apos,'/metadata.elem.delete',$apos,',',geonet:element/@ref,',',geonet:element/@parent,',',$apos,$id,$apos,',',geonet:element/@min,');')"/>
 			</xsl:if>
 			<xsl:if test="not(geonet:element/@del='true')">
@@ -1023,6 +1025,9 @@
 		<xsl:if test="not(contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS|'))
 				and
 				not(contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem|'))">
+			
+			<!-- for CSI: Code block to hide undesired components -->
+			
 			<tr id="{$id}" type="metadata">
 					<xsl:if test="not($visible) 
 						or
@@ -1036,7 +1041,11 @@
 						or
 						contains($helpLink, '|gml:BaseUnit|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier|')
 						or
-						contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href|')">
+						contains($helpLink, '|gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href|')
+						or
+						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')
+						or
+						contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id')">
 					
 					<xsl:attribute name="style">
 						display:none;
@@ -1056,14 +1065,17 @@
 						<xsl:when test="$helpLink!=''">
 							<span id="stip.{$helpLink}|{$id}" onclick="toolTip(this.id);" class="content" style="cursor:help;">
 								<xsl:choose>
+									<!-- for CSI: labels modifications due to is not possible to modify this on labels.xml file -->
 									<xsl:when test="$title='xlink:href'
 										and contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS/@xlink:href|')">
-										CRS Verticale
+										
+										<xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRS"/>
 									</xsl:when>
 									<xsl:when test="contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code|')
 										or
 										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code|')">
-										Identificativo risorsa
+										
+										<xsl:value-of select="/root/gui/strings/inspireSection/identification/SRVRSIdentifierCode"/>
 									</xsl:when>
 									<xsl:otherwise>
 										<xsl:choose>
@@ -1078,10 +1090,14 @@
 									</xsl:otherwise>
 								</xsl:choose>
 							</span>
-							<xsl:call-template name="asterisk">
+							
+							<!-- for CSI: commented to remove red asterisx -->
+							
+							<!--xsl:call-template name="asterisk">
 								<xsl:with-param name="link" select="$removeLink"/>
 								<xsl:with-param name="edit" select="$edit"/>
-							</xsl:call-template>
+							</xsl:call-template-->
+							
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:call-template name="showTitleWithTag">
@@ -1143,16 +1159,16 @@
 						</xsl:otherwise>
 					</xsl:choose>			
 				
-				    <!-- adding custom SRS selection to the verticalCSR element (CSI) -->
+				    <!-- Adding custom SRS selection to the verticalCSR element (CSI) -->
 					<xsl:if test="$edit=true() and contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:verticalElement/gmd:EX_VerticalExtent/gmd:verticalCRS/@xlink:href|')">
 						<br/>
 						<br/>
 						<span>(Suggerimenti: 
-							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);">	
-								<option value="-1"></option>
-								<option value="EPSG::4979" selected="selected">EPSG:4979</option>
-								<option value="EPSG::4326">EPSG:4326</option>
-								<option value="EPSG::3003">EPSG:3003</option>
+							<select  id="vertCrs" class="md" onchange="setInputCRSel(this);" oncontextmenu="setInputCRSel(this);">	
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/default}" selected="selected"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/default"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84/label"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84h/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/wgs84h/label"/></option>
+								<option value="{/root/gui/strings/inspireSection/geoloc/verticalCRSValues/mmario/value}"><xsl:value-of select="/root/gui/strings/inspireSection/geoloc/verticalCRSValues/mmario/label"/></option>
 							</select>
 					    )</span>
 					</xsl:if>
@@ -1675,8 +1691,25 @@
 						</xsl:choose>
 					</xsl:when>
 
-					<xsl:otherwise>
-						<input class="md" type="{$input_type}" value="{text()}">
+					<xsl:otherwise>						
+						<input class="md" type="{$input_type}">
+							
+							<!-- Choose element introduced for CSI -->
+							<!-- to manage the automatic UUID setting -->
+							<xsl:choose>
+								<xsl:when test="contains($path, 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')
+												or 
+												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')
+												or 
+												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')">
+									<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
+									<xsl:attribute name="readonly">readonly</xsl:attribute>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
+								</xsl:otherwise>
+							</xsl:choose>
+							
 							<xsl:if test="name(.) = 'gco:CharacterString'">
 								<xsl:attribute name="size">43</xsl:attribute>
 							</xsl:if>
@@ -1760,7 +1793,7 @@
 						(name(.)='gmd:LocalisedCharacterString' and ../../geonet:element/@min='1')
 						or ../geonet:element/@min='1'
 						) and $edit">
-						<xsl:attribute name="onkeyup">validateNonEmpty(this);</xsl:attribute>
+<!--						<xsl:attribute name="onkeyup">validateNonEmpty(this);</xsl:attribute>-->
 					</xsl:if>
 					<xsl:value-of select="text()"/>
 				</textarea>
@@ -1791,12 +1824,16 @@
 																
 								<xsl:choose>							
 									<xsl:when test="$value='true'">
-										<xsl:value-of select="$explanationValue"/> (<xsl:value-of>conforme</xsl:value-of>)
+										<xsl:value-of select="$explanationValue"/> 
+										<!-- CSI: disabled this new added element to show only selected value 
+										(<xsl:value-of>conforme</xsl:value-of>) -->
 									</xsl:when>			
 									<xsl:otherwise>
-										<xsl:value-of select="$explanationValue"/> (<xsl:value-of>non conforme</xsl:value-of>)
+										<xsl:value-of select="$explanationValue"/> 
+										<!-- CSI: disabled this new added element to show only selected value 
+										(<xsl:value-of>non conforme</xsl:value-of>) -->
 									</xsl:otherwise>							
-								</xsl:choose>
+								</xsl:choose> 
 								
 							</xsl:when>
 							<xsl:otherwise>
@@ -1873,6 +1910,23 @@
 					<xsl:when test="$name = 'xlink:href' and $parent = 'gmd:verticalCRS'">
 						<input class="md" readonly="readonly" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:when>
+					
+					<!-- CSI: Customizzation in order to allow the UUID setting for the gmd:cornerPoints/gml:Point/gml:id for georectified metadata-->
+					
+					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">
+						<!--input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" /-->
+						
+						<xsl:choose>
+							<xsl:when test="$value != ''">
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$value}" size="{$cols}" />
+							</xsl:when>
+							<xsl:otherwise>
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+							</xsl:otherwise>
+						</xsl:choose>
+						
+					</xsl:when>
+					
 					<xsl:otherwise>
 						<input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
 					</xsl:otherwise>

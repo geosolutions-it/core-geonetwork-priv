@@ -30,6 +30,7 @@ import jeeves.resources.dbms.Dbms;
 import jeeves.server.ServiceConfig;
 import jeeves.server.context.ServiceContext;
 import jeeves.utils.Util;
+
 import org.fao.geonet.GeonetContext;
 import org.fao.geonet.constants.Geonet;
 import org.fao.geonet.constants.Params;
@@ -43,7 +44,12 @@ import org.jdom.Element;
 
 public class Create implements Service
 {
-	public void init(String appPath, ServiceConfig params) throws Exception {}
+	
+	private ServiceConfig _config;
+	
+	public void init(String appPath, ServiceConfig config) throws Exception {
+		_config = config;
+	}
 
 	//--------------------------------------------------------------------------
 	//---

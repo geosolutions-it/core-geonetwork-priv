@@ -86,12 +86,14 @@ public class Edit
 			public static final String IS_HARVESTED= "isHarvested";
 			public static final String HARVEST_INFO= "harvestInfo";
 			public static final String OWNERNAME   = "ownername";
+			public static final String NAME        = "name";
+			public static final String SURNAME     = "surname";
 			public static final String POPULARITY  = "popularity";
 			public static final String RATING      = "rating";
 			public static final String SELECTED    = "selected";
 			public static final String SUBTEMPLATES = "subtemplates";
-      public static final String DISPLAY_ORDER  = "displayOrder";
-      public static final String BASEURL  = "baseUrl";
+			public static final String DISPLAY_ORDER  = "displayOrder";
+			public static final String BASEURL  = "baseUrl";
             public static final String IS_PUBLISHED_TO_ALL = "isPublishedToAll";
 
 			//--- privileges

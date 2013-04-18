@@ -7,23 +7,23 @@
                  xmlns:srv="http://www.isotc211.org/2005/srv"
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  xmlns:geonet="http://www.fao.org/geonetwork"
-                 xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.isotc211.org/2005/gmd/gmd.xsd">
+                 xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/gmd/gmd.xsd">
   <gmd:fileIdentifier xmlns:gmx="http://www.isotc211.org/2005/gmx"
                        xmlns:srv="http://www.isotc211.org/2005/srv">
       <gco:CharacterString>dcc9495c-b706-43e2-aa91-006399c9000c</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
-      <gmd:LanguageCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#LanguageCode" codeListValue="ita"/>
+      <gmd:LanguageCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#LanguageCode" codeListValue="ita">ita</gmd:LanguageCode>
   </gmd:language>
   <gmd:characterSet>
-      <gmd:MD_CharacterSetCode codeListValue="utf8" codeList="./resources/codeList.xml#MD_CharacterSetCode"/>
+      <gmd:MD_CharacterSetCode codeListValue="utf8" codeList="./resources/codeList.xml#MD_CharacterSetCode">utf8</gmd:MD_CharacterSetCode>
   </gmd:characterSet>
   <gmd:parentIdentifier>
       <gco:CharacterString/>
   </gmd:parentIdentifier>
   <gmd:hierarchyLevel>
       <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ScopeCode"
-                        codeListValue="service"/>
+                        codeListValue="service">service</gmd:MD_ScopeCode>
   </gmd:hierarchyLevel>
   <gmd:hierarchyLevelName>
    <gco:CharacterString>service</gco:CharacterString>
@@ -66,7 +66,7 @@
          </gmd:contactInfo>
          <gmd:role>
             <gmd:CI_RoleCode codeListValue="pointOfContact"
-                             codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                             codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode">pointOfContact</gmd:CI_RoleCode>
          </gmd:role>
       </gmd:CI_ResponsibleParty>
   </gmd:contact>
@@ -94,7 +94,7 @@
                      </gmd:date>
                      <gmd:dateType>
                         <gmd:CI_DateTypeCode codeListValue="publication"
-                                             codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode"/>
+                                             codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode">publication</gmd:CI_DateTypeCode>
                      </gmd:dateType>
                   </gmd:CI_Date>
                </gmd:date>
@@ -142,8 +142,8 @@
                         </gmd:CI_Contact>
                      </gmd:contactInfo>
                      <gmd:role>
-                        <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode"
-                                         codeListValue="owner"/>
+                        <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" 
+										 codeListValue="owner">owner</gmd:CI_RoleCode>
                      </gmd:role>
                   </gmd:CI_ResponsibleParty>
                </gmd:citedResponsibleParty>
@@ -190,7 +190,7 @@
                </gmd:contactInfo>
                <gmd:role>
                   <gmd:CI_RoleCode codeListValue="pointOfContact"
-                                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode">pointOfContact</gmd:CI_RoleCode>
                </gmd:role>
             </gmd:CI_ResponsibleParty>
          </gmd:pointOfContact>
@@ -235,8 +235,8 @@
                                           codeListValue="otherRestrictions"/>
                </gmd:accessConstraints>
                <gmd:useConstraints>
-                  <gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode"
-                                          codeListValue=""/>
+                  						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode" 
+						                  codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
                </gmd:useConstraints>
                <gmd:otherConstraints>
                   <gco:CharacterString>Dato pubblico</gco:CharacterString>
@@ -247,7 +247,7 @@
             <gmd:MD_SecurityConstraints>
                <gmd:classification>
                   <gmd:MD_ClassificationCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ClassificationCode"
-                                             codeListValue="unclassified"/>
+                                             codeListValue="unclassified">unclassified</gmd:MD_ClassificationCode>
                </gmd:classification>
             </gmd:MD_SecurityConstraints>
          </gmd:resourceConstraints>
@@ -357,8 +357,8 @@
          <gmd:scope>
             <gmd:DQ_Scope>
                <gmd:level>
-                  <gmd:MD_ScopeCode codeListValue="service"
-                                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ScopeCode"/>
+                  <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                        codeListValue="service">service</gmd:MD_ScopeCode>
                </gmd:level>
 			   <gmd:levelDescription>
 				   <gmd:MD_ScopeDescription>
@@ -374,23 +374,23 @@
                      <gmd:specification>
                         <gmd:CI_Citation>
                            <gmd:title>
-                              <gco:CharacterString>Regolamento (CE) n. 1205/2008 della Commissione del 3 dicembre 2008 recante attuazione della direttiva 2007/2/CE del Parlamento europeo e del Consiglio per quanto riguarda i metadati</gco:CharacterString>
+                              <gco:CharacterString>REGOLAMENTO (UE) N. 1089/2010 DELLA COMMISSIONE del 23 novembre 2010 recante attuazione della direttiva 2007/2/CE del Parlamento europeo e del Consiglio per quanto riguarda l'interoperabilità dei set di dati territoriali e dei servizi di dati territoriali</gco:CharacterString>
                            </gmd:title>
                            <gmd:date>
                               <gmd:CI_Date>
                                  <gmd:date>
-                                    <gco:Date>2008-05-12</gco:Date>
+                                    <gco:Date>2010-12-08</gco:Date>
                                  </gmd:date>
                                  <gmd:dateType>
                                     <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                                         codeListValue="publication"/>
+                                                         codeListValue="publication">publication</gmd:CI_DateTypeCode>
                                  </gmd:dateType>
                               </gmd:CI_Date>
                            </gmd:date>
                         </gmd:CI_Citation>
                      </gmd:specification>
                      <gmd:explanation>
-                        <gco:CharacterString>non compilato</gco:CharacterString>
+                        <gco:CharacterString>non valutato</gco:CharacterString>
                      </gmd:explanation>
                      <gmd:pass>
                         <gco:Boolean/>

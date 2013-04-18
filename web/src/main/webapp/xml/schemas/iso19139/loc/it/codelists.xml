@@ -1461,7 +1461,8 @@ polvere</description>
 		<entry>
 			<code>service</code>
 			<label>Service</label>
-			<description>Le informazioni si applicano alla capacità che un ente fornitore di servizi mette a disposizione di un ente di servizio utente attraverso una serie di interfacce che definiscono un comportamento, come un caso d'uso</description>
+			<!--description>Le informazioni si applicano alla capacità che un ente fornitore di servizi mette a disposizione di un ente di servizio utente attraverso una serie di interfacce che definiscono un comportamento, come un caso d'uso</description-->
+		    <description>Le informazioni si applicano ad un geoservizio</description>
 		</entry>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
@@ -1547,7 +1548,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>biota</code>
-			<label>Biologia</label>
+			<label>Biota</label>
 			<description>Flora e/o fauna nell’ambiente naturale
 				Esempi: fauna selvatica, vegetazione, scienze biologiche, ecologia, habitat
 			</description>
@@ -1562,7 +1563,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>climatologyMeteorologyAtmosphere</code>
-			<label>Climatologia e meteorologia</label>
+			<label>Climatologia - Meteorologia - Atmosfera</label>
 			<description>Processi e  fenomeni dell’atmosfera
 				Esempi: annuvolamento, clima,  condizioni atmosferiche, cambiamenti climatici, precipitazioni</description>
 		</entry>
@@ -1577,7 +1578,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>elevation</code>
-			<label>Quote e prodotti derivati</label>
+			<label>Elevazione</label>
 			<description>Quote sopra o sotto il livello del mare
 				Esempi: altitudine, DEM, batimetria, pendenze e prodotti derivati</description>
 		</entry>
@@ -1611,14 +1612,14 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>imageryBaseMapsEarthCover</code>
-			<label>Mappe di base</label>
+			<label>Mappe di base - Immagini - Copertura terrestre</label>
 			<description>Mappe di base
 				Esempi: copertura territoriale, carte topografiche, immagini</description>
 		</entry>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>intelligenceMilitary</code>
-			<label>Informazioni militari</label>
+			<label>Intelligence - Settore militare</label>
 			<description>Basi, strutture e attività militari
 				Esempi: addestramento, trasporto militare, raccolta di informazioni</description>
 		</entry>
@@ -1638,7 +1639,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>location</code>
-			<label>Posizione</label>
+			<label>Localizzazione</label>
 			<description>Informazioni e servizi sulla
 				localizzazione
 				Esempi:      indirizzi,    reti
@@ -1650,7 +1651,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>oceans</code>
-			<label>Acque marine</label>
+			<label>Acque marine - Oceani</label>
 			<description>Entità e caratteristiche dei
 				corpi d’acqua salata (escluse
 				le acque interne)
@@ -1661,8 +1662,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>planningCadastre</code>
-			<label>Pianificazione del
-				territorio e catasto
+			<label>Pianificazione - Catasto
 			</label>
 			<description>Pianificazione del territorio
 				Esempi: carte dell’uso del
@@ -1699,7 +1699,7 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>transportation</code>
-			<label>Trasporto</label>
+			<label>Trasporti</label>
 			<description>Mezzi e servizi per il
 				trasporto delle persone e/o
 				delle merci
@@ -1712,8 +1712,8 @@ polvere</description>
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>utilitiesCommunication</code>
-			<label>Reti, infrastrutture e
-				servizi di comunicazione
+			<label>Servizi di pubblica utilità - 
+				Comunicazione
 			</label>
 			<description>Energia, acqua e sistemi dei
 				rifiuti, infrastrutture e servizi
@@ -1968,17 +1968,20 @@ polvere</description>
 	<codelist name="srv:SV_CouplingType">
 			<entry>
 					<code>tight</code>
-					<label>Tight</label>
+					<!--label>Tight</label-->
+					<label>Stretto</label>
 					<description>Strettamente accoppiati: dati associati</description>
 			</entry>
 			<entry>
 					<code>mixed</code>
-					<label>Mixed</label>
+					<!--label>Mixed</label-->
+					<label>Misto</label>
 					<description>Accoppiato misto: dati associati, inoltre, potrebbero essere trattati dati esterni</description>
 			</entry>
 			<entry>
 					<code>loose</code>
-					<label>Loose</label>
+					<!--label>Loose</label-->
+					<label>Debole</label>
 					<description>Accoppiamento debole: non ci sono dati associati</description>
 			</entry>
 	</codelist>
