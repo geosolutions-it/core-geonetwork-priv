@@ -558,9 +558,9 @@
     <protocolChoice show="-" value="OGC:WNS">OGC-WNS Web Notification Service</protocolChoice>
     <protocolChoice show="-" value="OGC:WPS">OGC-WPS Web Processing Service</protocolChoice>
 	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-ftp--download">File scaricabile (FTP)</protocolChoice>
-	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-http--download">File scaricabile (HTTP)</protocolChoice>
-	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-hidden">Download esterno nascosto (HTTP)</protocolChoice>
-	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-public">Download esterno pubblico (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:DOWNLOAD-1.0-http--download">File scaricabile da repository interno (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-hidden">Download riservato (HTTP)</protocolChoice>
+	<protocolChoice show="-" value="WWW:EXTDOWNLOAD-1.0-http--external-public">Download pubblico  (HTTP)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--ical">iCalendar (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--link">Indirizzo web (URL)</protocolChoice>
 	<protocolChoice show="-" value="WWW:LINK-1.0-http--partners">Indirizzo web di collaboratori (URL)</protocolChoice>

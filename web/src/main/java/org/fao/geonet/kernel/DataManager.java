@@ -1104,7 +1104,7 @@ public class DataManager
 		// CSI: customization to add a preconfigured perfix for the metadata UUID (see config-metadata.xml)
 		// 
 		if(uuidPrefix != null && !uuidPrefix.equals("")){
-			uuid = uuidPrefix + "-" + uuid;
+			uuid = uuidPrefix + ":" + uuid;
 		}
 
 		//--- generate a new metadata id
