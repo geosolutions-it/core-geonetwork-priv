@@ -329,10 +329,10 @@
 										
 									}]
 							}]
-						}, 
+						}/*, 
 						
 						// South
-						/*{
+						{
 							region:'south',
 							contentEl :'footer',
 							border:false
