@@ -39,8 +39,8 @@
 					value="overlaps"/-->
 							
 				<div style="margin-top:5px">
-					<!-- Region -->
-					<span class="labelField">Ambito</span>
+					<!-- Area -->
+					<span class="labelField"><xsl:value-of select="/root/gui/strings/area"/></span>
 					<select class="content" name="region_simple" id="region_simple" onchange="javascript:doRegionSearchSimple();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
@@ -74,8 +74,8 @@
 				
 				<xsl:if test="$municipalitySearch = 'true'">
 					<div style="margin-top:5px">
-						<!-- Comuni -->						
-					    <span class="labelField">Sottoambito</span>
+						<!-- SubArea -->						
+					    <span class="labelField"><xsl:value-of select="/root/gui/strings/subarea"/></span>
 						<select class="content" style="width: 163px;" name="comune_simple" id="comune_simple" onchange="javascript:comuneSimpleSelected();">
 								<option value="">
 									<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
