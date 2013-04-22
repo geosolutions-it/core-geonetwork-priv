@@ -5,11 +5,10 @@
 	main html footer
 	-->
 	<xsl:template name="footer">
-		<div  align="center" style="padding-right: 25px; background: none repeat scroll 0 0 #1E800C;">
-			<a target="_blank" href="">
-				<img width="20" src="{/root/gui/url}/images/csi/footer.gif" alt="Regione Piemonte logo" align="middle">
-					<span class="footer">Geoportale della regione Piemonte</span>
-				</img>
+		<div  align="center" style="height: 25px;  padding-top: 10px; background: none repeat scroll 0 0 #266397;">
+		
+			<a target="_blank" href="http://www.geo-solutions.it/">			    
+				<img src="{/root/gui/url}/images/geosolutions/poweredby.png" alt="GeoSolutions logo" align="middle"/>
 			</a>
 		</div>
 	</xsl:template>

@@ -329,14 +329,14 @@
 										
 									}]
 							}]
-						}/*, 
+						}, 
 						
 						// South
 						{
 							region:'south',
 							contentEl :'footer',
 							border:false
-						}*/]});
+						}]});
 						
 						
 						mainViewport = new Ext.Viewport({

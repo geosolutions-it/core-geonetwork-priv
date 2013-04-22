@@ -67,11 +67,12 @@
  -->
 
 <!-- <mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-180,-90,180,90), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(-180,-90,180,90)}"> -->
-	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
+	<mapSearch options="{projection: 'EPSG:900913', units: 'meters', maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34,20037508.34, 20037508.34), restrictedExtent: new OpenLayers.Bounds(726654.6740767123, 4236542.5366365, 2056254.6721115718, 5951867.711962168), resolutions: [156543.03390625, 78271.516953125, 39135.7584765625, 19567.87923828125, 9783.939619140625, 4891.9698095703125, 2445.9849047851562, 1222.9924523925781, 611.4962261962891, 305.74811309814453, 152.87405654907226, 76.43702827453613, 38.218514137268066, 19.109257068634033, 9.554628534317017, 4.777314267158508, 2.388657133579254, 1.194328566789627, 0.5971642833948135, 0.29858214169740677, 0.14929107084870338, 0.07464553542435169, 0.037322767712175846, 0.018661383856087923, 0.009330691928043961, 0.004665345964021981, 0.0023326729820109904, 0.0011663364910054952, 5.831682455027476E-4, 2.915841227513738E-4, 1.457920613756869E-4]}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
     <!--layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Catalogo" params="{layers: 'LimiteRegionale,LimitiProvinciali', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
-    <layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:prov2011', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
+	<!--layer server="http://rdc-snsf.com/diss_geoserver/gwc/service/wms" tocName="Backgroung" params="{layers: 'common:blue_marble', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
+	<layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:blue_marble,it.geosolutions:prov2011', format: 'image/jpeg'}" />
   </layers>
  </mapSearch>
 
@@ -82,7 +83,7 @@
         code        CSR code
         default     Indicates the default CRS (values: 0, 1)
 
-    scales: array with scales to show in scale selector control. Empty array, uses scales created from map configuration
+    scales: array with scales to show in scale
 
     layers/layer:
         server      url of the server
@@ -90,13 +91,16 @@
         params      OpenLayers params hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
         options     OpenLayers options hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
  -->
-  <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
+  <mapViewer options="{projection: 'EPSG:900913', units: 'meters', maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34,20037508.34, 20037508.34), restrictedExtent: new OpenLayers.Bounds(726654.6740767123, 4236542.5366365, 2056254.6721115718, 5951867.711962168), resolutions: [156543.03390625, 78271.516953125, 39135.7584765625, 19567.87923828125, 9783.939619140625, 4891.9698095703125, 2445.9849047851562, 1222.9924523925781, 611.4962261962891, 305.74811309814453, 152.87405654907226, 76.43702827453613, 38.218514137268066, 19.109257068634033, 9.554628534317017, 4.777314267158508, 2.388657133579254, 1.194328566789627, 0.5971642833948135, 0.29858214169740677, 0.14929107084870338, 0.07464553542435169, 0.037322767712175846, 0.018661383856087923, 0.009330691928043961, 0.004665345964021981, 0.0023326729820109904, 0.0011663364910054952, 5.831682455027476E-4, 2.915841227513738E-4, 1.457920613756869E-4]}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-        <layer server="http://84.33.2.30/geoserver/wms" tocName="Limiti amministrativi" params="{layers: 'it.geosolutions:prov2011', transparent:'true',format: 'image/png'}" options="{isBaseLayer: true}" />
+	<!--layer server="http://rdc-snsf.com/diss_geoserver/gwc/service/wms" tocName="Backgroung" params="{layers: 'common:blue_marble', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
+	<layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:blue_marble,it.geosolutions:prov2011', format: 'image/jpeg'}" />
   </layers>
-  <scales values="[7500000, 5000000, 2500000,  1000000, 750000, 500000, 250000, 100000, 75000, 50000, 25000, 10000, 7500, 5000, 2500, 1000]" />
-  <!--scales values="[]" /-->    
+  <!--scales values="[]" /-->   
+  <proj>
+    <crs code="EPSG:900913" name="Google Mercator" />
+  </proj>    
   <proj>
     <crs code="EPSG:4326" default="1" name="WGS84 (lat/lon)" />
   </proj>

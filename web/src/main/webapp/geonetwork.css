@@ -106,27 +106,54 @@ td.banner {
 }
 
 td.banner-menu {
-	font-size: 8pt;
-	color: #ffffff;
-	background: #064377;
-	padding-left: 8px;
-	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
-	height: 16px;
+
+        background-color: #e9e9e9;
+        background-image: url('images/bg_menu.png');
+        background-repeat: repeat-x;
+        border-bottom: 1px solid #FFFFFF;
+        color: #fff;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        vertical-align: bottom;
+        background-position: bottom;
 }
 
 td.banner-login {
-	font-size: 8pt;
-	color: #ffffff;
-	/*
-	background-image: url('images/blue-background.gif');
-	*/
-	background: #266397;
-	padding-left: 8px;
-	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
-	height: 16px;
-	vertical-align: middle
+        background-image: none;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #1e800c;
+        color: #fff;
+        font-size: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+        vertical-align: top;
+        background-color: #1e800c;
+        padding-top: 5px;
+}
+
+td.banner-menu a, td.banner-login a{
+        color: #333;
+        text-decoration:none;
+        padding-left: 0px;
+        /*padding-right: 20px;*/
+}
+
+.left-banner {
+        background-color: #e9e9e9;
+        background-image: url('images/bg_menu.png');
+        background-repeat: repeat-x;
+        border-bottom: 1px solid #FFFFFF;
+        color: #333;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        vertical-align: bottom;
+        background-position: bottom;
 }
 
 a.banner {
@@ -140,7 +167,7 @@ a.banner:hover
 }
 
 font.banner-active {
-	color: #ffffff;
+	color: #333;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -168,13 +195,14 @@ button.banner {
 }
 
 a.palette {
-	color: #ffffff;
+	color: #333;
+        font-size: 12px;
 	text-decoration: none;
 }
 
 a.palette:hover
 {
-	background: #064377;
+	background: #BAD3E8;
 }
 
 /* added since the browser adds some margin for the form */

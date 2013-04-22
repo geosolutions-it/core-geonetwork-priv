@@ -41,6 +41,7 @@
 				<div style="margin-top:5px">
 					<!-- Area -->
 					<span class="labelField"><xsl:value-of select="/root/gui/strings/area"/></span>
+					<br/>
 					<select class="content" name="region_simple" id="region_simple" onchange="javascript:doRegionSearchSimple();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
@@ -76,6 +77,7 @@
 					<div style="margin-top:5px">
 						<!-- SubArea -->						
 					    <span class="labelField"><xsl:value-of select="/root/gui/strings/subarea"/></span>
+						<br/>
 						<select class="content" style="width: 163px;" name="comune_simple" id="comune_simple" onchange="javascript:comuneSimpleSelected();">
 								<option value="">
 									<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
@@ -103,7 +105,7 @@
 						<!-- <td align="center" style="background: url({/root/gui/url}/images/search-bg.gif) repeat-x; width: auto; white-space: nowrap; padding-bottom: 8px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runAdvancedSearch();" >
 							<font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
 						</td> -->
-                        <td align="center" style="background-color:#2A628F; width: auto; white-space: nowrap; padding-bottom: 3px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" >
+                        <td align="center" style="background-color:#1e800c; width: auto; white-space: nowrap; padding-bottom: 3px; vertical-align: bottom; cursor:hand;  cursor:pointer;" onclick="runSimpleSearch();" >
 							<font color="#FFFFFF"><strong><xsl:value-of select="/root/gui/strings/search"/></strong></font>
 						</td>
 						<td style="padding:0px; margin:0px;" width="12px">
