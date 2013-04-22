@@ -828,12 +828,12 @@
 		</select>
 	</div>
 
-    <!-- Province e Comuni -->
+    <!-- Area and Subarea (BBOX selection) -->
 	<table  border="0" cellpadding="0" cellspacing="1" style="width:350px;">
 		<tr>
 			<td style="width:200px;">
 				<div class="row">
-					<span class="labelField">Ambito<!--xsl:value-of select="/root/gui/strings/region"/--></span>
+					<span class="labelField"><xsl:value-of select="/root/gui/strings/area"/></span>
 					<select class="content" style="width: 223px;" name="region" id="region" onchange="javascript:doRegionSearchAdvanced();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
@@ -870,7 +870,7 @@
 		<xsl:if test="$municipalitySearch = 'true'">
 			<tr>
 				<td>
-					<span class="labelField">Sottoambito</span>
+					<span class="labelField"><xsl:value-of select="/root/gui/strings/subarea"/></span>
 					<select class="content" style="width: 223px;" name="comune" id="comune" onchange="javascript:comuneAdvancedSelected();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
