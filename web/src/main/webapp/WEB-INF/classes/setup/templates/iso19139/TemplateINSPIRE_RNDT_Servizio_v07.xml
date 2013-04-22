@@ -272,18 +272,18 @@
             <gmd:EX_Extent>
                <gmd:geographicElement>
                   <gmd:EX_GeographicBoundingBox>
-                     <gmd:westBoundLongitude>
-                        <gco:Decimal>6.62</gco:Decimal>
-                     </gmd:westBoundLongitude>
-                     <gmd:eastBoundLongitude>
-                        <gco:Decimal>9.21</gco:Decimal>
-                     </gmd:eastBoundLongitude>
-                     <gmd:southBoundLatitude>
-                        <gco:Decimal>44.06</gco:Decimal>
-                     </gmd:southBoundLatitude>
-                     <gmd:northBoundLatitude>
-                        <gco:Decimal>46.46</gco:Decimal>
-                     </gmd:northBoundLatitude>
+						<gmd:westBoundLongitude>
+							<gco:Decimal>6.52765</gco:Decimal>
+						</gmd:westBoundLongitude>
+						<gmd:eastBoundLongitude>
+							<gco:Decimal>18.47165</gco:Decimal>
+						</gmd:eastBoundLongitude>
+						<gmd:southBoundLatitude>
+							<gco:Decimal>35.532933</gco:Decimal>
+						</gmd:southBoundLatitude>
+						<gmd:northBoundLatitude>
+							<gco:Decimal>47.059967</gco:Decimal>
+						</gmd:northBoundLatitude>
                   </gmd:EX_GeographicBoundingBox>
                </gmd:geographicElement>
           </gmd:EX_Extent>

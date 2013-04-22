@@ -67,10 +67,11 @@
  -->
 
 <!-- <mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-180,-90,180,90), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(-180,-90,180,90)}"> -->
-	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.53149,43.9004,9.25453,46.5765), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.53149,43.9004,9.25453,46.5765)}">
+	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-    <layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Catalogo" params="{layers: 'LimiteRegionale,LimitiProvinciali', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
+    <!--layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Catalogo" params="{layers: 'LimiteRegionale,LimitiProvinciali', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
+    <layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:prov2011', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
   </layers>
  </mapSearch>
 
@@ -89,10 +90,10 @@
         params      OpenLayers params hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
         options     OpenLayers options hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
  -->
-  <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-9.378817,34.805671,23.816914,53.977095), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.53149,43.9004,9.25453,46.5765)}">
+  <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-        <layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Limiti amministrativi" params="{layers: 'LimiteRegionale,LimitiProvinciali', transparent:'true',format: 'image/png'}" options="{isBaseLayer: true}" />
+        <layer server="http://84.33.2.30/geoserver/wms" tocName="Limiti amministrativi" params="{layers: 'it.geosolutions:prov2011', transparent:'true',format: 'image/png'}" options="{isBaseLayer: true}" />
   </layers>
   <scales values="[7500000, 5000000, 2500000,  1000000, 750000, 500000, 250000, 100000, 75000, 50000, 25000, 10000, 7500, 5000, 2500, 1000]" />
   <!--scales values="[]" /-->    

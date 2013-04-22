@@ -580,6 +580,8 @@
 	<recentAdditions>Derniers ajouts</recentAdditions>
 	<refSysTab>Système de Réf.</refSysTab>
 	<region>Région</region>
+        <area>Portée</area>
+	<subarea>Sous Portée</subarea>
 	<register>Créer un compte</register>
 	<registerChoose>Je souhaite </registerChoose>
 	<RegisteredUser>Utilisateur enregistré</RegisteredUser>
@@ -741,6 +743,7 @@
 				</ul>
 				</div>
 			</help>
+			<SRVRSIdentifierCode>Identification de ressource</SRVRSIdentifierCode>
 		</identification>
         <classification>
             <title>Classification des données ou services</title>
@@ -777,6 +780,22 @@
 					This is the extent of the resource in the geographic space, given as a bounding box. The bounding box shall be expressed with westbound and eastbound longitudes, and southbound and northbound latitudes in decimal degrees, with a precision of at least 2 decimals. 
 				</div>
 			</help>
+			<verticalCRS>CRS Verticales</verticalCRS>
+			<verticalCRSValues>
+				<default></default>
+				<wgs84>
+					<label>EPSG:4979</label>
+					<value>EPSG::4979</value>
+				</wgs84>
+				<wgs84h>
+					<label>EPSG:4326</label>
+					<value>EPSG::4326</value>
+				</wgs84h>
+				<mmario>
+					<label>EPSG:3003</label>
+					<value>EPSG::3003</value>
+				</mmario>
+			</verticalCRSValues>
 		</geoloc>
         <temporal>
             <title>Référence temporelle</title>

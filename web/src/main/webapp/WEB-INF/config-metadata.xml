@@ -97,7 +97,7 @@
 <!--				<call name="regions"       class =".guiservices.regions.Get"/>-->
                 <call name="regions" class="jeeves.services.db.Select">
                     <param name="db" value="main-db" />
-                    <param name="query" value="SELECT * FROM Province ORDER BY label" />
+                    <param name="query" value="SELECT * FROM Ambito ORDER BY label" />
                 </call>
 
 				<call name="sources"       class =".guiservices.util.Sources"/>
@@ -121,7 +121,7 @@
 <!--				<call name="regions"       class =".guiservices.regions.Get"/>-->
                 <call name="regions" class="jeeves.services.db.Select">
                     <param name="db" value="main-db" />
-                    <param name="query" value="SELECT * FROM Province ORDER BY label" />
+                    <param name="query" value="SELECT * FROM Ambito ORDER BY label" />
                 </call>
 
 				<call name="sources"       class =".guiservices.util.Sources"/>
@@ -148,7 +148,7 @@
 <!--				<call name="regions"       class =".guiservices.regions.Get"/>-->
                 <call name="regions" class="jeeves.services.db.Select">
                     <param name="db" value="main-db" />
-                    <param name="query" value="SELECT * FROM Province ORDER BY label" />
+                    <param name="query" value="SELECT * FROM Ambito ORDER BY label" />
                 </call>
 
 				<call name="sources"       class =".guiservices.util.Sources"/>

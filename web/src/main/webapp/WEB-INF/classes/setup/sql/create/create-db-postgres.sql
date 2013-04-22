@@ -355,15 +355,15 @@ CREATE TABLE IndexLanguages
   );
 --  -- ======================================================================
 
-CREATE TABLE Province
+CREATE TABLE Ambito
   (
     id     int,
 
     code    char(3) not null,
     label   varchar(96)   not null,
 
-    north  float   not null,
     south  float   not null,
+    north  float   not null,    
     west   float   not null,
     east   float   not null,
 
@@ -372,20 +372,20 @@ CREATE TABLE Province
   );
 
   
-CREATE TABLE Comuni
+CREATE TABLE Sottoambito
   (
     id     int,
 
-    code    int2 not null,
-    label   varchar(96)   not null,
+    ambcode    char(3) not null,
+    code    int2 not null,	
+    label   varchar(96)   not null,	
 
-    north  float   not null,
     south  float   not null,
+    north  float   not null,    
     west   float   not null,
     east   float   not null,
-
-    provCode    char(3) not null,
-    foreign key(provCode) references Province(code),
+    
+    foreign key(ambcode) references Ambito(code),
 
     primary key(id)
   );
