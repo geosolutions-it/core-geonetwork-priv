@@ -61,9 +61,9 @@ public class GetProvincia implements Service
             } catch (NumberFormatException e) {
                 throw new BadParameterEx("id", sid);
             }
-            response = dbms.select("select * from province where id=?", id);
+            response = dbms.select("select * from ambito where id=?", id);
         } else if (code != null) {
-            response = dbms.select("select * from province where code=?", code);
+            response = dbms.select("select * from ambito where code=?", code);
         } else {
             throw new IllegalStateException();
         }

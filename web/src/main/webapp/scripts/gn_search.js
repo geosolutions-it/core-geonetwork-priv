@@ -549,14 +549,14 @@ function comuneAdvancedSelected() {
   $('comune_simple').value = $('comune').value;
 }
 
-function doAjaxMunicipality(provId, loadingImg){    
+function doAjaxMunicipality(ambId, loadingImg){    
 
-    if(provId && provId != "" && provId != 'userdefined'){
+    if(ambId && ambId != "" && ambId != 'userdefined'){
 	    
 		var envURL = Env.url + (loadingImg ? loadingImg : "/images/grid-loading.gif");
 		document.getElementById('comunegif').innerHTML = "<img src=\"" + envURL + "\">";
 		
-		var serviceURL = Env.locService + "/xml.csi.comuni.getByProv?provId=" + provId;
+		var serviceURL = Env.locService + "/xml.csi.comuni.getByProv?ambId=" + ambId;
 		
 		Ext.Ajax.request({
 		   url: serviceURL,

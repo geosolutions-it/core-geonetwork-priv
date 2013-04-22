@@ -45,28 +45,28 @@ public class GetComuniByProv implements Service
 	{
 //		GeonetContext gc = (GeonetContext) context.getHandlerContext(Geonet.CONTEXT_NAME);
 
-		String provId      = params.getChildText("provId");
-		String provCode    = params.getChildText("provCode");
-		String provName    = params.getChildText("provName");
+		String ambId      = params.getChildText("ambId");
+		String ambCode    = params.getChildText("ambCode");
+		String ambName    = params.getChildText("ambName");
 
-        if(provId == null && provCode == null && provName == null)
-            throw new MissingParameterEx("provId or provCode or provName", params);
+        if(ambId == null && ambCode == null && ambName == null)
+            throw new MissingParameterEx("ambId or ambCode or ambName", params);
 
         Dbms dbms = (Dbms) context.getResourceManager().open (Geonet.Res.MAIN_DB);
 
         Element response;
-        if(provId != null) {
+        if(ambId != null) {
             int id;
             try {
-                 id = Integer.parseInt(provId);
+                 id = Integer.parseInt(ambId);
             } catch (NumberFormatException e) {
-                throw new BadParameterEx("provId", provId);
+                throw new BadParameterEx("ambId", ambId);
             }
-            response = dbms.select("select c.* from comuni c, province p where p.id=? and p.code=c.provCode order by c.label", id);
-        } else if (provCode != null) {
-            response = dbms.select("select * from comuni where provCode=? order by label", provCode);
-        } else if (provName != null) {
-            response = dbms.select("select c.* from comuni c, province p where p.label=? and p.code=c.provCode order by c.label", provName);
+            response = dbms.select("select c.* from sottoambito c, ambito p where p.id=? and p.code=c.ambCode order by c.label", id);
+        } else if (ambCode != null) {
+            response = dbms.select("select * from sottoambito where ambCode=? order by label", ambCode);
+        } else if (ambName != null) {
+            response = dbms.select("select c.* from sottoambito c, ambito p where p.label=? and p.code=c.ambCode order by c.label", ambName);
         } else {
             throw new IllegalStateException();
         }

@@ -681,10 +681,10 @@ function handleCheckboxAsBoolean (input, ref) {
 	}
 }
 
-function getMunicipality(provLabel){    
-    if(provLabel && provLabel != "" && provLabel != 'userdefined' && $('comune-medatata')){
+function getMunicipality(ambLabel){    
+    if(ambLabel && ambLabel != "" && ambLabel != 'userdefined' && $('comune-medatata')){
 		
-		var serviceURL = Env.locService + "/xml.csi.comuni.getByProv?provName=" + provLabel;
+		var serviceURL = Env.locService + "/xml.csi.comuni.getByProv?ambName=" + ambLabel;
 		
 		Ext.Ajax.request({
 		   url: serviceURL,

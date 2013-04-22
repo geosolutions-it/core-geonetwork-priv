@@ -590,6 +590,8 @@
 	<recentAdditions>Modifiche recenti</recentAdditions>
 	<refSysTab>Sistema di riferimento</refSysTab>
 	<region>Regione</region>
+    <area>Ambito</area>
+	<subarea>Sottoambito</subarea>
 	<register>Registra</register>
 	<registerChoose>Voglio </registerChoose>
 	<RegisteredUser>Utente registrato</RegisteredUser>

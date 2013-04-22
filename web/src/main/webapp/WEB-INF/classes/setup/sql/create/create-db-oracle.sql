@@ -327,15 +327,15 @@ ALTER TABLE MetadataNotifications ADD FOREIGN KEY (notifierId) REFERENCES Metada
 ALTER TABLE CswServerCapabilitiesInfo ADD FOREIGN KEY (langId) REFERENCES Languages (id);
 
 
-CREATE TABLE Province
+CREATE TABLE Ambito
   (
     id     int,
 
     code    char(3) not null,
     label   varchar(96)   not null,
 
-    north  float   not null,
     south  float   not null,
+    north  float   not null,    
     west   float   not null,
     east   float   not null,
 
@@ -344,22 +344,21 @@ CREATE TABLE Province
   );
 
   
-CREATE TABLE Comuni
+CREATE TABLE Sottoambito
   (
     id     int,
 
-    code    int not null,
-    label   varchar(96)   not null,
+	ambcode    char(3) not null,
+    code    int not null,	
+    label   varchar(96)   not null,	
 
-    north  float   not null,
     south  float   not null,
+    north  float   not null,    
     west   float   not null,
     east   float   not null,
-
-    provCode    char(3) not null,
 
     primary key(id)
   );
 
-ALTER TABLE Comuni ADD FOREIGN KEY (provCode) REFERENCES Province(code);
+ALTER TABLE Sottoambito ADD FOREIGN KEY (ambCode) REFERENCES Ambito(code);
   

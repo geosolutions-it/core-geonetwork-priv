@@ -60,7 +60,7 @@ public class GetComune implements Service
             } catch (NumberFormatException e) {
                 throw new BadParameterEx("id", sid);
             }
-            response = dbms.select("select * from comuni where id=?", id);
+            response = dbms.select("select * from sottoambito where id=?", id);
         } else if (scode != null) {
             int code;
             try {
@@ -68,7 +68,7 @@ public class GetComune implements Service
             } catch (NumberFormatException e) {
                 throw new BadParameterEx("code", scode);
             }
-            response = dbms.select("select * from comuni where code=?", code);
+            response = dbms.select("select * from sottoambito where code=?", code);
         } else {
             throw new IllegalStateException();
         }
