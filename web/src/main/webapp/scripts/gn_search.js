@@ -109,11 +109,42 @@ function resetSimpleSearch()
 /* make sure all values are completely reset (instead of just using the default
    form.reset that would only return to the values stored in the session */
     setParam('any','');
-    setParam('relation','overlaps');	
+    setParam('relation','overlaps');
+	
+	//
+	// Clear areas in simple search to keep synch
+	//
     setParam('region_simple',null);
+	
+	// reset subarea form
+	var comune = document.getElementById('comune_simple');
+	if(comune){
+		comune.innerHTML = "";
+		document.getElementById('comunegif').innerHTML = "";
+		
+		var firstOpt = document.createElement("option"); 
+		firstOpt.value = -1;
+		firstOpt.innerHTML = "- Qualunque -";
+		comune.appendChild(firstOpt);
+	}
+	
+	//
 	// Clear also region in advanced search to keep synch
-	setParam('region',null);
-    
+	//
+    setParam('region',null);
+	
+	// reset subarea form
+	var comune = document.getElementById('comune');
+	if(comune){
+		comune.innerHTML = "";
+		document.getElementById('comunegif').innerHTML = "";
+		
+		var firstOpt = document.createElement("option"); 
+		firstOpt.value = -1;
+		firstOpt.innerHTML = "- Qualunque -";
+		comune.appendChild(firstOpt);
+	}
+	    
     $('northBL').value='90';
     $('southBL').value='-90';
     $('eastBL').value='180';
@@ -350,6 +381,18 @@ function resetAdvancedSearch()
 	
 	// Clear also region in simple search to keep synch
 	setParam('region_simple',null);
+	
+	// reset subarea form
+	var comune = document.getElementById('comune_simple');
+	if(comune){
+		comune.innerHTML = "";
+		document.getElementById('comunegif').innerHTML = "";
+		
+		var firstOpt = document.createElement("option"); 
+		firstOpt.value = -1;
+		firstOpt.innerHTML = "- Qualunque -";
+		comune.appendChild(firstOpt);
+	}
 	
 	$('northBL').value='90';
 	$('southBL').value='-90';
