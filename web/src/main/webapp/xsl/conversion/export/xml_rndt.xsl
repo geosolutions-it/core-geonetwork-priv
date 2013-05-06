@@ -347,7 +347,7 @@
 
     <!-- Remove the full time extent if neither begin not end postion is defined -->
 
-    <xsl:template match="gmd:MD_DataIdentification/gmd:extent">
+    <xsl:template match="gmd:MD_DataIdentification/gmd:extent|srv:SV_ServiceIdentification/srv:extent">
         <xsl:choose>
             <!-- both start and end position missing -->
             <xsl:when test="gmd:EX_Extent/gmd:temporalElement and not(string(gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition)) and not(string(gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition))">
