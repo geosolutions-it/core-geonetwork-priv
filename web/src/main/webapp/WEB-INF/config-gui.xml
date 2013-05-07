@@ -93,7 +93,7 @@
   <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-        <layer server="http://84.33.2.30/geoserver/wms" tocName="Limiti amministrativi" params="{layers: 'it.geosolutions:prov2011', transparent:'true',format: 'image/png'}" options="{isBaseLayer: true}" />
+    <layer server="http://wiz.acque.net/geoserver/wms" tocName="Catalogo" params="{layers: 'acque:confini_comunali', styles:'comuni', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
   </layers>
   <scales values="[7500000, 5000000, 2500000,  1000000, 750000, 500000, 250000, 100000, 75000, 50000, 25000, 10000, 7500, 5000, 2500, 1000]" />
   <!--scales values="[]" /-->    
