@@ -67,11 +67,11 @@
  -->
 
 <!-- <mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-180,-90,180,90), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(-180,-90,180,90)}"> -->
-	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
+	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(9.6877,42.2387,12.3723,44.4737)}">
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
     <!--layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Catalogo" params="{layers: 'LimiteRegionale,LimitiProvinciali', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
-    <layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:prov2011', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
+    <layer server="http://wiz.acque.net/geoserver/wms" tocName="Catalogo" params="{layers: 'acque:confini_comunali', styles:'comuni', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
   </layers>
  </mapSearch>
 
