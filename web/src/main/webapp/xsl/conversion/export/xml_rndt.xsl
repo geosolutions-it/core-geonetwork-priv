@@ -473,6 +473,62 @@
         <xsl:comment>Date cropped from gco:DateTime "<xsl:value-of select="."/>"</xsl:comment>
     </xsl:template>
 
+    <!-- Remove empty keywords
+         1) remove parent <gmd:descriptiveKeywords> if all <gmd:MD_Keywords> are empty
+         2) remove <gmd:keyword> if empty
+    -->
+    <!--
+        <gmd:identificationInfo> 
+            <srv:SV_ServiceIdentification | gmd:MD_DataIdentification >
+                <gmd:descriptiveKeywords>   0..n, insieme di keywords da un determinato thesaurus
+                    <gmd:MD_Keywords>       1..1
+                        <gmd:keyword>
+                            <gco:CharacterString/>
+                        </gmd:keyword>
+                    </gmd:MD_Keywords>
+                </gmd:descriptiveKeywords>
+    -->
+
+    <!-- Remove empty keywords 1) remove parent <gmd:descriptiveKeywords> if all <gmd:MD_Keywords> are empty -->
+
+    <xsl:template match="gmd:identificationInfo/*/gmd:descriptiveKeywords">
+        <xsl:variable name="concatkw">
+            <xsl:call-template name="extract_keywords_text"/>
+        </xsl:variable>
+
+        <!--<xsl:comment>lista keyword: [<xsl:copy-of select="$concatkw" />]</xsl:comment>-->
+
+        <xsl:choose>
+            <xsl:when test="not(string($concatkw))">
+                <xsl:comment>descriptiveKeywords vuota</xsl:comment>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- Remove empty keywords 2) remove <gmd:keyword> if empty -->
+
+    <xsl:template match="gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword">
+        <xsl:choose>
+            <xsl:when test="not(string(gco:CharacterString))">
+                <xsl:comment>Keyword vuota</xsl:comment>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="extract_keywords_text">
+        <xsl:for-each select="gmd:MD_Keywords/gmd:keyword"><xsl:copy-of select="gco:CharacterString" /></xsl:for-each>
+    </xsl:template>
+
 
     <!-- ================================================================== -->
     <!-- CSW TRANSFORMATIONS ============================================== -->
