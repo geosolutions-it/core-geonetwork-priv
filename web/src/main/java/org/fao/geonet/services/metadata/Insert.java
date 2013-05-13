@@ -113,6 +113,16 @@ public class Insert implements Service
 			if (uuid.length() == 0) uuid = UUID.randomUUID().toString();
 		}
 		else uuid = UUID.randomUUID().toString();
+		
+		// -----------------------------------------------------------
+		// CSI: customization to add a preconfigured perfix for the 
+		//      metadata UUID (see config-metadata.xml)
+		// 
+		String uuidPrefix = dataMan.getUuidPrefix();
+		if(uuidPrefix != null && !uuidPrefix.equals("")){
+			uuid = uuidPrefix + ":" + uuid;
+		}		
+		// -----------------------------------------------------------
 
 		String uuidAction = Util.getParam(params, Params.UUID_ACTION,
 				Params.NOTHING);
