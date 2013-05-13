@@ -402,6 +402,16 @@ public class Importer {
 
 			Log.debug(Geonet.MEF, "Generated new UUID " +  newuuid);
 			uuid = newuuid;
+			
+			// -----------------------------------------------------------
+			// CSI: customization to add a preconfigured perfix for the 
+			//      metadata UUID (see config-metadata.xml)
+			// 
+			String uuidPrefix = dm.getUuidPrefix();
+			if(uuidPrefix != null && !uuidPrefix.equals("")){
+				uuid = uuidPrefix + ":" + uuid;
+			}		
+			// -----------------------------------------------------------
 
 			// set uuid in metadata
 			md.add(index, dm.setUUID(schema, uuid, md.get(index)));
