@@ -83,8 +83,9 @@
 	<noOperatesOn>Nessun dataset collegato</noOperatesOn>
     <linkedDataset>Dataset collegati:</linkedDataset>
     <linkedFeatureCatalogue>Cataloghi di entità collegati:</linkedFeatureCatalogue>
-	<linkedFeatureCatalogueHelp>Aggiungi una relazione tra i metadati correnti 
-              e un catalogo di entità nello standard ISO19110.</linkedFeatureCatalogueHelp>
+	<!-- CSI: <linkedFeatureCatalogueHelp>Aggiungi una relazione tra i metadati correnti 
+              e un catalogo di entità nello standard ISO19110.</linkedFeatureCatalogueHelp> -->
+	<linkedFeatureCatalogueHelp></linkedFeatureCatalogueHelp>
 	<createLinkedFeatureCatalogue>Collega un catalogo di entità</createLinkedFeatureCatalogue>
 	<layerNameHelp js="true">Quando si collegano i metadati sui servizi 
               con uno o più metadati sui dati, 
@@ -95,7 +96,8 @@
 	<createIfNotExistButton js="true">Crea un nuovo record di metadati</createIfNotExistButton>
 	<associateService js="true">Collega metadati di un servizio</associateService>
 	<associateDataset js="true">Collega metadati di dati</associateDataset>
-	<associateServiceHelp>Per aggiungere un collegamento ai metadati di un servizio, ricerca un servizio e definisci un nome di un layer.</associateServiceHelp>
+	<!-- CSI: <associateServiceHelp>Per aggiungere un collegamento ai metadati di un servizio, ricerca un servizio e definisci un nome di un layer.</associateServiceHelp> -->
+	<associateServiceHelp></associateServiceHelp>
 	<associateDatasetHelp>Per aggiungere un collegamento ai dati, vai sulla vista ISO &gt; sezione Identificazione, e operare sugli elementi definiti.</associateDatasetHelp>
 	<addParent>Aggiungi o aggiorna la sezione dei metadati genitore</addParent>
 	<createAssoService>Crea una relazione</createAssoService>

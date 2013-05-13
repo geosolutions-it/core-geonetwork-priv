@@ -75,9 +75,10 @@ class MEF2Exporter {
 		File file = File.createTempFile("mef-", ".mef");
 		FileOutputStream fos = new FileOutputStream(file);
 		ZipOutputStream zos = new ZipOutputStream(fos);
-
+		
         for (Object uuid1 : uuids) {
             String uuid = (String) uuid1;
+            
             createMetadataFolder(context, dbms, uuid, zos, skipUUID, stylePath,
                     format);
         }
@@ -110,7 +111,16 @@ class MEF2Exporter {
 			String uuid, ZipOutputStream zos, boolean skipUUID,
 			String stylePath, Format format) throws Exception {
 
-		MEFLib.createDir(zos, uuid + FS);
+        //
+        // CSI: mod in order to prevent metadata zip import error due to the ":" character.
+		//      Follows the other occurrences of 'dirName' replaced in this fix at uuid value.
+        //
+		String dirName = uuid;
+        if(uuid.contains(":")){
+        	dirName = uuid.replaceAll(":", "_");
+        }
+        
+		MEFLib.createDir(zos, dirName + FS);
 
 		Element record = MEFLib.retrieveMetadata(dbms, uuid);
 
@@ -125,8 +135,8 @@ class MEF2Exporter {
 		String priDir = Lib.resource.getDir(context, "private", id);
 
 		// --- create folders
-		MEFLib.createDir(zos, uuid + FS + DIR_PUBLIC);
-		MEFLib.createDir(zos, uuid + FS + DIR_PRIVATE);
+		MEFLib.createDir(zos, dirName + FS + DIR_PUBLIC);
+		MEFLib.createDir(zos, dirName + FS + DIR_PRIVATE);
 
 		// Always save metadata in iso 19139
 		if (schema.contains("iso19139") && !schema.equals("iso19139")) {
@@ -140,7 +150,7 @@ class MEF2Exporter {
 
 			ByteArrayInputStream data19139 = formatData(profilMetadata, true,
 					path);
-			MEFLib.addFile(zos, uuid + FS + MD_DIR + FILE_METADATA_19139,
+			MEFLib.addFile(zos, dirName + FS + MD_DIR + FILE_METADATA_19139,
 					data19139);
 		}
 
@@ -157,28 +167,28 @@ class MEF2Exporter {
 
                 ByteArrayInputStream data19139 = formatData(profilMetadata, true,
                         path);
-                MEFLib.addFile(zos, uuid + FS + MD_DIR + "metadata.rndt.xml",
+                MEFLib.addFile(zos, dirName + FS + MD_DIR + "metadata.rndt.xml",
                         data19139);
             }
         }
 
 		// --- save native metadata
 		ByteArrayInputStream data = formatData(record);
-		MEFLib.addFile(zos, uuid + FS + MD_DIR + FILE_METADATA, data);
+		MEFLib.addFile(zos, dirName + FS + MD_DIR + FILE_METADATA, data);
 
 		// --- save Feature Catalog
 		String ftUUID = getFeatureCatalogID(context, dbms, uuid);
 		if (!ftUUID.equals("")) {
 			Element ft = MEFLib.retrieveMetadata(dbms, ftUUID);
 			ByteArrayInputStream ftData = formatData(ft);
-			MEFLib.addFile(zos, uuid + FS + SCHEMA + FILE_METADATA, ftData);
+			MEFLib.addFile(zos, dirName + FS + SCHEMA + FILE_METADATA, ftData);
 		}
 
 		// --- save info file
 		byte[] binData = MEFLib.buildInfoFile(context, record, format, pubDir,
 				priDir, skipUUID).getBytes("UTF-8");
 
-		MEFLib.addFile(zos, uuid + FS + FILE_INFO, new ByteArrayInputStream(
+		MEFLib.addFile(zos, dirName + FS + FILE_INFO, new ByteArrayInputStream(
 				binData));
 
 		// --- save thumbnails and maps
@@ -189,7 +199,7 @@ class MEF2Exporter {
 		if (format == Format.FULL) {
 			try {
 				Lib.resource.checkPrivilege(context, id, AccessManager.OPER_DOWNLOAD);
-				MEFLib.savePrivate(zos, priDir, uuid);
+				MEFLib.savePrivate(zos, priDir, dirName);
 			} catch (Exception e) {
 				// Current user could not download private data
 			}
