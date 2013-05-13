@@ -1906,6 +1906,10 @@
 			</xsl:when>
 			<xsl:when test="$edit=true() and $rows=1">
 				
+				<xsl:variable name="uuidValue" select="/root/gmd:MD_Metadata/geonet:info/uuid"/>
+				<xsl:variable name="uuidAfter" select="substring-after($uuidValue, ':')"/>
+				<xsl:variable name="uuidBefore" select="substring-before($uuidValue, ':')"/>
+				
 				<xsl:choose>
 					<xsl:when test="$name = 'xlink:href' and $parent = 'gmd:verticalCRS'">
 						<input class="md" readonly="readonly" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
@@ -1913,15 +1917,13 @@
 					
 					<!-- CSI: Customizzation in order to allow the UUID setting for the gmd:cornerPoints/gml:Point/gml:id for georectified metadata-->
 					
-					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">
-						<!--input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" /-->
-						
+					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">						
 						<xsl:choose>
-							<xsl:when test="$value != ''">
+							<xsl:when test="contains($value, $uuidBefore)">								
 								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$value}" size="{$cols}" />
 							</xsl:when>
 							<xsl:otherwise>
-								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$uuidBefore}-{$uuidAfter}" size="{$cols}" />
 							</xsl:otherwise>
 						</xsl:choose>
 						

@@ -220,12 +220,13 @@
 		        		
 		        		<xsl:choose>
 		        			<xsl:when test="$edit">
-		        				<img src="{/root/gui/url}/images/plus.gif"
+								<!-- CSI: customization to remove addParent link command --> 
+		        				<!-- <img src="{/root/gui/url}/images/plus.gif"
 		        					alt="{/root/gui/strings/linkedParentMetadataHelp}" title="{/root/gui/strings/linkedParentMetadataHelp}" align="absmiddle"/>
 		        				<xsl:text> </xsl:text>
 		        				<a alt="{/root/gui/strings/linkedParentMetadataHelp}"
 		        					title="{/root/gui/strings/linkedParentMetadataHelp}"
-		        					href="javascript:doTabAction('metadata.update', 'metadata');"><xsl:value-of select="/root/gui/strings/addParent"/></a>
+		        					href="javascript:doTabAction('metadata.update', 'metadata');"><xsl:value-of select="/root/gui/strings/addParent"/></a> -->
 		        			</xsl:when>
 		        			<xsl:otherwise>
 		        				<!-- update child option only for iso19139 schema based metadata and admin user -->
@@ -248,7 +249,8 @@
 		        				</xsl:if>
 		        			</xsl:otherwise>
 		        		</xsl:choose>
-		        		<br/>
+						<!-- CSI: customization to remove addParent see the comment above --> 
+		        		<!--br/-->
 		        		<br/>
 	        		</xsl:if>
 		        	
