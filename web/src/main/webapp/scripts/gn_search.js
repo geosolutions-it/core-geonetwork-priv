@@ -109,11 +109,32 @@ function resetSimpleSearch()
 /* make sure all values are completely reset (instead of just using the default
    form.reset that would only return to the values stored in the session */
     setParam('any','');
-    setParam('relation','overlaps');	
+    setParam('relation','overlaps');
+	
+	//
+	// Clear areas in simple search to keep synch
+	//
     setParam('region_simple',null);
+	selectAnyComboAmbito('region_simple');
+	// reset subarea form
+	var comune = document.getElementById('comune_simple');
+	if(comune){
+		document.getElementById('comunegif').innerHTML = "";
+		resetComboAmbito('comune_simple');
+	}
+	
+	//
 	// Clear also region in advanced search to keep synch
-	setParam('region',null);
-    
+	//
+    setParam('region',null);
+	selectAnyComboAmbito('region');
+	// reset subarea form
+	var comune = document.getElementById('comune');
+	if(comune){
+		document.getElementById('comunegif').innerHTML = "";
+		resetComboAmbito('comune');
+	}
+	    
     $('northBL').value='90';
     $('southBL').value='-90';
     $('eastBL').value='180';
@@ -335,21 +356,23 @@ function resetAdvancedSearch()
 	setParam('relation','overlaps');
 
     setParam('region',null);
-	
+	selectAnyComboAmbito('region');
 	// reset comune form
 	var comune = document.getElementById('comune');
 	if(comune){
-		comune.innerHTML = "";
 		document.getElementById('comunegif').innerHTML = "";
-		
-		var firstOpt = document.createElement("option"); 
-		firstOpt.value = -1;
-		firstOpt.innerHTML = "- Qualunque -";
-		comune.appendChild(firstOpt);
+		resetComboAmbito('comune');
 	}
 	
 	// Clear also region in simple search to keep synch
 	setParam('region_simple',null);
+	selectAnyComboAmbito('region_simple');
+	// reset subarea form
+	var comune = document.getElementById('comune_simple');
+	if(comune){
+		document.getElementById('comunegif').innerHTML = "";
+		resetComboAmbito('comune_simple');
+	}
 	
 	$('northBL').value='90';
 	$('southBL').value='-90';
@@ -572,12 +595,12 @@ function doAjaxMunicipality(ambId, loadingImg){
 				xml = xml.getElementsByTagName("response")[0].childNodes;
 				
 				// for adv search
-				var firstOpt = createComuniFirstOption();
-				document.getElementById("comune").appendChild(firstOpt);		
+				/*var firstOpt = createComuniFirstOption();
+				document.getElementById("comune").appendChild(firstOpt);		*/
 
 				// for simple search
-                firstOpt = createComuniFirstOption();				
-			    document.getElementById("comune_simple").appendChild(firstOpt);
+                /*firstOpt = createComuniFirstOption();				
+			    document.getElementById("comune_simple").appendChild(firstOpt);*/
 				
 				var size = xml.length;
 				for(var i=0; i<size; i++){
@@ -615,25 +638,35 @@ function doAjaxMunicipality(ambId, loadingImg){
         resetRegionsComboBox();
 
         // for adv search
-        var firstOpt = createComuniFirstOption();
+        /*var firstOpt = createComuniFirstOption();
         document.getElementById("comune").appendChild(firstOpt);
 
         // for simple search
         firstOpt = createComuniFirstOption();
-        document.getElementById("comune_simple").appendChild(firstOpt);
+        document.getElementById("comune_simple").appendChild(firstOpt);*/
     }
 }
 
 function resetRegionsComboBox(){
 
     // SIMPLE FORM
-	document.getElementById('comune_simple').innerHTML = "";
-
+    resetComboAmbito('comune_simple');
 	// ADV FORM
-	document.getElementById('comune').innerHTML = "";
+	resetComboAmbito('comune');
 	document.getElementById('comunegif').innerHTML = "";
 }
+function resetComboAmbito(id){
+    var firstOpt = $$('#'+id + ' option').first();
+    var comuni =$(id);
+    var sel =document.getElementById(id);
+	sel.innerHTML="";
+    sel.appendChild(firstOpt);
+}
 
+function selectAnyComboAmbito(id){
+    var firstOpt = $(id).options[0].selected=true;
+	
+}
 function createComuniFirstOption(){
 	var firstOpt = document.createElement("option"); 
 	firstOpt.value = -1;
