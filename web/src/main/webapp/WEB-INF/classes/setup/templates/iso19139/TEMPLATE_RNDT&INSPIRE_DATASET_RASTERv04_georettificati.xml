@@ -322,8 +322,8 @@
 				</gmd:MD_SecurityConstraints>
 			</gmd:resourceConstraints>
 			<gmd:spatialRepresentationType>
-				<gmd:MD_SpatialRepresentationTypeCode codeListValue="raster"
-                                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">raster</gmd:MD_SpatialRepresentationTypeCode>
+				<gmd:MD_SpatialRepresentationTypeCode codeListValue="grid"
+													  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode">grid</gmd:MD_SpatialRepresentationTypeCode>
 			</gmd:spatialRepresentationType>
 			<gmd:spatialResolution>
 				<gmd:MD_Resolution>
