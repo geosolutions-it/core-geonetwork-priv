@@ -318,7 +318,6 @@
 					</srv:connectPoint>
 				</srv:SV_OperationMetadata>
 			</srv:containsOperations>
-			<srv:operatesOn uuidref="" xlink:href="http://localhost:8080/geonetwork_264_ita/srv/en/iso19139.xml?uuid==f9c547ef-bc7b-48e8-97ee-9d4c56d1b56d"/>
 	</srv:SV_ServiceIdentification>
   </gmd:identificationInfo>
   <gmd:distributionInfo>
