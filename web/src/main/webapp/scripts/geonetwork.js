@@ -70,7 +70,7 @@ function get_cookie ( cookie_name )
 
 // Forms
 	function goSubmit(form_name) {
-		document.forms[form_name].onsubmit();
+		document.forms[form_name].submit();
 	}
 
 	function goReset(form_name)
