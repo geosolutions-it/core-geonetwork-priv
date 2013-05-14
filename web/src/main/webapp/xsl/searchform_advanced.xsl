@@ -298,7 +298,7 @@
 
             <div class="row">  <!-- div row-->
                 <span class="labelField"><!--Service type--><xsl:value-of select="/root/gui/strings/inspire/what/l15"/></span>
-                <select id="protocol" class="content" style="width:200px; !important">
+                <select id="serviceType" class="content" style="width:200px; !important">
                    <option value="" selected="selected"></option>
                    <xsl:for-each select="/root/gui/strings/protocolChoice[@show='y']">
                        <option value="{@value}">

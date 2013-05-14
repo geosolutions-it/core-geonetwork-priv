@@ -305,7 +305,9 @@ function runAdvancedSearch(type)
 	pars += fetchBoolParam('paper');
 	pars += fetchBoolParam('dynamic');
 	pars += fetchBoolParam('download');
-	pars += fetchParam('protocol').toLowerCase();
+	// CSI
+	//pars += fetchParam('protocol').toLowerCase();
+	pars += fetchParam('serviceType');
 	// CSI
 	//pars += fetchParam('inspirebrontype').toLowerCase();
 	pars += fetchParam('type').toLowerCase();
