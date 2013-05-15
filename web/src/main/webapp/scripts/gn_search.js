@@ -397,7 +397,9 @@ function resetAdvancedSearch()
 	$('paper')   .checked = false;
 	$('dynamic') .checked = false;
 	$('download').checked = false;
-	setParam('protocol',    '');
+	// CSI
+	//setParam('protocol',    '');
+	setParam('serviceType',    '');
 	setParam('template',    'n');
  	setParam('sortBy',      'relevance');
     setParam('sortBy_simple',      'relevance');
