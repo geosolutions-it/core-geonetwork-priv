@@ -1,6 +1,7 @@
 CREATE TABLE Ambito
   (
     id     int,
+	ambcode    int not null,
 
     code    char(3) not null,
     label   varchar(96)   not null,
@@ -19,7 +20,7 @@ CREATE TABLE Sottoambito
   (
     id     int,
 
-	ambcode    char(3) not null,
+	ambcode    int not null,
     code    int not null,	
     label   varchar(96)   not null,	
 
