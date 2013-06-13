@@ -826,7 +826,7 @@
     <module>sde</module>
     <module>web-client</module>
     <module>web</module>
-    <module>geoserver</module>
+    <!--module>geoserver</module-->
   </modules>
   
   <profiles>
