@@ -41,6 +41,7 @@
 				<div style="margin-top:5px">
 					<!-- Area -->
 					<span class="labelField"><xsl:value-of select="/root/gui/strings/area"/></span>
+					<br/>
 					<select class="content" name="region_simple" id="region_simple" onchange="javascript:doRegionSearchSimple();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
@@ -76,6 +77,7 @@
 					<div style="margin-top:5px">
 						<!-- SubArea -->						
 					    <span class="labelField"><xsl:value-of select="/root/gui/strings/subarea"/></span>
+						<br/>
 						<select class="content" style="width: 163px;" name="comune_simple" id="comune_simple" onchange="javascript:comuneSimpleSelected();">
 								<option value="">
 									<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
