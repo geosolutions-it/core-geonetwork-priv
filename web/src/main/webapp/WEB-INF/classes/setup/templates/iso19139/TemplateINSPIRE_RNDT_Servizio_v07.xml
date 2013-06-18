@@ -285,6 +285,7 @@
 							<gco:Decimal>43.84</gco:Decimal>
 						</gmd:northBoundLatitude>
 					</gmd:EX_GeographicBoundingBox>
+				</gmd:geographicElement>
           </gmd:EX_Extent>
          </srv:extent>
          <srv:coupledResource/>
