@@ -65,13 +65,10 @@
         params      OpenLayers params hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
         options     OpenLayers options hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
  -->
-
-<!-- <mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-180,-90,180,90), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(-180,-90,180,90)}"> -->
-	<mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
+  <mapSearch options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(10.35,46.1,12.52,47.1), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(10.35,46.1,12.52,47.1)}">
   <layers>
-<!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-    <!--layer server="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimslimammwms/wms_limitiAmm?" tocName="Catalogo" params="{layers: 'LimiteRegionale,LimitiProvinciali', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
-    <layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:prov2011', format: 'image/jpeg'}" options="{isBaseLayer: true}" />
+    <layer server="http://sdi.provinz.bz.it/geoserver/inspire/wms" tocName="Gemeinden - Comuni"  params="{layers: 'inspire:AU.AdministrativeUnit', transparent: 'true', format: 'image/png'}"  options="{isBaseLayer: true}" />
+  <!--  <layer server="http://sdi.provinz.bz.it/geoserver/inspire/wms" tocName="Transportnetz - Rete di trasporto" params="{layers: 'inspire:TN.CommonTransportElements.TransportLink', format: 'image/png'}" options="{}" />-->
   </layers>
  </mapSearch>
 
@@ -90,12 +87,22 @@
         params      OpenLayers params hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
         options     OpenLayers options hash as expected in new OpenLayers.Layer.WMS(name, url, params, options)
  -->
-  <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(6.52765,35.532933,18.47165,47.059967)}">
+  <!--mapViewer options="{projection: 'EPSG:25832', maxExtent: new OpenLayers.Bounds(560000,5014000,782000,5233000), units: 'm',restrictedExtent: new OpenLayers.Bounds(560000,5014000,782000,5233000)}"-->
+  <mapViewer options="{projection: 'EPSG:4326', maxExtent: new OpenLayers.Bounds(-180,-90,180,90), units: 'degrees', restrictedExtent: new OpenLayers.Bounds(-180,-90,180,90)}">
+<!--6.76,44.87,13.7,47.43 10.35,46.1,12.52,47.1)}"-->
   <layers>
-<!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
-        <layer server="http://84.33.2.30/geoserver/wms" tocName="Limiti amministrativi" params="{layers: 'it.geosolutions:prov2011', transparent:'true',format: 'image/png'}" options="{isBaseLayer: true}" />
+<!--	<layer server="http://plurel.jrc.ec.europa.eu/ArcGIS/services/worldwithEGM/mapserver/wmsserver?" tocName="Ocean World"  params="{layers: '0', transparent: 'true', format: 'image/png'}"  options="{isBaseLayer: true}" />
+-->
+    <layer server="http://sdi.provincia.bz.it:8080/geoserver/inspire/wms?" tocName="NASA Blue Marble"  params="{layers: 'inspire:NASA_BlueMarble_Next_Generation', transparent: 'true', format: 'image/jpeg'}"  options="{isBaseLayer: true}" />
+    
+<!--	<layer server="http://sdi.provinz.bz.it:8080/geoserver/gwc/service/wms" tocName="NASA Blue Marble"  params="{layers: 'inspire:NASA_BlueMarble_Next_Generation', transparent: 'true', format: 'image/jpeg'}"  options="{resolutions: [0.703125, 0.3515625, 0.17578125, 0.087890625, 0.0439453125, 0.02197265625, 0.010986328125, 0.0054931640625, 0.00274658203125, 0.001373291015625, 6.866455078125E-4, 3.4332275390625E-4, 1.71661376953125E-4, 8.58306884765625E-5, 4.291534423828125E-5, 2.1457672119140625E-5, 1.0728836059570312E-5, 5.364418029785156E-6, 2.682209014892578E-6, 1.341104507446289E-6, 6.705522537231445E-7, 3.3527612686157227E-7, 1.6763806343078613E-7, 8.381903171539307E-8, 4.190951585769653E-8, 2.0954757928848267E-8], isBaseLayer: true}" /> -->
+	<layer server="http://sdi.provinz.bz.it:8080/geoserver/gwc/service/wms" tocName="Map APB-PAB"  params="{layers: 'WMTS-WGS84_BASEMAP-APB-PAB', transparent: 'true', format: 'image/png'}"  options="{resolutions: [0.703125, 0.3515625, 0.17578125, 0.087890625, 0.0439453125, 0.02197265625, 0.010986328125, 0.0054931640625, 0.00274658203125, 0.001373291015625, 6.866455078125E-4, 3.4332275390625E-4, 1.71661376953125E-4, 8.5830688476563E-5, 4.2915344238281E-5, 2.1457672119141E-5, 1.072883605957E-5, 5.364418029785E-6]}" />
+ -->
+<!--   	<layer server="http://sdi.provinz.bz.it:8080/geoserver/apb-pab/wms" tocName="Hillshade Digital Surface Model 2.5m"  params="{layers: 'apb-pab:HILLSHADE_DSM_2P5M', transparent: 'true', format: 'image/png'}"  options="{}" />
+    	<layer server="http://sdi.provinz.bz.it:8080/geoserver/inspire/wms" tocName="Administrative unit - Verwaltungseinheit - Unita' amministrativa"  params="{layers: 'inspire:AU.AdministrativeUnit', transparent: 'true', format: 'image/png'}"  options="{opacity: 0.5}" />
+    	<layer server="http://sdi.provinz.bz.it:8080/geoserver/inspire/wms" tocName="Geographical Names - Geografische Bezeichnungen - Nomi geografici"  params="{layers: 'inspire:GN.GeographicalNames', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
   </layers>
-  <scales values="[7500000, 5000000, 2500000,  1000000, 750000, 500000, 250000, 100000, 75000, 50000, 25000, 10000, 7500, 5000, 2500, 1000]" />
+<scales values="[7500000, 5000000, 2500000,  1000000, 750000, 500000, 250000, 100000, 75000, 50000, 25000, 10000, 7500, 5000, 2500, 1000, 500, 250, 100]" />
   <!--scales values="[]" /-->    
   <proj>
     <crs code="EPSG:4326" default="1" name="WGS84 (lat/lon)" />

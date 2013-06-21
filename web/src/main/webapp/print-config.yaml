@@ -48,7 +48,7 @@ layouts:
     mainPage:
       rotation: true
       pageSize: A4
-      backgroundPdf: '${configDir}/template-1_A.pdf'      
+      backgroundPdf: '${configDir}/template.pdf'      
       header:
         height: 50
         items:
@@ -90,7 +90,8 @@ layouts:
           width: 300
           items:
             - !text
-              text: '${now yyyy} GeoNetwork opensource'  
+# pb30821 province style
+              text: '${now dd}.${now MM}.${now yyyy} sdi.provinz.bz.it'  
               fontEncoding: Cp1252
               fontSize: 10                     
         - !text

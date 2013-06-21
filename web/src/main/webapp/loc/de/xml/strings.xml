@@ -608,7 +608,7 @@
 	<schema>Schema</schema>
 	<schematronError>Schematron Fehler</schematronError>
 	<search>Suche</search>
-	<searchAllText>Was?</searchAllText>
+	<searchAllText>Was? [* als Platzhalter]</searchAllText>
 	<searchBox>Suche nach Daten und Informationen</searchBox>
 	<searchIndex>Suchindex</searchIndex>
 	<searching js="true">...Suche nach Metadaten...</searching>
@@ -667,7 +667,7 @@
 	<timeoutChoice value="10">nach 10 Sekunden</timeoutChoice>
 	<timeoutChoice value="20">nach 20 Sekunden</timeoutChoice>
 	<timeoutChoice value="30">nach 30 Sekunden</timeoutChoice>
-	<title>Geonetwork - Das Portal zu räumlichen Information</title>
+	<title>eGeo - Autonome Provinz Bozen</title>
 	<to>Nach</to>
 	<toDateSelector>Auswahl des Enddatums</toDateSelector>
 	<tools>Werkzeuge</tools>
@@ -906,12 +906,14 @@
 		<meta name="DC.language" content="Deutsch Englisch Französich Spanish Russian Chinese Dutch Portuguese"/>
 		<meta name="DC.coverage" content="Global"/>
 	</header_meta>
-	<mainpage1>
-		<h1>Finden Sie Geometadaten mit GeoNetwork.</h1>
-	</mainpage1>
-	<mainpage2>
+	<!-- pb30821: this part is not used 
+<mainpage1>
+		<h1>Finden Sie Geometadaten mit eGeo.</h1>
+</mainpage1>
+<mainpage2>
 		<p>Hier den Text für die Startseite</p>
-	</mainpage2>
+</mainpage2>
+	-->
 	<mainhelp1> Wie suchen Sie... </mainhelp1>
 	<mainhelp2> Hilfe verstecken... </mainhelp2>
 	<mainhelp3>

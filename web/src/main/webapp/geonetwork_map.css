@@ -165,8 +165,10 @@ margin:5px;
 }
 
 .olControlScaleLine {
+/* pb30821 province style: not enabled */
+/*
 display: inline;
-position: static;
+position: static;*/
 font-family:tahoma,arial,helvetica,sans-serif;
 font-size:xx-small;
 bottom:15px;
@@ -211,7 +213,7 @@ font-size:xx-small;
 }
 
 .x-collapsed-title{
-color:#15428B;
+color:#104E8B; /* pb30821 province style */
 font:bold 11px/15px tahoma,arial,verdana,sans-serif;
 padding:2px 5px;
 }

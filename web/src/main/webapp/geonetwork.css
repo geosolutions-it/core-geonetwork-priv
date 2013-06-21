@@ -12,7 +12,7 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 9pt;
 	margin: 0px;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 }
 
 div {
@@ -63,7 +63,7 @@ a {
 	color: #266377;
 	text-decoration: none;
 	*/
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 }
 
 a:hover
@@ -96,9 +96,9 @@ tr.banner {
 
 td.banner {
 	font-size: 8pt;
-	color: #ffffff;
+	color: #eeeeee; /* pb30821 province style */
 	background-image: url('images/blue-background.gif');
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
+	border-bottom: 1px solid #eeeeee; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 .bottom_border {
@@ -107,11 +107,12 @@ td.banner {
 
 td.banner-menu {
 	font-size: 8pt;
-	color: #ffffff;
-	background: #064377;
+	color: #eeeeee; /* pb30821 province style */
+	/*background: #000000;*/
+	background: #104E8B; /* pb30821 province style */
 	padding-left: 8px;
 	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
+	border-bottom: 1px solid #eeeeee; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 	height: 16px;
 }
 
@@ -121,16 +122,16 @@ td.banner-login {
 	/*
 	background-image: url('images/blue-background.gif');
 	*/
-	background: #266397;
+	background: #104E8B; /* pb30821 province style */
 	padding-left: 8px;
 	padding-right: 8px;
-	border-bottom: 1px solid #ffffff; /* moved here from tr since IE accepts it only here */
+	border-bottom: 1px solid #eeeeee; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 	height: 16px;
 	vertical-align: middle
 }
 
 a.banner {
-	color: #ffffff;
+	color: #eeeeee; /* pb30821 province style */
 	text-decoration: none;
 }
 
@@ -140,7 +141,7 @@ a.banner:hover
 }
 
 font.banner-active {
-	color: #ffffff;
+	color: #eeeeee; /* pb30821 province style */
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -154,27 +155,27 @@ input.banner {
 	margin-right: 4px;
 	margin-left: 4px;
 	font: 7pt Verdana;
-	color: #064377;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	color: #000000; /* pb30821 province style */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 button.banner {
 	font-family: Verdana;
 	font-size: 7pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 a.palette {
-	color: #ffffff;
+	color: #eeeeee; /* pb30821 province style */
 	text-decoration: none;
 }
 
 a.palette:hover
 {
-	background: #064377;
+	background: #000000; /* pb30821 province style */
 }
 
 /* added since the browser adds some margin for the form */
@@ -194,7 +195,7 @@ td.content {
 }
 
 .padded-content {
-	/*background: #e7edf5;*/
+	background: #ffffff; /* pb30821 province style */
 	padding: 5px;
 }
 
@@ -217,7 +218,7 @@ td.content {
 }
 
 td.green-content {
-	color: #ffffff;
+	color: #eeeeee; /* pb30821 province style */
 	background: #beb800;
 	font-weight: bold;
 	padding-top: 2px;
@@ -227,8 +228,8 @@ td.green-content {
 }
 
 td.blue-content {
-	color: #ffffff;
-	background: #266397;
+	color: #eeeeee; /* pb30821 province style */
+	background: #104E8B; 
 	/*
 	background-image: url('images/blue-background.gif');
 	*/
@@ -238,16 +239,16 @@ td.blue-content {
 input.content, select.content, textarea.content {
 	font-family: Verdana;
 	font-size: 9pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	max-width: 400px;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 
 .checkbox_results {
 	font-family: Verdana;
 	font-size: 9pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	margin-right: 2px;
 }
 
@@ -267,11 +268,11 @@ select.lang_selector {
 a.content, button.content {
 	font-family: Verdana;
 	font-size: 9pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	max-width: 400px;
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 	background-color: #e7e7e7;
 	text-shadow: gray 2px 2px 3px;
 }
@@ -294,11 +295,11 @@ a.content:hover {
 input.content-small, button.content-small {
 	font-family: Verdana;
 	font-size: 7pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	min-width: 150px;
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 td.padded p {
@@ -311,11 +312,11 @@ legend.block-legend {
 
 fieldset.metadata-block {
 	padding: 5px;
-    border: 1px #266397 solid;
+    border: 1px #104E8B solid; /* pb30821 province style */
 }
 
 fieldset.metadata-block * fieldset {
-    border: 1px #266397 solid;
+    border: 1px #104E8B solid; /* pb30821 province style */
 }
 
 /*******************************************************************************
@@ -332,7 +333,7 @@ td.footer {
 }
 
 a.footer {
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 }
 
 a.footer:hover
@@ -360,19 +361,19 @@ ul.md {
 input.md, select.md, textarea.md {
 	font-family: Verdana;
 	font-size: 8pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	/* max-width: 400; */
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 button.md {
 	font-family: Verdana;
 	font-size: 8pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	/* max-width: 400; */
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 }
 
 /*******************************************************************************
@@ -418,12 +419,12 @@ font.error, font.warning {
 
 
 td.box {
-	border: 2px solid #266397;
-	background: #4683b7;
+	border: 2px solid #104E8B; /* pb30821 province style */
+	background: #b74646; /* pb30821 province style */ 
 }
 
 td.separator {
-	background: #ffffff;
+	background: #eeeeee; /* pb30821 province style */
 	height: 4px;
 	width: 4px;
 }
@@ -431,7 +432,7 @@ td.separator {
 td.dots {
 	width: 0;
 	height: 0;
-	border-top: 1px inset #266397;
+	border-top: 1px inset #104E8B; /* pb30821 province style */
 }
 
 th.padded, td.padded {
@@ -453,7 +454,7 @@ td.spacer {
 }
 
 div.track  {
-	background: #064377;
+	background: #000000; /* pb30821 province style */
 	margin-top:2px;
 }
 
@@ -466,7 +467,7 @@ div.handle {
 {
 	height: 1px;
 	width: 1px;
-	border-left: 1px solid #266397;
+	border-left: 1px solid #104E8B; /* pb30821 province style */
 }
 
 /*******************************************************************************
@@ -512,7 +513,7 @@ Other action buttons
 *******************************************************************************/
 
 .oAcEle {
-    border: 1px solid #266397;
+    border: 1px solid #104E8B; /* pb30821 province style */
     background-color: #e7e7e7;
     position: absolute;
     opacity: .9;
@@ -524,7 +525,7 @@ Other action buttons
 .oAcEle button {
     text-align:left;
     font-family: Verdana;
-    color: #064377;
+    color: #000000; /* pb30821 province style */
     font-size: 8pt;
     cursor: pointer;
     cursor: hand;
@@ -539,7 +540,7 @@ Other action buttons
 Ajax Keyword list
 *******************************************************************************/
 div.keywordSelectorFrame {
-        background: #fff;
+        background: #eee; /* pb30821 province style */
 		position: absolute;
 		padding: 2px;
 		left: 10px;
@@ -551,8 +552,8 @@ div.keywordSelectorFrame {
 }
 
 div.keywordSelector {
-        background: #fff;
-        border: 4px solid #064377;
+        background: #eee; /* pb30821 province style */
+        border: 4px solid #000000; /* pb30821 province style */
 		margin: 2px;
 		padding: 5px;
         cursor: pointer;
@@ -563,7 +564,7 @@ div.keywordSelector {
 }
 
 div.keywordList {
-        background: #fff;
+        background: #eee; /* pb30821 province style */
         cursor: pointer;
         overflow: auto;
 		max-height: 200px;
@@ -624,13 +625,13 @@ div.legend {
 		font-style: italic;
 }
 div.broader {
-        background-color: #8ba4c5;
+        background-color: #C58B8B; /* pb30821 province style */
 }
 div.related {
-        background-color: #d5dfec;
+        background-color: #ecd5d5; /* pb30821 province style */
 }
 div.narrower {
-        background-color: #f7faff;
+        background-color: #eee7f7; /* pb30821 province style */
 }
 
 div.important {
@@ -675,7 +676,7 @@ div.keywordResults ul li.selected {
 
 .geosearchfields{
     padding-bottom: 10px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #104E8B; /* pb30821 province style */
     margin-bottom: 10px;
 }
 
@@ -686,7 +687,7 @@ div.keywordResults ul li.selected {
 
 td.advsearchfields {
     padding-bottom: 10px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #104E8B; /* pb30821 province style */
 /*    margin-bottom: 10px;*/
 
     border-left: 1px solid;
@@ -710,7 +711,7 @@ td.advsearchfields {
 .IMBtn{
 	font-family: Verdana;
 	font-size: 9px;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	cursor: pointer;
 	padding: 2px 8px 2px 2px;
 }
@@ -730,7 +731,7 @@ td.advsearchfields {
 }
 
 #northBL, #eastBL, #southBL, #westBL {
-	margin:  3px;;
+	margin:  3px; /* pb30821 province style */
 }
 
 #inspire {
@@ -763,7 +764,7 @@ label {
 }
 
 imenabled {
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	cursor: pointer;
 }
 
@@ -803,7 +804,7 @@ img.calendar:hover {
 
 .ilwhiteboard {
     position:relative;
-	border: 1px solid #266397;
+	border: 1px solid #104E8B; /* pb30821 province style */
 	margin: 4px;
 }
 
@@ -813,19 +814,19 @@ button.rating
 {
 	font-family: Verdana;
 	font-size: 9pt;
-	color: #064377;
+	color: #000000; /* pb30821 province style */
 	max-width: 400px;
 	width: 100px;
 	cursor: pointer;
 	cursor: hand;
-	border: 1px solid #266397; /* moved here from tr since IE accepts it only here */
+	border: 1px solid #104E8B; /* pb30821 province style */ /* moved here from tr since IE accepts it only here */
 	margin-bottom: 4px;
 }
 
 .ratingBox
 {
 	position: absolute;
-	background-color: #E0E0FF;
+	background-color: #FFE0E0; /* pb30821 province style */
 	border:  solid black 1px;
 	padding: 0px;
 	margin: 0px;
@@ -852,7 +853,7 @@ div#error {
 }
 
 #featured {
-	background-color: #f6fcff;
+	background-color: #E0F0FF; /* pb30821 province style */
 	width: 400px;
 	margin: 10px;
 	padding: 5px;
@@ -865,7 +866,7 @@ div#error {
 }
 
 #resultList {
-	border-top: 1px solid #2a628f;
+	border-top: 1px solid #104e8b; /* pb30821 province style */
 	padding-top: 10px;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -873,7 +874,7 @@ div#error {
 
 #leftcolumn {
 	margin: 20px;
-	border-right: 1px solid #2a628f;
+	border-right: 1px solid #8f2a2a; /* pb30821 province style */
 }
 
 #sortBy.live {
@@ -891,7 +892,7 @@ div.thumbnail {
     margin:2px;
 }
 img.thumbnail {
-    border: 1px solid #266397;
+    border: 1px solid #104E8B; /* pb30821 province style */
  }
  img.thumbnail {
     width: 120px;
@@ -904,7 +905,7 @@ img.thumbnail {
 span.thumbnail {
     font-size: small;
     font-style: italic;
-    color: #2a628f;
+    color: #8f2a2a; /* pb30821 province style */
 }
 
 div.relatedElements {
@@ -958,7 +959,7 @@ div.relatedElements ul li ul li ul {
 }
 
 div.toolTipOverlay {
-	background: #fff;
+	background: #eee; /* pb30821 province style */
     max-width: 600px!important;
     height: auto;
 	font-weight: normal;
@@ -1171,7 +1172,7 @@ div.pageList {
 }
 
 #loading a {
-    color: #225588;
+    color: #882222; /* pb30821 province style */
 }
 
 #loading .loading-indicator {

@@ -93,7 +93,7 @@
     </element>
     <element name="gmd:CI_OnlineResource" id="396.0">
         <label>Risorsa online</label>
-        <description>Riferimento delle fonti online dei dati e/o delle specifiche e/o del profilo di metadati usato</description>
+        <description>Riferimento alla fonte online<!--Riferimento a delle fonti online dei dati e/o delle specifiche e/o del profilo di metadati usato--></description>
 		<_condition>L'obbligatorietà di questo campo dipende dal soggetto referente</_condition>
     </element>
     <element name="gmd:CI_ResponsibleParty" id="374.0">
@@ -133,7 +133,7 @@
         <description>Coerenza con le regole dello schema concettuale</description>
     </element>
     <element name="gmd:DQ_ConformanceResult" id="129.0">
-        <label>Conformità</label>
+        <label>Conformità INSPIRE</label>
         <description>Informazione sulla valutazione di soddisfacimento del livello accettabile di qualità</description>
     </element>
     <element name="gmd:DQ_DataQuality" id="78.0">
@@ -282,7 +282,9 @@
     </element>
     <element name="gmd:MD_Distributor" id="279.0">
         <label>Distributore</label>
-        <description>Informazioni sul distributore</description>
+        <description>Informazioni sul distributore della risorsa</description>
+		<condition>Obbligatorio per RNDT</condition>
+		
     </element>
     <element name="gmd:MD_ExtendedElementInformation" id="306.0">
         <description>Nuovo elemento dei metadati, non nell'ISO 19115, necessario per descrivere i dati geografici</description>
@@ -409,13 +411,15 @@
 	    <!--label>Sommario</label-->
         <label>Descrizione</label>
         <description>Breve testo di descrizione del contenuto della risorsa</description>
-        <condition>obbligatorio</condition>
+        <!--condition>obbligatorio</condition-->
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:accessConstraints" id="70.0">
         <!--label>Vincoli di accesso</label-->
 		<label>Limitazioni all'accesso pubblico</label>
-        <description>Vincoli di accesso a dati e metadati per assicurare la protezione della privacy o della proprietà intellettuale e ogni altra restrizione o limitazione ad ottenere la risorsa </description>
-    </element>
+        <description>Vincoli di accesso ai dati per assicurare la protezione della privacy o della proprietà intellettuale e ogni altra restrizione o limitazione ad ottenere la risorsa </description>
+        <condition>Obbligatorio per RNDT</condition>
+	</element>
     <element name="gmd:address" id="525.0" context="gmd:CI_ResponsibleParty">
         <label>Indirizzo</label>
         <description>Indirizzo del soggetto responsabile</description>
@@ -465,7 +469,7 @@
     <element name="gmd:attributeDescription" id="240.0">
         <label>Descrizione dell'attributo</label>
         <description>Descrizione dell'attributo descritto dal valore di misura</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:attributeInstances" id="153.0">
         <label>Istanze dell'attributo</label>
@@ -482,7 +486,7 @@
         <description>Persona o parte responabile per la manutenzione del namespace</description>
     </element>
     <element name="gmd:axisDimensionProperties" id="159.0">
-        <label>Proprietà dimensionali</label>
+        <label>Proprietà dimensionali - Asse</label>
         <description>Informazioni sulle proprietà delle dimensioni spazio-temporali</description>
         <_condition>M</_condition>
     </element>
@@ -498,7 +502,7 @@
     <element name="gmd:cellGeometry" id="160.0">
         <label>Geometria della cella</label>
         <description>Identificazione dei dati raster come punti o celle</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:centerPoint" id="166.0">
         <label>Punto centrale</label>
@@ -522,12 +526,12 @@
     </element>
     <element name="gmd:checkPointAvailability" id="163.0">
         <description>Indicazione sulla disponibilità dei check-point</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
         <label>Disponibilità dei checkpoint</label>
     </element>
     <element name="gmd:checkPointDescription" id="164.0">
         <description>Descrizione dei checkpoint</description>
-        <condition>conditional</condition>
+        <condition>La compilazione è condizionata alla presenza dei checkpoint</condition>
         <label>Descrizione dei checkpoint</label>
     </element>
     <element name="gmd:citation" id="24.0" context="gmd:MD_Identification">
@@ -558,6 +562,8 @@
         <!--label>Classificazione</label-->
 		<label>Vincoli di sicurezza</label>
         <description>Nome delle restrizioni d'utilizzo sulla risorsa o sui metadati</description>
+		<description>Restrizioni imposte ai dati per questioni di sicurezza</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:classificationSystem" id="76.0">
         <label>Sistema di classificazione</label>
@@ -570,8 +576,8 @@
     </element>
     <element name="gmd:code" id="207.0" context="gmd:MD_Identifier">
         <label>Identificativo risorsa</label>
-        <description>Valore alfanumerico che identifica un’istanza in un namespace</description>
-        <condition>obbligatorio</condition>
+        <description>Riferimento univoco che identifica la risorsa</description>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:code" id="547.0" context="gmd:MD_CodeValue">
         <description>Codice del valore</description>
@@ -580,11 +586,15 @@
 	<element name="gmd:code" id="548.0" context="gmd:RS_Identifier">
 	    <label>Codice</label>
         <description>Codice del Sistema di riferimento</description>
-        <help>Codice del Sistema di riferimento</help>
+        <!--help>Codice del Sistema di riferimento</help-->
+		<condition>obbligatorio per RNDT</condition>
 		<helper>
-			<option value="EPSG:4326">EPSG:4326</option>
-			<option value="EPSG:3003">EPSG:3003</option>
-			<option value="EPSG:4979">EPSG:4979</option>
+		    <option value="ETRS89/UTM-zone32N">ETRS89/UTM-zone32N - EPSG:25832</option>
+			<option value="WGS84/UTM 32N">WGS84/UTM 32N - EPSG:32632</option>
+			<option value="ROMA40/OVEST">ROMA40/OVEST - EPSG:3003</option>
+			<option value="ED50/UTM 32N">ED50/UTM 32N - EPSG:23032</option>
+		   <option value="WGS84">WGS84 - EPSG:4326</option>
+			<!--option value="WGS 84 - EPSG:4979">WGS 84 - EPSG:4979</option-->
 		</helper>
     </element>
     <element name="gmd:codeSpace" id="208.1">
@@ -619,7 +629,7 @@
     <element name="gmd:contact" id="8.0" context="gmd:MD_Metadata">
         <label>Contatto</label>
         <description>Soggetto responsabile dei metadati</description>
-	<condition>obbligatorio</condition>
+	<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:contact" id="148.1" context="gmd:MD_MaintenanceInformation">
         <label>Contact</label>
@@ -639,24 +649,26 @@
         <description>Informazioni aggiuntive su come e quando contattatare un singolo o un'organizzazione</description>
     </element>
     <element name="gmd:contentInfo" id="16.0">
-        <description>Informazioni sulle caratteristiche dei dati di tipo immagine</description>
+        <description>Informazioni sul contenuto della cella di dati raster</description>
         <!--label>Informazioni sul contenuto</label-->
 		<label>Contenuto dei dati raster</label>
     </element>
     <element name="gmd:contentType" id="241.0">
         <label>Tipo di contenuto</label>
         <description>Tipo di informazione rappresentato dal valore della cella</description>
-    </element>
+        <condition>obbligatorio per RNDT</condition>
+	</element>
     <element name="gmd:controlPointAvailability" id="171.0">
         <description>Indicazione se esistono o meno punti di controllo</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
         <label>Disponibilità dei punti di controllo</label>
     </element>
     <element name="gmd:cornerPoints" id="165.0">
         <!--label>Punti angolari</label-->
-		<label>Coordinate dei vertici</label>
-        <description>Posizione sulla Terra nel sistema di riferimento definito dall' SRS e dalla coordinata griglia delle celle agli estremi opposti di un'immagine raster lungo le due diagonali</description>
-        <condition>obbligatorio</condition>
+		<label>Coordinate del vertice</label>
+        <!--description>Posizione sulla Terra nel sistema di riferimento definito dall' SRS e dalla coordinata griglia delle celle agli estremi opposti di un'immagine raster lungo le due diagonali</description-->
+        <description>Coordinate dei vertici della griglia espresse nel proprio sistema di riferimento spaziale.</description>
+		<condition>obbligatorio per RNDT: sono richiesti almeno il vertice origine della griglia e quello opposto lungo la diagonale.</condition>
     </element>
     <element name="gmd:country" id="612.0">
         <label>Nazione</label>
@@ -724,8 +736,8 @@
     </element>
     <element name="gmd:dateStamp" id="9.0">
         <label>Data dei metadati</label>
-        <description>Data di creazione dei metadati (YYYY-MM-DDThh:mm:ss)</description>
-        <condition>obbligatorio</condition>
+        <description>Data di creazione dei metadati (YYYY-MM-DD)</description>
+        <condition>Obbligatorio per RNDT</condition>
     </element>
     <!--<element name="gmd:dateTime" id="89.0">
         <label>Date / Time</label>
@@ -743,7 +755,7 @@
     </element>
     <element name="gmd:dateType" id="395.0">
         <label>Tipo data</label>
-        <description>Evento della data di riferimento</description>
+        <description>Tipologia della data di riferimento</description>
         <condition>obbligatorio</condition>
     </element>
     <element name="gmd:definition" id="310.0">
@@ -758,8 +770,9 @@
     </element>
     <element name="gmd:denominator" id="57.0">
         <label>Denominatore</label>
-        <description>In una frazione, il numero al di sotto della linea</description>
-        <condition>aggiungere sia un denominatore sia una distanza</condition>
+        <description>Denominatore della scala equivalente</description>
+        <!--condition>aggiungere sia un denominatore sia una distanza</condition-->
+		<condition>Obbligatorio per RNDT</condition>
     <helper>
 		<option value="5000">1:5´000</option>
 		<option value="10000">1:10´000</option>
@@ -829,6 +842,7 @@
     <element name="gmd:descriptiveKeywords" id="33.0">
         <label>Parole chiave</label>
         <description>Parole chiave e fonte di riferimento</description>
+		<condition>Obbligatorio indicare almeno un tema INSPIRE selezionato dal Thesaurus GEMET - INSPIRE Themes</condition>
     </element>
     <element name="gmd:descriptor" id="258.0">
         <label>Descrizione</label>
@@ -841,12 +855,12 @@
     <element name="gmd:dimensionName" id="180.0">
         <label>Nome dimensione</label>
         <description>Nome degli assi</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:dimensionSize" id="181.0">
         <label>Misura dimensione</label>
         <description>Numero degli elementi lungo gli assi</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:distance" id="61.0">
         <label>Distanza</label>
@@ -924,7 +938,8 @@
     <element name="gmd:electronicMailAddress" id="386.0">
         <label>E-mail</label>
         <description>Indirizzo di posta elettronica dell'organizzazione responsabile o
-             contatto individuale</description>
+             di un contatto individuale</description>
+		<condition>Obbligatorio per RNDT</condition>	 
     </element>
     <element name="gmd:environmentDescription" id="44.0">
         <label>Descrizione dell'ambiente</label>
@@ -1077,7 +1092,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     </element>
     <element name="gmd:georeferencedParameters" id="174.0">
         <label>Parametri per la georeferenziazione</label>
-        <description>Termini che supportano la georeferenziazione dei dati</description>
+        <description>Parametri necessari per la georeferenziazione dei dati</description>
     </element>
     <element name="gmd:graphicOverview" id="31.0">
         <label>Descrizione grafica</label>
@@ -1095,7 +1110,9 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:hierarchyLevel" id="6.0">
         <!--label>Livello gerarchico</label-->
 		<label>Tipo di risorsa</label>
-        <description>Categoria di informazione cui vengono applicati metadati (es: “dataset”)</description>
+		<description>Categoria di informazione a cui vengono applicati i metadati (es: “dataset”)</description>
+		<!--condition>obbligatorio</condition-->
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:hierarchyLevelName" id="7.0">
         <label>Nome del livello gerarchico</label>
@@ -1156,23 +1173,26 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:issueIdentification" id="405.0">
         <!--label>Identificatore</label-->
 		<label>Identificativo serie/dataset padre</label>
-        <description>Riferimento che identifica la serie (il dataset)</description>
+        <description>Riferimento che identifica la serie o il dataset padre di appartenenza della risorsa</description>
+		<condition>Obbligatorio per RNDT - se non presente ripetere l'identificativo della risorsa</condition>
     </element>
     <element name="gmd:keyword" id="53.0">
         <label>Parola chiave</label>
-        <description>Parola chiave</description>
+        <!--description>Parola chiave</description-->
+		<description>Parola utilizzata comunemente per descrivere la risorsa</description>
     </element>
     <element name="gmd:language" context="gmd:MD_Metadata" id="3.0">
         <label>Lingua dei metadati</label>
         <description>Linguaggio utilizzato per i metadati</description>
-        <condition>conditional</condition>
+        <!--condition>conditional</condition-->
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:language" context="gmd:MD_DataIdentification" id="39.0">
         <!--label>Lingua dei dati</label-->
 		<label>Lingua della risorsa</label>
         <description>Linguaggio utilizzato per i dati</description>
-        <help>Linguaggio utilizzato per i dati</help>
-        <_condition>Obbligatorio</_condition>
+        <!--condition>Obbligatorio</condition-->
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:language" context="gmd:MD_FeatureCatalogueDescription" id="235.0">
         <label>Lingua</label>
@@ -1187,7 +1207,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
         <!--label>Livello</label-->
 		<label>Livello di qualità</label>
         <description>Livello gerarchico dei dati</description>
-        <condition>obbligatorio</condition>
+        <condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:levelDescription" id="141.0">
         <label>Livello di descrizione</label>
@@ -1198,7 +1218,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:lineage" id="81.0">
         <label>Genealogia</label>
         <description>Informazioni descrittive circa la genealogia dei dati</description>
-        <_condition>Conditional / report not provided?</_condition>
+        <condition>Conditional / report not provided?</condition>
     </element>
     <element name="gmd:linkage" id="397.0">
         <label>Sito</label>
@@ -1208,7 +1228,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:maintenanceAndUpdateFrequency" id="143.0">
         <label>Frequenza di aggiornamento</label>
         <description>Frequenza con la quale sono registrati gli aggiornamenti dei dati</description>
-        <condition>obbligatorio</condition>
+        <condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:maintenanceNote" id="148.0">
         <label>Manutenzione</label>
@@ -1222,7 +1242,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:maximumValue" id="356.0">
         <label>Quota massima</label>
         <description>Valore di quota massimo dei dati</description>
-        <condition>obbligatorio</condition>
+        <!--condition>obbligatorio</condition-->
     </element>
     <element name="gmd:measureDescription" id="102.0">
         <label>Descrizione dell misura</label>
@@ -1260,11 +1280,13 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
         <!--label>Nome dello Standard dei metadati</label-->
 		<label>Nome dello Standard</label>
         <description>Nome dello standard (incluso il nome del profilo) di metadati utilizzato</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:metadataStandardVersion" id="11.0">
         <!--label>Versione dello Standard dei metadati</label-->
 		<label>Versione dello Standard</label>
         <description>Versione dello standard/profilo utilizzato</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:minValue" id="261.0">
         <label>Valore minimo</label>
@@ -1273,7 +1295,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:minimumValue" id="355.0">
         <label>Quota minima</label>
         <description>Valore di quota minimo dei dati</description>
-        <condition>obbligatorio</condition>
+        <!--condition>obbligatorio</condition-->
     </element>
     <element name="gmd:name" context="gmd:MD_AbstractClass" id="560.0">
         <label>Nome</label>
@@ -1292,13 +1314,18 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
         <!--label>Nome</label-->
 		<label>Formato</label>
         <description>Nome formato</description>
-        <help>Nome del formato dei dati</help>
-        <condition>obbligatorio</condition>
+        <!--help>Nome del formato dei dati</help-->
+        <condition>Obbligatorio per RNDT</condition>
         <helper>
-			<option value="fake1">fake1</option>
-			<option value="fake2">fake2</option>
-			<option value="fake3">fake3</option>
-			<option value="fake4">fake4</option>
+			<option value="Autodesk AutoCAD DWG/DXF">Autodesk AutoCAD DWG/DXF</option>
+			<option value="ESRI Shape">ESRI Shape</option>
+			<option value="ESRI Ascii Grid">ESRI Ascii Grid</option>
+			<option value="ESRI ArcSDE">ESRI ArcSDE</option>
+			<option value="ESRI ArcInfo Export (E00)">ESRI ArcInfo Export (E00)</option>
+			<option value="ESRI ArcInfo Coverage">ESRI ArcInfo Coverage</option>
+			<option value="SDO Oracle Spatial">SDO Oracle Spatial </option>
+			<option value="ECW">ECW </option>
+			<option value="TIFF">TIFF </option>
 		</helper>
     </element>
     <element name="gmd:name" context="gmd:MD_ExtendedElementInformation" id="307.0">
@@ -1352,7 +1379,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:numberOfDimensions" id="158.0">
         <label>Numero delle dimensioni</label>
         <description>Numero degli assi spaziali-temporali indipendenti</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:obligation" id="311.0">
         <label>Obligation</label>
@@ -1369,7 +1396,8 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:onLine" id="277.0">
         <!--label>Risorsa online</label-->
 		<label>Localizzatore della risorsa</label>
-        <description>Informazioni sulle fonti online dalle quali la risorsa può essere ottenuta</description>
+        <description>Informazioni sulle fonti online dalle quali la risorsa può essere ottenuta o da cui si possono ottenere informazioni aggiuntive</description>
+		<condition>obbligatorio per RNDT </condition>
     </element>
     <element name="gmd:onlineResource" id="390.0">
         <help>Definire l'URL per accedere al sito web</help>
@@ -1386,21 +1414,13 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
         <description>Nome dell’organizzazione responsabile</description>
         <condition>conditional</condition>
 		<helper>
-			<option value="fake1">fake1</option>
-			<option value="fake2">fake2</option>
-			<option value="fake3">fake3</option>
-			<option value="fake4">fake4</option>
-			<option value="fake5">fake5</option>
-			<option value="fake6">fake6</option>
-			<option value="fake7">fake7</option>
-			<option value="fake8">fake8</option>
-			<option value="fake9">fake9</option>
+			<option value="Provincia di Bolzano">Provincia di Bolzano</option>
 		</helper>
     </element>
     <element name="gmd:orientationParameterAvailability" id="172.0">
         <label>Disponibilità dei parametri di orientamento</label>
         <description>Indicazione se sono disponibili o meno i parametri di orientamento</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:orientationParameterDescription" id="173.0">
         <label>Descrizione dei parametri di orientamento</label>
@@ -1414,17 +1434,14 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:otherCitationDetails" id="370.0">
         <!--abel>Altri dettagli</label-->
 		<label>Altri dettagli normativi</label>
-        <description>Ulteriori informazioni di citazione</description>
+        <description>Ulteriori informazioni sulle norme relative alla produzione e/o trattamento dei dati</description>
     </element>
     <element name="gmd:otherConstraints" id="72.0">
         <label>Altri vincoli</label>
         <description>Altri vincoli e prerequisiti legali per l’accesso e l’utilizzo della risorsa</description>
-        <condition>conditional</condition>
+        <condition>Condizionato: deve essere valorizzato solo se l'elemento "Limitazioni all'accesso pubblico" o "Vincoli di fruibilità" assume il valore 'Altri vincoli'</condition>
 	    <helper>
-			<option value="fake1">fake1</option>
-			<option value="fake2">fake2</option>
-			<option value="fake3">fake3</option>
-			<option value="fake4">fake4</option>
+			<option value="Dato pubblico">dato pubblico</option>
 		</helper>
     </element>
     <element name="gmd:page" id="406.0">
@@ -1444,12 +1461,13 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
         <!--abel>Identificatore metadati di rango superiore</label-->
 		<label>Identificatore metadato superiore</label>
         <description>Identificatore univoco del file di metadati di rango superiore (se esistente)</description>
+		<condition>Obbligatorio per RNDT - se non presente l'elemento assume lo stesso valore dell'identificatore del file</condition>
     </element>
     <element name="gmd:pass" id="132.0">
         <!--label>Pass</label-->
 		<label>Grado</label>
-        <description>Indicazione del risultato della conformità dove 0 = fail and 1 = pass</description>
-        <condition>obbligatorio</condition>
+        <description>Indicazione del risultato della conformità</description><!--dove 0 = fail and 1 = pass-->
+        <condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:peakResponse" id="263.0">
         <label>Risposta di picco</label>
@@ -1475,11 +1493,12 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:pointInPixel" id="167.0">
         <label>Punto del pixel</label>
         <description>Punto del pixel a cui si riferiscono le coordinate.</description>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:pointOfContact" id="29.0">
         <label>Punto di contatto</label>
-        <description>Descrizione del responsabile della risorsa e delle modalità di contatto</description>
+        <description>Descrizione del Punto di contatto della risorsa e delle modalità di contatto</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:polygon" id="342.0">
         <label>Poligono</label>
@@ -1506,7 +1525,8 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     </element>
     <element name="gmd:presentationForm" id="368.0">
         <label>Formato di presentazione</label>
-        <description>Modalità in cui la risorsa è rappresentata</description>
+        <description>Modalità in cui la risorsa è rappresentata. E' possibile indicarne più di uno.</description>
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:processStep" id="84.0">
         <label>Fase del processo</label>
@@ -1588,7 +1608,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
 	<element name="gmd:role" id="379.0">
         <label>Ruolo</label>
         <description>Ruolo del responsabile dei dati</description>
-        <condition>obbligatorio</condition>
+        <condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:rule" id="317.0">
         <label>Regola</label>
@@ -1691,6 +1711,7 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:spatialRepresentationType" id="37.0">
         <label>Tipo di rappresentazione spaziale</label>
         <description>Metodo di rappresentazione spaziale dei dati (es:vector)</description>
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:spatialResolution" id="38.0">
         <label>Risoluzione spaziale</label>
@@ -1716,7 +1737,8 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:statement" id="83.0">
         <label>Genealogia del dato – Processo di produzione</label>
         <description>Testo descrittivo della “genealogia” dei dati</description>
-        <condition>conditional</condition>
+        <!--condition>conditional</condition-->
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:status" id="28.0">
         <label>Status</label>
@@ -1737,12 +1759,13 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     </element>
     <element name="gmd:thesaurusName" id="55.0">
         <label>Thesaurus</label>
-        <description>Rinvio ad un thesaurus specifico contenente le parole chiave da utilizzare</description>
+        <description>Thesaurus specifico contenente le parole chiave utilizzate. Se viene citato, vanno valorizzati tutti gli attributi che lo definiscono</description>
     </element>
     <element name="gmd:title" id="360.0">
         <label>Titolo</label>
-        <description>Titolo con cui sono identificati i dati</description>
-        <condition>obbligatorio</condition>
+        <description>Titolo di identificazione</description>
+        <!--<condition>obbligatorio</condition>-->
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:title" id="507.0" context="gmd:MD_Legislation">
         <label>Titolo</label>
@@ -1764,7 +1787,8 @@ elementi quali il software, il sistema operativo del computer, nome del file, e 
     <element name="gmd:MD_TopicCategoryCode">
         <!--label>Codice di categoria del topic</label-->
 		<label>Categoria di argomento</label>
-        <description>Classificazione tematica dei dati geografici usata per aiutare nel raggruppamento e nella ricerca dei dataset geografici disponibili. Può anche essere usata per raggruppare le keyword. NOTA: Ci sono sovrapposizioni tra le categorie generali; si incoraggia l'utente a selezionare quella più appropriata.</description>
+        <description>Classificazione tematica ISO dei dati geografici usata per aiutare nel raggruppamento e nella ricerca dei dataset geografici disponibili.</description><!--Può anche essere usata per raggruppare le keyword. NOTA: Ci sono sovrapposizioni tra le categorie generali; si incoraggia l'utente a selezionare quella più appropriata.-->
+		<condition>obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:topologyLevel" id="177.0">
         <label>Livello di topologia</label>
@@ -1791,7 +1815,7 @@ e di trasformazione.</label>
     </element>
     <element name="gmd:transformationParameterAvailability" id="161.0">
         <label>Disponibilità dei coefficienti della trasformazione</label>
-        <condition>obbligatorio</condition>
+        <condition>obbligatorio per RNDT</condition>
         <description>Indicazione se esistono o meno i coefficienti della trasformazione affine per il passaggio da coordinate immagine a coordinate terreno</description>
     </element>
     <element name="gmd:triangulationIndicator" id="251.0">
@@ -1837,17 +1861,18 @@ e di trasformazione.</label>
     </element>
     <element name="gmd:useConstraints" id="71.0">
         <label>Vincoli di fruibilità</label>
-        <description>Cfr. art. 1 Codice A.D.Vincoli sulla possibilità di utilizzare il dato, derivanti da regolamenti e norme nazionali ed europee(protezione della privacy, proprietà intellettuale, altre restrizioni)</description>
-    </element>
+        <!--description>Cfr. art. 1 Codice A.D.Vincoli sulla possibilità di utilizzare il dato, derivanti da regolamenti e norme nazionali ed europee(protezione della privacy, proprietà intellettuale, altre restrizioni)</description-->
+        <description>Vincoli sulla possibilità di utilizzare il dato</description>
+	</element>
     <element name="gmd:useLimitation" id="68.0">
         <!--label>Limitazione d’uso</label-->
-		<label>Condizioni applicate all'accesso e all'uso</label>
-        <description>Restrizioni di utilizzo dei dati e/o dei relativi metadati</description>
+		<label>Condizioni per l'accesso e l'uso</label>
+        <description>Restrizioni di utilizzo dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
 		<helper>
-			<option value="fake1">fake1</option>
-			<option value="fake2">fake2</option>
-			<option value="fake3">fake3</option>
-			<option value="fake4">fake4</option>
+			<option value="condizioni non note">condizioni non note</option>
+			<option value="Licenza d'uso - CC-BY">Licenza d'uso - CC-BY</option>
+			<option value="Nessuna condizione applicabile">Nessuna condizione applicabile</option>
 		</helper>
     </element>
     <element name="gmd:userContactInfo" id="66.0">
@@ -1875,7 +1900,9 @@ e di trasformazione.</label>
     </element>
     <element name="gmd:value">
         <label>Valore</label>
-        <description/>
+        <description>Valore quantitativo della qualità dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
+		
     </element>
     <element name="gmd:value" id="544.0" context="gmd:MD_Type">
         <label>Valore</label>
@@ -1888,6 +1915,7 @@ e di trasformazione.</label>
     <element name="gmd:valueUnit" id="135.0">
         <label>Unità di misura</label>
         <description>Unità di misura dei valori di qualità dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:version" id="208.2" context="gmd:RS_Identifier">
         <label>Versione</label>
@@ -1896,17 +1924,21 @@ e di trasformazione.</label>
     <element name="gmd:version" id="286.0">
         <label>Versione formato</label>
         <description>Versione del formato dei dati</description>
-        <condition>obbligatorio</condition>
+        <!--condition>obbligatorio</condition-->
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gmd:verticalElement" id="338.0">
         <!--label>Elemento verticale</label-->
 		<label>Estensione verticale</label>
         <description>Componenti verticali dell’estensione dei dati</description>
-        <condition>conditional</condition>
+        <!--condition>conditional</condition-->
+		<condition>opzionale per RNDT</condition>
     </element>
     <element name="gmd:voice" id="408.0">
         <label>Telefono</label>
-        <description>Numero telefonico</description>
+        <!--description>Numero telefonico</description-->
+		<description>Recapito telefonico per contattare l’Ente responsabile dei dati. Va indicato obbligatoriamente se non si compila il riferimento alla Risorsa online</description>
+		
     </element>
     <element name="gmd:volumes" id="295.0">
         <label>Volumei</label>
@@ -1919,12 +1951,14 @@ e di trasformazione.</label>
     </element>
     <element name="gml:beginPosition">
         <label>Data di inizio</label>
-        <description>Formattata come 2007-09-12T15:00:00 (YYYY-MM-DDTHH:mm:ss)</description>
+        <!--description>Formattata come 2007-09-12T15:00:00 (YYYY-MM-DDTHH:mm:ss)</description-->
+		<description>Data di inizio di copertura temporale della risorsa (YYYY-MM-DD)</description>
     </element>
 
     <element name="gml:endPosition">
         <label>Data di fine</label>
-        <description>Formattata come 2007-09-12T15:00:00 (YYYY-MM-DDTHH:mm:ss)</description>
+        <!--description>Formattata come 2007-09-12T15:00:00 (YYYY-MM-DDTHH:mm:ss)</description-->
+		<description>Data di fine di copertura temporale della risorsa (YYYY-MM-DD)</description>
     </element>
 
     <element name="gml:relatedTime">
@@ -1935,7 +1969,8 @@ e di trasformazione.</label>
     <element name="gml:coordinates">
         <label>Coordinate</label>
         <description>Utilizzato per registrare una serie di tuples o coordinate.</description>
-    </element>
+    <condition>Obbligatorio per RNDT</condition>
+	</element>
 
     <element name="gml:Polygon">
         <label>Poligono</label>
@@ -2012,6 +2047,7 @@ e di trasformazione.</label>
     <element name="gml:id" id="191.0" context="gmd:MD_Georectified">
         <label>Identificatore</label>
         <description>Identificatore del punto</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
 	
 	<element name="gml:id" id="191.0" context="gml:TimePeriod">
@@ -2026,7 +2062,9 @@ e di trasformazione.</label>
 
 	<element name="gml:id" id="191.0" context="gml:BaseUnit">
         <label>Unità di misura</label>
-        <description>Identificatore del punto</description>
+        <!--description>Identificatore del punto</description-->
+		<description>Unità di misura dei valori di qualità dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
 	    <helper>
 			<option value="m">m</option>
 			<option value="km">km</option>
@@ -2054,19 +2092,21 @@ e di trasformazione.</label>
     <element name="srv:serviceType"><!-- readonly="true" -->
         <!--label>Tipo di servizio</label-->
 		<label>Classificazione dei servizi</label>
-        <description>Nome del tipo di servizio da un registro di servizi. Per esempio, i valori dello nameSpace e il nome degli attributi di GeneralName possono essere 'OGC' e 'catalogue'</description>
-        <helper>
-            <option value="OGC:WMS">OGC Web Map Service (OGC:WMS)</option>
+        <!--description>Nome del tipo di servizio da un registro di servizi. Per esempio, i valori dello nameSpace e il nome degli attributi di GeneralName possono essere 'OGC' e 'catalogue'</description-->
+        <description>Nome del tipo di servizio secondo specifiche INSPIRE</description>
+		<condition>Obbligatorio per RNDT</condition>
+		<helper>
+            <!--option value="OGC:WMS">OGC Web Map Service (OGC:WMS)</option>
             <option value="OGC:WFS">OGC Web Feature Service (OGC:WFS)</option>
             <option value="OGC:WCS">OGC Web Coverage Service (OGC:WCS)</option>
             <option value="W3C:HTML:DOWNLOAD">Download (W3C:HTML:DOWNLOAD)</option>
-            <option value="W3C:HTML:LINK">Information (W3C:HTML:LINK)</option>
-            <!-- INSPIRE Service type defined in MD IR / 1.3.1 Spatial data service type
+            <option value="W3C:HTML:LINK">Information (W3C:HTML:LINK)</option-->
+            <!-- INSPIRE Service type defined in MD IR / 1.3.1 Spatial data service type-->
             <option value="discovery">Discovery Service (discovery)</option>
             <option value="view">View Service (view)</option>
             <option value="download">Download Service (download)</option>
             <option value="transformation">Transformation Service (transformation)</option>
-            <option value="other">Other Services (other)</option> --> 
+            <option value="other">Other Services (other)</option> 
         </helper>
     </element>
 	<element name="srv:serviceTypeVersion">
@@ -2089,10 +2129,26 @@ e di trasformazione.</label>
         <!--label>Lavora su</label-->
 		<label>Risorsa accoppiata</label>
         <description>Fornisce informazioni sui dataset su cui opera il servizio</description>
+		<condition>Opzionale</condition>
     </element>
     <element name="srv:operationName">
         <label>Nome dell'operazione</label>
-        <description>Identificatore univoco per questa interfaccia</description>
+        <!--description>Identificatore univoco per questa interfaccia</description-->
+		<description>Nome dell'operazione implementata nel servizio</description>
+		<condition>Obbligatorio per RNDT</condition>
+		<helper>
+            <option value="GetCapabilities">Get Discovery Service Metadata</option>
+            <option value="Get Records"> Discovery Metadata</option>
+            <option value="Link Discovery Service">Link Discovery Service</option>
+            <option value="GetCapabilities">Get View Service Metadata</option>
+            <option value="GetMap">Get Map</option>
+			<option value="Get Download Service Metadata">Get Download Service Metadata</option>
+			<option value="Get Spatial Dataset">Get Spatial Dataset</option>
+			<option value="Describe Spatial Dataset">Describe Spatial Dataset</option>
+			<option value="Link Download Service">Link Download Service</option>
+			<option value="Get Transformation Service Metadata">Get Transformation Service Metadata</option>
+			<option value="Transform e Link Transformation Service">Transform e Link Transformation Service</option>
+        </helper>
     </element>
     <element name="srv:SV_OperationMetadata">
         <label>Operazione</label>
@@ -2100,7 +2156,8 @@ e di trasformazione.</label>
     </element>
     <element name="srv:DCP">
         <label>Distributed Computing Platforms</label>
-        <description>Piattaforme di calcolo distribuito sui quali l'operazione è stata implementata</description>
+        <description>Piattaforme di calcolo distribuito sulle quali l'operazione è stata implementata</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="srv:operationDescription">
         <label>Descrizione operazione</label>
@@ -2110,6 +2167,7 @@ e di trasformazione.</label>
         <!--label>Nome invocazione</label-->
 		<label>Nome richiesta</label>
         <description>Il nome utilizzato per richiamare questa interfaccia nel contesto del DCP. Il nome è identico per tutti i DCP</description>
+		<condition>Opzionale</condition>
     </element>
     <element name="srv:parameters">
         <label>Parametri</label>
@@ -2173,7 +2231,9 @@ e di trasformazione.</label>
     <element name="srv:couplingType">
         <!--label>Tipo di accoppiamento</label-->
 		<label>Tipo di aggancio</label>
-        <description>Tipo di accoppiamentog</description>
+        <!--description>Tipo di accoppiamento</description-->
+		<description>Tipo di aggancio tra il servizio e i dati associati</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="srv:extent">
         <label>Estensione</label>
@@ -2269,7 +2329,7 @@ e di trasformazione.</label>
     </element>
     <element name="uom">
         <label>Unità di misura</label>
-        <description/>
+        <description>Unità di misura dei valori di risoluzione</description>
         <helper>
             <option value="m">meters</option>
         </helper>
@@ -2281,12 +2341,14 @@ e di trasformazione.</label>
     <element name="gco:Record">
         <!--label>Record</label-->
 		<label>Valore</label>
-        <description/>
+        <description>Valore quantitativo della qualità dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
 	<element name="gco:Real" context="gco:Record">
         <!--label>Record</label-->
 		<label>Valore</label>
-        <description/>
+        <description>Valore quantitativo della qualità dei dati</description>
+		<condition>Obbligatorio per RNDT</condition>
     </element>
     <element name="gco:Binary">
         <label>Binario</label>
@@ -2328,7 +2390,8 @@ e di trasformazione.</label>
         <description/>
     </element>
     <element name="gco:LocalName">
-        <label>Nome locale</label>
+        <!--label>Nome locale</label-->
+		<label>Tipo</label>
         <description/>
     </element>
     <element name="gco:ScopedName">
@@ -2341,8 +2404,10 @@ e di trasformazione.</label>
     </element>
     <element name="gmd:MD_PixelOrientationCode">
         <label>Codice di orientazione del pixel</label>
-        <description>Punto in un pixel corrispondente alla posizione del pixel sull Terra.</description>
-    </element>
+        <description>Codice di orientazione del pixel a cui si riferiscono le coordinate.</description>
+		<!--description>Punto in un pixel corrispondente alla posizione del pixel sull Terra.</description-->
+        <condition>Obbligatorio per RNDT</condition>    
+	</element>
     <element name="gmd:MD_ObligationCode">
         <label>Obligation code</label>
         <description>Obbligo dell'elemento o entità</description>
