@@ -31,6 +31,13 @@
 	<enabled>true</enabled>
  </psrOpts>
  
+ <socialLinks>
+	<google>
+		<hashTags>OpenData</hashTags>
+		<text>Metadato%20del%20Comune%20di%20Firenze</text>
+	</google>
+ </socialLinks>
+ 
  <map>
   <!-- Configuration for map displayed in metadata sheet
   (view or edit mode). -->

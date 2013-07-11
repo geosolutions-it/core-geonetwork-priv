@@ -270,6 +270,44 @@
 							</xsl:call-template>
 						</div>
 					</xsl:if>
+					
+					<!-- Social Network Link declaration -->
+					<xsl:variable name="protocol" select="/root/gui/env/server/protocol" />
+					<xsl:variable name="gnhost" select="/root/gui/env/server/host" />
+					<xsl:variable name="gnport" select="/root/gui/env/server/port" />
+					<xsl:variable name="baseURL" select="concat($protocol,'://',$gnhost,':',$gnport,/root/gui/url)" />
+					<xsl:variable name="mdURL" select="normalize-space(concat($baseURL, '?uuid=', geonet:info/uuid))"/>
+					
+					<xsl:if test="not(contains($mdURL,'localhost')) and not(contains($mdURL,'127.0.0.1'))">						
+						<xsl:variable name="googleLinkHashTags">
+							<xsl:value-of select="/root/gui/config/socialLinks/google/hashTags"/>
+						</xsl:variable>
+						<xsl:variable name="googleLinkText">
+							<xsl:value-of select="/root/gui/config/socialLinks/google/text"/>
+						</xsl:variable>			
+					
+						<a href="javascript:void(window.open('https://twitter.com/intent/tweet?text={$googleLinkText}&amp;button_hashtag={$googleLinkHashTags}&amp;url='+encodeURIComponent('{$mdURL}'),'Share to twitter','width=600,height=460,menubar=no,location=no,status=no'));">
+							<img src="{$baseURL}/images/tweet.gif" 
+								alt="Tiwtter Share" title="Tiwtter Share" 
+								style="border: 0px solid;padding:2px;"/>
+						</a>
+						
+						<a href="javascript:void(window.open('https://plus.google.com/share?url='+encodeURIComponent('{$mdURL}'), 
+							'Share to Google+','width=600,height=460,menubar=no,location=no,status=no'));">
+							<img src="{$baseURL}/images/gplus-16.png" 
+								alt="Share on Google+"
+								title="Share on Google+"
+								style="border: 0px solid;padding:2px;"/>
+						</a>
+						
+						<a href="javascript:void(window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent('{$mdURL}'), 
+							'Share to Facebook','width=600,height=460,menubar=no,location=no,status=no'));">
+							<img src="{$baseURL}/images/facebook.gif" 
+								alt="{/root/gui/strings/bookmarkFacebook}" title="{/root/gui/strings/bookmarkFacebook}" 
+								style="border: 0px solid;padding:2px;"/>
+						</a>
+					</xsl:if>
+
 					<div class="hittext_top">
 						<xsl:choose>
 							<xsl:when test="$remote=true()">
@@ -341,6 +379,7 @@
 											<a href="{/root/gui/locService}/rndt.xml?id={$metadata/geonet:info/id}" target="_blank" title="Save RNDT metadata as XML">
 												<img src="{/root/gui/url}/images/rndt.jpg" height="20px" width="20px" alt="ISO19139/RNDT XML" title="Save RNDT metadata as XML" border="0"  style="padding-left: 5px;"/>
 											</a>
+											
 <!-- //FIXME												<a href="{/root/gui/locService}/iso_arccatalog8.xml?id={$metadata/geonet:info/id}" target="_blank" title="Download ISO19115 metadata in XML for ESRI ArcCatalog">
 <img src="{/root/gui/url}/images/ac.png" height="20px" width="20px" alt="ISO19115 XML for ArcCatalog" title="Save ISO19115 metadata in XML for ESRI ArcCatalog" border="0"/>
 											</a> -->
