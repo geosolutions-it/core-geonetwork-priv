@@ -177,16 +177,14 @@
 					style="border: 0px solid;padding:2px;"/>
 			</a>
 			
-			<a href="javascript:void(window.open('https://plus.google.com/share?url='+encodeURIComponent('{$mdURL}'), 
-				'Share to Google+','width=600,height=460,menubar=no,location=no,status=no'));">
+			<a href="javascript:var time=new Date().getTime(); var url='{$mdURL}'+'&amp;dc='+time; void(window.open('https://plus.google.com/share?url='+encodeURIComponent(url), 'Share to Google+','width=600,height=460,menubar=no,location=no,status=no'));">
 				<img src="{$baseURL}/images/gplus-16.png" 
 					alt="Share on Google+"
 					title="Share on Google+"
 					style="border: 0px solid;padding:2px;"/>
 			</a>
 			
-			<a href="javascript:void(window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent('{$mdURL}'), 
-				'Share to Facebook','width=600,height=460,menubar=no,location=no,status=no'));">
+			<a href="javascript:void(window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent('{$mdURL}'), 'Share to Facebook','width=600,height=460,menubar=no,location=no,status=no'));">
 				<img src="{$baseURL}/images/facebook.gif" 
 					alt="{/root/gui/strings/bookmarkFacebook}" title="{/root/gui/strings/bookmarkFacebook}" 
 					style="border: 0px solid;padding:2px;"/>
