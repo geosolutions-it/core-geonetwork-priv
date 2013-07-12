@@ -30,8 +30,10 @@
  <psrOpts>
 	<enabled>true</enabled>
  </psrOpts>
- 
+
  <socialLinks>
+	<mapstoreEndPoint>MapStore/</mapstoreEndPoint>
+	<geonetworkEndPoint>geonetwork</geonetworkEndPoint>
 	<twitter>
 		<hashTags>OpenData</hashTags>
 		<text>Metadato%20del%20Comune%20di%20Firenze</text>
