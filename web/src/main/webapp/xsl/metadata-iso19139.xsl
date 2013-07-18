@@ -3477,12 +3477,17 @@
                         <xsl:variable name="ref"
                             select="gco:CharacterString/geonet:element/@ref" />
                         
-                            <!-- Input element introduced for CSI  to manage automatic UUID setting -->
-                        
-                            <!--input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
-                                class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" /-->
-                            <input readonly="readonly" alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                            <!-- CSI ParentIdentifier: Input element introduced for CSI  to manage automatic UUID setting -->
+<!--                            <xsl:choose>
+                                <xsl:when test="gco:CharacterString/text() != ''">-->
+                                    <input alt="test" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
+                                        class="md" type="text" name="_{$ref}" id="_{$ref}" value="{gco:CharacterString/text()}" size="20" />
+<!--                                </xsl:when>
+                                <xsl:otherwise>
+                                    <input readonly="readonly" alt="test" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" onfocus="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"
                                    class="md" type="text" name="_{$ref}" id="_{$ref}" size="20" />
+                                </xsl:otherwise>
+                            </xsl:choose>-->
                         
                             <img src="../../images/find.png" alt="{/root/gui/strings/parentSearch}" title="{/root/gui/strings/parentSearch}"
                                 onclick="javascript:showLinkedMetadataSelectionPanel('{$ref}', '');"/>
