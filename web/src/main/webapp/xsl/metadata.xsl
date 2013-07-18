@@ -1705,8 +1705,6 @@
 							<xsl:choose>
 								<xsl:when test="contains($path, 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')
 												or 
-												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')
-												or 
 												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')">
 									<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
 									<xsl:attribute name="readonly">readonly</xsl:attribute>
@@ -1715,6 +1713,18 @@
 									<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
 								</xsl:otherwise>
 							</xsl:choose>
+							
+							<!-- CSI: 'issueIdentification' element should be managed separately due to childs generation -->
+							<xsl:if test="contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')">
+								<xsl:choose>
+									<xsl:when test="text() != ''">
+										<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:if>
 							
 							<xsl:if test="name(.) = 'gco:CharacterString'">
 								<xsl:attribute name="size">43</xsl:attribute>
@@ -2116,7 +2126,9 @@
 			</xsl:otherwise>
 			
 		</xsl:choose>
+		
 	</xsl:template>
+	
 	<!--
 	draws the start tag of an editable element
 	-->
