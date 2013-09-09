@@ -526,6 +526,40 @@
 							</xsl:when>
 						</xsl:choose>
 					</xsl:if>
+					
+					<!-- dynamic download button -->
+					<xsl:if test="$metadata/geonet:info/dynamic='true'">
+						&#160;
+						<xsl:variable name="count" select="count($metadata/link[@type='idownload'])"/>
+						<xsl:choose>
+    						<!--<xsl:when test="$count>1">
+								<xsl:choose>
+									<xsl:when test="$remote=true()">
+										<button class="content" onclick="load('{/root/gui/locService}/remote.show?id={$metadata/geonet:info[server]/id}&amp;currTab=distribution')" title="{/root/gui/strings/interactiveDownload}"><xsl:value-of select="/root/gui/strings/interactiveDownload"/></button>
+									</xsl:when>
+									<xsl:otherwise>
+										<button id="gn_showinterdownlist_{$metadata/geonet:info/id}"  class="content" onclick="gn_showInterDownList({$metadata/geonet:info/id})" title="{/root/gui/strings/interactiveDownload}">
+											<img src="{/root/gui/url}/images/plus.gif" style="padding-right:3px;"/><xsl:value-of select="/root/gui/strings/interactiveDownload"/>
+										</button>
+										<button id="gn_hideinterdownlist_{$metadata/geonet:info/id}"  class="content" onclick="gn_hideInterDownList({$metadata/geonet:info/id})" style="display:none;" title="{/root/gui/strings/interactiveDownload}">
+											<img src="{/root/gui/url}/images/minus.png" style="padding-right:3px;"/><xsl:value-of select="/root/gui/strings/interactiveDownload"/>
+										</button>
+										<button id="gn_loadinterdownlist_{$metadata/geonet:info/id}"  class="content" style="display:none;" title="{/root/gui/strings/interactiveDownload}">
+											<xsl:value-of select="/root/gui/strings/loading"/>
+										</button>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:when>-->
+							<xsl:when test="$count=1">
+								
+								<!-- Interactive Download -->
+								<button class="content" onclick="{$metadata/link[@type='idownload']}" title="{/root/gui/strings/interactiveDownload}">
+									<xsl:value-of select="/root/gui/strings/interactiveDownload"/>
+								</button>
+								
+							</xsl:when>
+						</xsl:choose>
+					</xsl:if>
 
 				</div>
 				

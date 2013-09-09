@@ -372,6 +372,7 @@
 	<insertMode>Modalità d'inserimento:</insertMode>
 	<insertPasteMode>Copia/incolla</insertPasteMode>
 	<interactiveMap>Mappa interattiva</interactiveMap>
+	<interactiveDownload>Download interattivo</interactiveDownload>
 <!--	<interMapInfo><h1>nformazioni sulle mappe interattive</h1><p>È possibile trovare mappe interattive cercando in GeoNetwork di dati digitali con una mappa interattiva, oppure connettersi direttamente a un pre-configurato server di mappe.</p><p> Supported map servers are <a href="http://www.opengeospatial.org" class="sm" target="_blank">Open GeoSpatial® Consortium</a> compliant WMS Map Servers and <a href="http://www.esri.com" class="sm" target="_blank">ESRI® ArcIMS</a>.</p></interMapInfo>
 	<intermapSearch>Ricerca geografica</intermapSearch>-->
 	<isoAll>ISO: Completo</isoAll>

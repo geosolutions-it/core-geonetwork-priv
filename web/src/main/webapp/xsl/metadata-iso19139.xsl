@@ -3041,17 +3041,35 @@
                                 <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
                             </link>
                         </xsl:when>
+                        <!-- Interactives links -->
                         <xsl:when test="(starts-with($protocol,'OGC:WMS-') and contains($protocol,'-get-map') and string($linkage)!='' and string($name)!='') or ($protocol = 'OGC:WMS' and string($linkage)!='' and string($name)!='')">
-                            <link type="wms">
-    <!--							<xsl:value-of select="concat('javascript:popInterMap(&#34;',/root/gui/url,'/intermap/srv/',/root/gui/language,'/map.addServicesExt?url=',$linkage,'&amp;service=',$name,'&amp;type=2&#34;)')"/>-->
-
-                                <!--xsl:value-of select="concat('javascript:runIM_addService(&#34;'  ,  $linkage  ,  '&#34;, &#34;', $name  ,'&#34;, 2)' )"/-->
-                                <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
-
-                            </link>
-                            <link type="googleearth">
-                                <xsl:value-of select="concat(/root/gui/locService,'/google.kml?uuid=',$uuid,'&amp;layers=',$name)"/>
-                            </link>
+                            <xsl:choose>
+                                <xsl:when test="(contains($protocol,'-get-map'))">
+                                    <link type="idownload">
+                						<!--<xsl:value-of select="concat('javascript:popInterMap(&#34;',/root/gui/url,'/intermap/srv/',/root/gui/language,'/map.addServicesExt?url=',$linkage,'&amp;service=',$name,'&amp;type=2&#34;)')"/>-->
+                                        <!--xsl:value-of select="concat('javascript:runIM_addService(&#34;'  ,  $linkage  ,  '&#34;, &#34;', $name  ,'&#34;, 2)' )"/-->
+                                        <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;,&#34;','true','&#34;]])')"/>
+                                    </link>
+                                    <link type="wms">
+                                        <!--<xsl:value-of select="concat('javascript:popInterMap(&#34;',/root/gui/url,'/intermap/srv/',/root/gui/language,'/map.addServicesExt?url=',$linkage,'&amp;service=',$name,'&amp;type=2&#34;)')"/>-->
+                                        <!--xsl:value-of select="concat('javascript:runIM_addService(&#34;'  ,  $linkage  ,  '&#34;, &#34;', $name  ,'&#34;, 2)' )"/-->
+                                        <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
+                                    </link>
+                                    <link type="googleearth">
+                                        <xsl:value-of select="concat(/root/gui/locService,'/google.kml?uuid=',$uuid,'&amp;layers=',$name)"/>
+                                    </link>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <link type="wms">
+                                        <!--<xsl:value-of select="concat('javascript:popInterMap(&#34;',/root/gui/url,'/intermap/srv/',/root/gui/language,'/map.addServicesExt?url=',$linkage,'&amp;service=',$name,'&amp;type=2&#34;)')"/>-->
+                                        <!--xsl:value-of select="concat('javascript:runIM_addService(&#34;'  ,  $linkage  ,  '&#34;, &#34;', $name  ,'&#34;, 2)' )"/-->
+                                        <xsl:value-of select="concat('javascript:addWMSLayer([[&#34;' , $name , '&#34;,&#34;' ,  $linkage, '&#34;,&#34;' , $uuid,  '&#34;, &#34;', $name  ,'&#34;,&#34;',$id,'&#34;]])')"/>
+                                    </link>
+                                    <link type="googleearth">
+                                        <xsl:value-of select="concat(/root/gui/locService,'/google.kml?uuid=',$uuid,'&amp;layers=',$name)"/>
+                                    </link>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:when>
                         <xsl:when test="(starts-with($protocol,'OGC:WMS-') and contains($protocol,'-get-map') and string($linkage)!='' and not(string($name))) or ($protocol = 'OGC:WMS' and string($linkage)!='' and not(string($name)))">
                             <link type="wms">
