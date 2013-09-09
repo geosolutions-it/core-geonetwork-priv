@@ -1321,7 +1321,15 @@ function addWMSLayer(layers) {
 	var name = layers[0][0];
 	var wmsURL = layers[0][1];
 	var uuid = layers[0][2];
-	parent.addMSLayer(name, name, wmsURL, Env.host + Env.url + "/", true, uuid, Env.lang);
+	var interactiveDownload = layers[0][5];
+	
+	var title = name;
+	var workspaceIdx = name.indexOf(":");
+	if(workspaceIdx != -1){
+		title = title.substring(workspaceIdx + 1);
+	}
+	
+	parent.addMSLayer(title, name, wmsURL, Env.host + Env.url + "/", true, uuid, Env.lang, interactiveDownload);
 	/*Ext.getCmp("north-map-panel").expand();
 	mainViewport.doLayout();
     GeoNetwork.mapViewer.addWMSLayer(layers);*/
