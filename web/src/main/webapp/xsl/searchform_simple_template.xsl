@@ -41,6 +41,7 @@
 				<div style="margin-top:5px">
 					<!-- Area -->
 					<span class="labelField"><xsl:value-of select="/root/gui/strings/area"/></span>
+					<br></br>
 					<select class="content" name="region_simple" id="region_simple" onchange="javascript:doRegionSearchSimple();">
 						<option value="">
 							<xsl:if test="/root/gui/searchDefaults/theme='_any_'">
