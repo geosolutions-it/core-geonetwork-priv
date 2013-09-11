@@ -78,6 +78,10 @@
             </xsl:when>
             <xsl:otherwise>     
                 <script type="text/javascript" src="{/root/gui/url}/scripts/ext/ext-all.js"></script>
+				
+				<!-- Fix to for IE9 -->
+				<script type="text/javascript" src="{/root/gui/url}/scripts/ext/extjs-fix.js"></script>
+				
                 <script type="text/javascript" src="{/root/gui/url}/scripts/ext/form/FileUploadField.js"></script>
               
                 <!-- For now using standard OpenLayers.js and GeoExt.js compressed files.  TODO: Change to use gn.geo.libs.js -->  
