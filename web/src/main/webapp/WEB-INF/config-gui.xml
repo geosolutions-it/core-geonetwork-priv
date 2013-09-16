@@ -95,7 +95,7 @@
   <layers>
 <!--    <layer server="http://localhost:8080/geoserver/wms" tocName="Borders"  params="{layers: 'gn:gboundaries', transparent: 'true', format: 'image/png'}"  options="{}" /> -->
 	<!--layer server="http://rdc-snsf.com/diss_geoserver/gwc/service/wms" tocName="Backgroung" params="{layers: 'common:blue_marble', format: 'image/jpeg'}" options="{isBaseLayer: true}" /-->
-	<layer server="http://84.33.2.30/geoserver/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:blue_marble,it.geosolutions:prov2011', format: 'image/jpeg'}" />
+	<layer server="http://84.33.2.30/geoservergs/wms" tocName="Catalogo" params="{layers: 'it.geosolutions:blue_marble,it.geosolutions:prov2011', format: 'image/jpeg'}" />
   </layers>
   <!--scales values="[]" /-->   
   <proj>
