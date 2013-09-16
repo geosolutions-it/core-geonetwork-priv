@@ -128,6 +128,8 @@
 	<xsl:template name="addHyperlinksAndLineBreaksToSingleWord">
 		<xsl:param name="word"/>
 		<xsl:variable name="maxWordLength" select="56"/>		
+		
+		<xsl:variable name="hrefTarget" select="'_blank'"/>	
 
 		<!-- if word contains ), remove remainder from processing here  -->
 		<!-- this is to cope with texts containing "(http://blah.org)," -->
@@ -150,6 +152,9 @@
 					<xsl:attribute name="href">
 						<xsl:value-of select="$word-to-use"/>
 					</xsl:attribute>
+					<xsl:attribute name="target">
+						<xsl:value-of select="$hrefTarget"/>
+					</xsl:attribute>
 					<xsl:call-template name="addLineBreaksToSingleWord">
 						<xsl:with-param name="word" select="$word-to-use"/>
 						<xsl:with-param name="maxWordLength" select="$maxWordLength"/>
@@ -162,6 +167,9 @@
 					<xsl:attribute name="href">
 						<xsl:value-of select="$word-to-use"/>
 					</xsl:attribute>
+					<xsl:attribute name="target">
+						<xsl:value-of select="$hrefTarget"/>
+					</xsl:attribute>
 					<xsl:call-template name="addLineBreaksToSingleWord">
 						<xsl:with-param name="word" select="$word-to-use"/>
 						<xsl:with-param name="maxWordLength" select="$maxWordLength"/>
@@ -173,6 +181,9 @@
 				<a style="font-weight:bolder;">
 					<xsl:attribute name="href">
 						<xsl:value-of select="$word-to-use"/>
+					</xsl:attribute>
+					<xsl:attribute name="target">
+						<xsl:value-of select="$hrefTarget"/>
 					</xsl:attribute>
 					<xsl:call-template name="addLineBreaksToSingleWord">
 						<xsl:with-param name="word" select="$word-to-use"/>

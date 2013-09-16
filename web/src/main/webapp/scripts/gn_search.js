@@ -115,17 +115,13 @@ function resetSimpleSearch()
 	// Clear areas in simple search to keep synch
 	//
     setParam('region_simple',null);
-	
+
+	selectAnyComboAmbito('region_simple');
 	// reset subarea form
 	var comune = document.getElementById('comune_simple');
 	if(comune){
-		comune.innerHTML = "";
 		document.getElementById('comunegif').innerHTML = "";
-		
-		var firstOpt = document.createElement("option"); 
-		firstOpt.value = -1;
-		firstOpt.innerHTML = "- Qualunque -";
-		comune.appendChild(firstOpt);
+		resetComboAmbito('comune_simple');
 	}
 	
 	//
@@ -133,16 +129,12 @@ function resetSimpleSearch()
 	//
     setParam('region',null);
 	
+	selectAnyComboAmbito('region');
 	// reset subarea form
 	var comune = document.getElementById('comune');
 	if(comune){
-		comune.innerHTML = "";
 		document.getElementById('comunegif').innerHTML = "";
-		
-		var firstOpt = document.createElement("option"); 
-		firstOpt.value = -1;
-		firstOpt.innerHTML = "- Qualunque -";
-		comune.appendChild(firstOpt);
+		resetComboAmbito('comune');
 	}
 	    
     $('northBL').value='90';
@@ -315,7 +307,9 @@ function runAdvancedSearch(type)
 	pars += fetchBoolParam('paper');
 	pars += fetchBoolParam('dynamic');
 	pars += fetchBoolParam('download');
-	pars += fetchParam('protocol').toLowerCase();
+	// CSI
+	//pars += fetchParam('protocol').toLowerCase();
+	pars += fetchParam('serviceType');
 	// CSI
 	//pars += fetchParam('inspirebrontype').toLowerCase();
 	pars += fetchParam('type').toLowerCase();
@@ -366,21 +360,23 @@ function resetAdvancedSearch()
 	setParam('relation','overlaps');
 
     setParam('region',null);
-	
+	selectAnyComboAmbito('region');
 	// reset comune form
 	var comune = document.getElementById('comune');
 	if(comune){
-		comune.innerHTML = "";
 		document.getElementById('comunegif').innerHTML = "";
-		
-		var firstOpt = document.createElement("option"); 
-		firstOpt.value = -1;
-		firstOpt.innerHTML = "- Qualunque -";
-		comune.appendChild(firstOpt);
+		resetComboAmbito('comune');
 	}
 	
 	// Clear also region in simple search to keep synch
 	setParam('region_simple',null);
+	selectAnyComboAmbito('region_simple');
+	// reset subarea form
+	var comune = document.getElementById('comune_simple');
+	if(comune){
+		document.getElementById('comunegif').innerHTML = "";
+		resetComboAmbito('comune_simple');
+	}
 	
 	// reset subarea form
 	var comune = document.getElementById('comune_simple');
@@ -415,7 +411,9 @@ function resetAdvancedSearch()
 	$('paper')   .checked = false;
 	$('dynamic') .checked = false;
 	$('download').checked = false;
-	setParam('protocol',    '');
+	// CSI
+	//setParam('protocol',    '');
+	setParam('serviceType',    '');
 	setParam('template',    'n');
  	setParam('sortBy',      'relevance');
     setParam('sortBy_simple',      'relevance');
@@ -615,12 +613,12 @@ function doAjaxMunicipality(ambId, loadingImg){
 				xml = xml.getElementsByTagName("response")[0].childNodes;
 				
 				// for adv search
-				var firstOpt = createComuniFirstOption();
-				document.getElementById("comune").appendChild(firstOpt);		
+				/*var firstOpt = createComuniFirstOption();
+				document.getElementById("comune").appendChild(firstOpt);		*/
 
 				// for simple search
-                firstOpt = createComuniFirstOption();				
-			    document.getElementById("comune_simple").appendChild(firstOpt);
+                /*firstOpt = createComuniFirstOption();				
+			    document.getElementById("comune_simple").appendChild(firstOpt);*/
 				
 				var size = xml.length;
 				for(var i=0; i<size; i++){
@@ -658,25 +656,35 @@ function doAjaxMunicipality(ambId, loadingImg){
         resetRegionsComboBox();
 
         // for adv search
-        var firstOpt = createComuniFirstOption();
+        /*var firstOpt = createComuniFirstOption();
         document.getElementById("comune").appendChild(firstOpt);
 
         // for simple search
         firstOpt = createComuniFirstOption();
-        document.getElementById("comune_simple").appendChild(firstOpt);
+        document.getElementById("comune_simple").appendChild(firstOpt);*/
     }
 }
 
 function resetRegionsComboBox(){
 
     // SIMPLE FORM
-	document.getElementById('comune_simple').innerHTML = "";
-
+    resetComboAmbito('comune_simple');
 	// ADV FORM
-	document.getElementById('comune').innerHTML = "";
+	resetComboAmbito('comune');
 	document.getElementById('comunegif').innerHTML = "";
 }
+function resetComboAmbito(id){
+    var firstOpt = $$('#'+id + ' option').first();
+    var comuni =$(id);
+    var sel =document.getElementById(id);
+	sel.innerHTML="";
+    sel.appendChild(firstOpt);
+}
 
+function selectAnyComboAmbito(id){
+    var firstOpt = $(id).options[0].selected=true;
+	
+}
 function createComuniFirstOption(){
 	var firstOpt = document.createElement("option"); 
 	firstOpt.value = -1;

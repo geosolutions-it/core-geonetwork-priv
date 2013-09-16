@@ -1137,10 +1137,16 @@
 							<!-- Check to simplify the date text witout the hour -->
 							<xsl:choose>
 								<xsl:when test="(contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date|')
+										or
+										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date|')
 									    or 
 									    contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition|')
+									    or
+									    contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition|')
 										or 
 										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition|')
+										or
+										contains($helpLink, '|gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition|')
 										or 
 										contains($helpLink, '|gmd:MD_Metadata/gmd:dateStamp|'))
 										and 
@@ -1699,8 +1705,6 @@
 							<xsl:choose>
 								<xsl:when test="contains($path, 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')
 												or 
-												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')
-												or 
 												contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code')">
 									<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
 									<xsl:attribute name="readonly">readonly</xsl:attribute>
@@ -1709,6 +1713,18 @@
 									<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
 								</xsl:otherwise>
 							</xsl:choose>
+							
+							<!-- CSI: 'issueIdentification' element should be managed separately due to childs generation -->
+							<xsl:if test="contains($path, 'gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series/gmd:CI_Series/gmd:issueIdentification')">
+								<xsl:choose>
+									<xsl:when test="text() != ''">
+										<xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:attribute name="value"><xsl:value-of select="/root/gmd:MD_Metadata/geonet:info/uuid"/></xsl:attribute>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:if>
 							
 							<xsl:if test="name(.) = 'gco:CharacterString'">
 								<xsl:attribute name="size">43</xsl:attribute>
@@ -1906,6 +1922,10 @@
 			</xsl:when>
 			<xsl:when test="$edit=true() and $rows=1">
 				
+				<xsl:variable name="uuidValue" select="/root/gmd:MD_Metadata/geonet:info/uuid"/>
+				<xsl:variable name="uuidAfter" select="substring-after($uuidValue, ':')"/>
+				<xsl:variable name="uuidBefore" select="substring-before($uuidValue, ':')"/>
+				
 				<xsl:choose>
 					<xsl:when test="$name = 'xlink:href' and $parent = 'gmd:verticalCRS'">
 						<input class="md" readonly="readonly" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{string()}" size="{$cols}" />
@@ -1913,15 +1933,13 @@
 					
 					<!-- CSI: Customizzation in order to allow the UUID setting for the gmd:cornerPoints/gml:Point/gml:id for georectified metadata-->
 					
-					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">
-						<!--input class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" /-->
-						
+					<xsl:when test="$name = 'gml:id' and $parent = 'gml:Point'">						
 						<xsl:choose>
-							<xsl:when test="$value != ''">
+							<xsl:when test="contains($value, $uuidBefore)">								
 								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$value}" size="{$cols}" />
 							</xsl:when>
 							<xsl:otherwise>
-								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{/root/gmd:MD_Metadata/geonet:info/uuid}" size="{$cols}" />
+								<input readonly="readonly" class="md" type="text" id="_{../geonet:element/@ref}_{$updatename}" name="_{../geonet:element/@ref}_{$updatename}" value="{$uuidBefore}-{$uuidAfter}" size="{$cols}" />
 							</xsl:otherwise>
 						</xsl:choose>
 						
@@ -2108,7 +2126,9 @@
 			</xsl:otherwise>
 			
 		</xsl:choose>
+		
 	</xsl:template>
+	
 	<!--
 	draws the start tag of an editable element
 	-->

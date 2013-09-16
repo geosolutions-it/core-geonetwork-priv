@@ -470,11 +470,22 @@ function doSaveAction(action,validateAction)
 //  }
 
 	if (action.include('finish')) { // save and then replace editor with viewer 
+	
+		var data = $('editForm');
+		
+		var serialized = data.serialize(true);
+		
+		// CSI: encode special character decoded from the text area
+		if(serialized.data){
+			serialized.data = serialized.data.replace(/&/g, '&amp;')
+			serialized.data = serialized.data.replace(/&amp;([^;&]+);/g, '&$1;');
+		}
+		
 		var myAjax = new Ajax.Request(
 			getGNServiceURL(action),
 			{
 				method: 'post',
-				parameters: $('editForm').serialize(true),
+				parameters: serialized,
 				onSuccess: function(req) {
 					var html = req.responseText;
 					if (divToRestore) divToRestore.removeClassName('editing');

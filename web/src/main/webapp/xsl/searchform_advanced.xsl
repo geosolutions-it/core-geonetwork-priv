@@ -179,7 +179,7 @@
 								<xsl:value-of select="/root/gui/strings/any"/>
 							</option>
 							<xsl:for-each select="/root/gui/groups/record">
-								<xsl:sort order="ascending" select="name"/>
+								<xsl:sort order="ascending" select="label/child::*[name() = $lang]"/>
 								<option value="{id}">
 									<!-- after a search, many groups are defined in 
 									searchDefaults (FIXME ?) and the last group in group list
@@ -188,7 +188,7 @@
 									<xsl:if test="id=/root/gui/searchDefaults/group and count(/root/gui/searchDefaults/group)=1">
 										<xsl:attribute name="selected"/>
 									</xsl:if>
-									<xsl:value-of select="name"/>
+									<xsl:value-of select="label/child::*[name() = $lang]"/>
 								</option>
 							</xsl:for-each>
 						</select>
@@ -298,7 +298,7 @@
 
             <div class="row">  <!-- div row-->
                 <span class="labelField"><!--Service type--><xsl:value-of select="/root/gui/strings/inspire/what/l15"/></span>
-                <select id="protocol" class="content" style="width:200px; !important">
+                <select id="serviceType" class="content" style="width:200px; !important">
                    <option value="" selected="selected"></option>
                    <xsl:for-each select="/root/gui/strings/protocolChoice[@show='y']">
                        <option value="{@value}">
