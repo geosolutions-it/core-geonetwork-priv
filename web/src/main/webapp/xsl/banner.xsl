@@ -136,7 +136,8 @@
 						</xsl:choose>
 						</xsl:variable>
 						
-						<select class="banner-content content">
+						<!-- PBZ mods: provide lang scwitch only from mapstore -->
+						<!--select class="banner-content content">
 							<xsl:attribute name="onchange">location.replace('../' + this.options[this.selectedIndex].value + '/<xsl:value-of select="$redirectTo"/>');</xsl:attribute>
 							<xsl:for-each select="/root/gui/config/languages/*">
 								<xsl:variable name="lang" select="name(.)"/>
@@ -147,7 +148,7 @@
 									<xsl:value-of select="/root/gui/strings/*[name(.)=$lang]"/>
 								</option>	
 							</xsl:for-each>
-						</select>
+						</select-->
 					</xsl:if>
 				</td>
 			</tr>
