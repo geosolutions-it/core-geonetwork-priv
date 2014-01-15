@@ -18,8 +18,8 @@ Extract info for OpenCms integration
 
 <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
 <xsl:strip-space elements="*"/>
-	
-	<!-- ============================================================================= -->
+
+        <!-- ============================================================================= -->
 
     <!-- Recurse on every node -->
     <xsl:template match="@*|node()">
@@ -27,7 +27,7 @@ Extract info for OpenCms integration
     </xsl:template>
 
     <!-- Root element -->
-	<xsl:template match="gmd:MD_Metadata">
+        <xsl:template match="gmd:MD_Metadata">
         <metadata>
             <xsl:apply-templates select="@*|node()"/>
 
@@ -44,44 +44,49 @@ Extract info for OpenCms integration
     </xsl:template>
 
 
-	<xsl:template match="gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString">
+        <xsl:template match="gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString">
         <uuid><xsl:value-of select="."/></uuid>
     </xsl:template>
 
-	<xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString">
+        <xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString">
         <titolo><xsl:value-of select="normalize-space(.)"/></titolo>
     </xsl:template>
 
 
-	<xsl:template match="gmd:MD_Metadata/gmd:dateStamp/gco:DateTime">
+        <xsl:template match="gmd:MD_Metadata/gmd:dateStamp/gco:DateTime">
         <dataCreazioneMetadato>
             <xsl:value-of select="."/>
         </dataCreazioneMetadato>
     </xsl:template>
 
-	<xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString">
+        <xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString">
         <descrizione>
             <xsl:value-of select="normalize-space(.)"/>
         </descrizione>
     </xsl:template>
 
-	<xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
-        <xsl:if test='gmd:dateType/gmd:CI_DateTypeCode[@codeListValue="creation"]'>
-            <dataCreazioneDati>
-                <xsl:value-of select="gmd:date/gco:DateTime"/>
-            </dataCreazioneDati>
-        </xsl:if>
-    </xsl:template>
-
     <xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
-        <xsl:if test='gmd:dateType/gmd:CI_DateTypeCode[@codeListValue="revision"]'>
-            <dataUltimoAggiornamentoDati>
+       <xsl:choose>
+          <xsl:when test='gmd:dateType/gmd:CI_DateTypeCode[@codeListValue="creation"]'>
+             <dataCreazioneDati>
                 <xsl:value-of select="gmd:date/gco:DateTime"/>
-            </dataUltimoAggiornamentoDati>
-        </xsl:if>
+             </dataCreazioneDati>
+         </xsl:when>
+         <xsl:when test='gmd:dateType/gmd:CI_DateTypeCode[@codeListValue="revision"]'>
+             <dataUltimoAggiornamentoDati>
+                <xsl:value-of select="gmd:date/gco:DateTime"/>
+             </dataUltimoAggiornamentoDati>
+         </xsl:when>
+         <xsl:when test='gmd:dateType/gmd:CI_DateTypeCode[@codeListValue="publication"]'>
+             <dataPubblicazioneDati>
+                <xsl:value-of select="gmd:date/gco:DateTime"/>
+             </dataPubblicazioneDati>
+         </xsl:when>
+       </xsl:choose>
     </xsl:template>
 
-	<xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:spatialRepresentationType/gmd:MD_SpatialRepresentationTypeCode">
+
+   <xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:spatialRepresentationType/gmd:MD_SpatialRepresentationTypeCode">
         <tipoSpaziale>
             <xsl:choose>
                 <xsl:when test='@codeListValue="vector"'>Vettoriale</xsl:when>
@@ -111,7 +116,6 @@ Extract info for OpenCms integration
         </frequenzaAggiornamento>
     </xsl:template>
 
-
     <xsl:template match="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory/gmd:MD_TopicCategoryCode">
         <argomento>
             <xsl:choose>
@@ -138,21 +142,6 @@ Extract info for OpenCms integration
             </xsl:choose>
         </argomento>
     </xsl:template>
-
-<!--        <gmd:contact>
-                <gmd:CI_ResponsibleParty>
-                        <gmd:individualName gco:nilReason="missing">
-                                <gco:CharacterString/>
-                        </gmd:individualName>
-                        <gmd:organisationName>
-                                <gco:CharacterString>Comune di Firenze</gco:CharacterString>
-                        </gmd:organisationName>
-                        <gmd:positionName>
-                                <gco:CharacterString>Direzione Sistemi Informativi - P.O. Gestione Risorsa Dati</gco:CharacterString>-->
-<!--gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName
-gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString
-gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:positionName
-gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString-->
 
     <xsl:template match="gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty">
         <xsl:if test='gmd:organisationName/gco:CharacterString'>
@@ -232,3 +221,4 @@ gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:positionName/gco:Charact
     </xsl:template>
 
 </xsl:stylesheet>
+
